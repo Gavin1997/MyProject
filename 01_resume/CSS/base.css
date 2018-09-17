@@ -1,0 +1,48 @@
+body{
+    background: #1d2124;
+}
+/*我的背景颜色*/
+.my_gray{
+    background: #32353A;
+}
+.border_style{
+    border:1px solid  #32353A;
+    /*border-top-right-radius: 30%;*/
+}
+/*加上一个table 放在header和table之间因为外边距造成的影响*/
+header::before{
+    content:"";
+    display:table;
+}
+.my_container-fluid {
+    width: 98%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/*左下三角形 用boder属性*/
+.triangle-bottomleft {
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid #1d2124;
+    border-right: 50px solid transparent;
+    position:fixed;
+    top:127px;
+    left:13px;
+
+}
+/*右上三角形 用背景图*/
+.shape-1 {
+    position: fixed;
+    top: 16px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    background: url("../img/shape-1.png") no-repeat;
+}
+.my_fontColor{
+    color: rgba(218, 227, 217, 0.84);
+}

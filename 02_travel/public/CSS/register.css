@@ -1,0 +1,83 @@
+.q-container {
+  width: 100%;
+  box-sizing: border-box; }
+
+.login-container {
+  width: 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 960px;
+  min-height: 765px;
+  background: url("../img/register/web_login_bg.ecb39528.jpg") top/cover no-repeat;
+  text-align: center; }
+
+.login-wrapper {
+  text-align: center;
+  width: 380px;
+  height: 570px;
+  padding: 60px 0;
+  margin: 0 40%; }
+
+.login-logo {
+  width: 380px;
+  height: 46px; }
+  .login-logo .title {
+    font-size: 24px;
+    color: #fff; }
+
+.login-section {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.95); }
+  .login-section .btn-green {
+    width: 300px;
+    padding: 10px;
+    height: 40px;
+    line-height: 12px;
+    background: #5CAD77;
+    border: 1px solid #5CAD77;
+    border-radius: 5px;
+    outline: 0; }
+  .login-section .login-section-bottom {
+    font-size: 14px;
+    color: #A0A0A0;
+    line-height: 12px; }
+    .login-section .login-section-bottom a {
+      color: #5CAD77;
+      text-decoration: none; }
+
+.my-form-control1 {
+  outline: 0;
+  display: inline-block;
+  width: 280px;
+  padding: 10px 8px;
+  line-height: 1.5;
+  border-radius: 5px;
+  font-size: 8px; }
+
+.login-section-top {
+  height: 60px; }
+  .login-section-top div {
+    width: 190px; }
+    .login-section-top div:hover {
+      border-bottom: 3px solid #5CAD77; }
+  .login-section-top .active {
+    border-bottom: 3px solid #5CAD77; }
+  .login-section-top a {
+    color: #959595;
+    text-decoration: none;
+    font-weight: 300;
+    line-height: 60px; }
+
+.login-section .login-forget {
+  font-size: 12px;
+  margin-left: 240px; }
+  .login-section .login-forget a {
+    text-decoration: none;
+    color: #C0C0C0; }
+
+.login-section .login-auth img {
+  width: 48px;
+  height: 48px;
+  transition: all 0.2s linear; }
+  .login-section .login-auth img:hover {
+    transform: scale(1.1); }
