@@ -7,7 +7,12 @@ router.get("/",(req,res)=>{
     var sql=`SELECT * FROM qy_index_product WHERE seq_recommended!=0 ORDER BY seq_recommended`;
     pool.query(sql,[],(err,result)=>{
         if(err) throw err;
-        res.send(result);
+        //跨域访问
+        res.writeHead(200,{
+            "Access-Control-Allow-Origin":"*"
+        })
+        res.write(JSON.stringify(result))
+        res.end()
     })
 })
 
