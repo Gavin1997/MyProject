@@ -189,17 +189,16 @@
     border-top: 1px dashed #ddd; }
 
 .booking_type ul.type_list li {
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 460px;
+  height: 36px;
+  padding: 0 10px;
   float: left;
   font-size: 16px;
   border: 1px solid #ddd;
   line-height: 36px;
-  width: 108px;
   text-align: center; }
-  .booking_type ul.type_list li:first-child {
-    margin-left: 10px;
-    width: 353px;
-    height: 36px;
-    padding: 0 10px; }
   .booking_type ul.type_list li:hover {
     border: 1px solid #666; }
   .booking_type ul.type_list li a {

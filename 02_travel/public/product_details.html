@@ -6,14 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>product_details</title>
     <link rel="stylesheet" href="CSS/base.css">
-    <link rel="stylesheet" href="CSS/product_details.css">
+    <link rel="stylesheet" href="CSS/details.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="JS/vue.js"></script>
+    <script src="JS/axios.min.js"></script>
+    <style>[v-cloak]{display:none};
+    </style>
 </head>
 <body>
 <!-- 头部 -->
 <header id="header">
 </header>
  <!-- 主体 -->
- <section class="bg-gray p-0 m-0">
+ <section class="bg-gray p-0 m-0" id="app" v-cloak>
      <!-- 主要商品详情 -->
         <div class="zw-product-main">
             <div class="main-content ml-4 mt-5 container d-flex justify-content-around">
@@ -21,7 +26,7 @@
                 <div class="leftslide">
                     <span>产品编号:082088</span>
                     <div class="lg_img">
-                      <img src="img/product/md/1F/1/552f2cb41463c.jpg" alt="">
+                      <img :src="res.pics[0].md" alt="">
                     </div>
                     <!-- 小图列表 -->
                     <div class="img_slide clearfix">
@@ -31,27 +36,27 @@
                             </p> 
                             <div class="slidearea">
                                 <ul class="list-unstyle sm_img_list d-flex">
-                                    <li class="ml-1 ">
-                                    <img src="img/product/sm/1F/1/552f2cb41463c.jpg" alt="" data-md="img/product/md/1F/1/552f2cb41463c.jpg">
+                                    <li class="ml-1 " v-for="(pic,i) in res.pics">
+                                    <img :src="pic.sm" alt="" :data-md="pic.md">
+                                    </li>
+                                    <!-- <li class="  ml-3">
+                                        <img :src="res.pics[1].sm" alt="" :data-md="res.pics[1].md">
                                     </li>
                                     <li class="  ml-3">
-                                        <img src="img/product/sm/1F/1/14107610654728.jpg" alt="" data-md="img/product/md/1F/1/14107610654728.jpg">
+                                        <img :src="res.pics[2].sm" alt="" :data-md="res.pics[2].md">
                                     </li>
                                     <li class="  ml-3">
-                                        <img src="img/product/sm/1F/1/14467923084610.jpg" alt="" data-md="img/product/md/1F/1/14467923084610.jpg">
+                                        <img :src="res.pics[3].sm" alt="" :data-md="res.pics[3].md">
                                     </li>
                                     <li class="  ml-3">
-                                        <img src="img/product/sm/1F/1/552f2bf02d1ff.jpg" alt="" data-md="img/product/md/1F/1/552f2bf02d1ff.jpg">
+                                            <img :src="res.pics[4].sm" alt="" :data-md="res.pics[4].md">
                                     </li>
                                     <li class="  ml-3">
-                                            <img src="img/product/sm/1F/1/5604b30ac5f7d.jpg" alt="" data-md="img/product/md/1F/1/5604b30ac5f7d.jpg">
+                                            <img :src="res.pics[5].sm" alt="" :data-md="res.pics[5].md">
                                     </li>
                                     <li class="  ml-3">
-                                            <img src="img/product/sm/1F/1/FiMAMstAOB9BYFHha0wlKT92Uyxe.jpg" alt="" data-md="img/product/md/1F/1/FiMAMstAOB9BYFHha0wlKT92Uyxe.jpg">
-                                    </li>
-                                    <li class="  ml-3">
-                                            <img src="img/product/sm/1F/1/Fu9wWFbHcdtuOiE-JMa1BhtJBEmF.jpg" alt="" data-md="img/product/md/1F/1/Fu9wWFbHcdtuOiE-JMa1BhtJBEmF.jpg">
-                                    </li>
+                                            <img :src="res.pics[6].sm" alt="" :data-md="res.pics[6].md">
+                                    </li> -->
                                 </ul>
                            </div>
                             <p>                   
@@ -146,33 +151,33 @@
                 <!-- 右边 详情 -->
                 <div class="rightside">
                     <div class="product_info m-3">
-                        <p>[国庆][中秋]上海直飞甲米6-7天往返含税机票(含一晚甲米品质酒店国庆][中秋]上海直飞甲米6-7天往返含税机票(含一晚甲米品质酒店住宿+可加购20元拼车接机服务))</p>
+                        <p v-text="res.product.title"></p>
                     </div>
                     <div class="product_info_special">
-                        <p class="ml-3 p-1">赠当地游项目</p>
+                        <p class="ml-3 p-1" v-text="res.product.subtitle"></p>
                     </div>
                     <div class="product_price d-flex ">
-                       <p class="price p-3">999<span>元起</span></p>
+                       <p class="price p-3">{{res.product.price}}<span>元起</span></p>
                        <p class="view p-3 mt-2">浏览 <span class="view_count">1200</span></p>
-                       <p class="sales p-3 mt-2">销售<span class="sales_count">120</span></p>
+                       <p class="sales p-3 mt-2">销售<span class="sales_count">{{res.product.sold_count}}</span></p>
                     </div>
                     <div class="product_info_more ml-3">
-                        <p class="p-3">
-                            1、直飞航班：直飞普吉岛，一站直达，省去转机时间<br>
-                            2、含节假日：旅行时间包含圣诞/元旦假期，适合上班族出行<br>
-                            3、说走就走：泰国可以办理落地签，拿上白本护照也可即刻出发
+                        <p class="p-3" style="width:360px">
+                            {{res.product.promise}}
                         </p>
                     </div>
                     <div class="warm_prompt d-flex mt-2 mb-3">
                         <h5 class="p-2">温馨提示</h5>
-                        <p class="p-2">多程机票需按行程顺序完全使用，往返程机票无法单独使用回程</p>
+                        <p class="p-2" v-text="res.product.prompt"></p>
                     </div>
                     <div class="booking_type">
                         <h4>产品类型</h4>
                         <ul class="list-unstyle mt-3 clearfix type_list">
-                            <li class="booking_active"> <a href="#">【国庆特惠】上海直飞普吉6天往返（春秋航空)</a></li>
-                            <li class="ml-3"><a href="#">成都出发</a></li>
-                            <li class="mt-3 ml-3"><a href="#">杭州出发</a></li>
+                            <li   v-for="(c,i) of res.categories" :class="`${tid==c.tid ? 'booking_active':''}`">
+                                 <a :href= "`product_details.html?tid=${c.tid}`" >{{c.category}}</a>
+                                 </li>
+                            <!-- <li class="ml-3"><a href="`product_details.html?tid=${tid}`">{{res.product.departure}}</a></li>
+                            <li class="mt-3 ml-3"><a href="#">{{res.product.departure}}</a></li> -->
                         </ul>
                         <div class="date_out">
                            <h4>出发日期</h4>
@@ -389,7 +394,7 @@
     </section>
     <footer id="i-footer">       
     </footer>
-    <script src="js/jquery-3.2.1.js"></script>
+    
     <script src="JS/ajax.js"></script>
     <script src="JS/header.js"></script>
     <script src="JS/i-footer.js"></script>

@@ -247,17 +247,15 @@
     
     ul.type_list{
         li{
-            &:first-child{
-                margin-left:10px;
-                width:353px;
-                height:36px;
-                padding:0 10px;
-            }
+            margin-top:5px;
+            margin-left:10px;
+            width:460px;
+            height:36px;
+            padding:0 10px;
             float:left;
             font-size:16px;
             border:1px solid #ddd;
             line-height: 36px;
-            width:108px;
             text-align: center;
             &:hover{
                 border:1px solid #666;
@@ -275,8 +273,10 @@
     }
 }
 .booking_active{
-    border: 2px solid #ff7466 !important;
-    box-shadow: 0 8px 10px rgba(255, 116, 102, .12);
+    
+        border: 2px solid #ff7466 !important;
+        box-shadow: 0 8px 10px rgba(255, 116, 102, .12);
+    
     a{
        color: #ff7466 !important;
     }

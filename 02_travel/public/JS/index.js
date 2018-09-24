@@ -1,19 +1,46 @@
 //请求后台数据填充页面
-(async function () {
-    var res=await ajax({
-        url:"http://localhost:3000/index/",
-        type:"get",
-        dataType:"json"
-    });
-    console.log(res);
-    new Vue({
-        el:"#main",
-        data:{
-            res
-        }
-    });
+ new Vue({
+     el:"#main",
+     data(){
+         return{
+             res:[
+              {title:"",details:"",price:0,pic:"",href:""},
+              {title:"",details:"",price:0,pic:"",href:""},
+              {title:"",details:"",price:0,pic:"",href:""}
+             ]
+            
+         }
+         
+     },
+     created() {
+         //this--->指向当前这个Vue对象
+         
+        //  (async function(self){
+        //      var res=await axios.get(
+        //          "http://localhost:3000/index/"
+        //      );
+        //      self.res=res.data
+        //      console.log(res.data)
+        //  })(this)
 
-})();
+        // var self=this;
+        //   axios.get(
+        //    "http://localhost:3000/index/")
+        //     .then(function(res){
+        //     self.res=res.data;
+        //  })
+       
+         axios.get(
+            "http://localhost:3000/index/")
+             .then(res=>{
+                 //箭头函数的this会指向继承自外部的this
+               this.res=res.data;
+               console.log(this.res)
+              
+          })
+        
+     },
+ })
 
 //选项条
 jQuery.fn.tab=function(){
