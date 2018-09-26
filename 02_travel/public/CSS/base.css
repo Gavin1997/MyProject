@@ -490,3 +490,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,legend,button form,fieldse
     transform-origin: center center;
    transform: translate(-32px,-45px)
   } */
+  .disabled{
+    opacity:0.4;
+    cursor:not-allowed;
+  }

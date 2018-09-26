@@ -9,7 +9,7 @@ var server=app.listen(3000);
 //使用中间件
 app.use(bodyParser.urlencoded({extended:false}));
 //托管静态资源到public目录下
-app.use(express.static('public'));
+app.use(express.static(__dirname+'/public'));
 //挂载路由
 app.use("/index",index);
 app.use("/users",users);

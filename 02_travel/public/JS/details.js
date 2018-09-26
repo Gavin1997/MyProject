@@ -5,14 +5,40 @@ var vm=new Vue({
     data(){
         return{
             res:{
-                product:[{category:"",departure:"",price:"",promise:"",prompt:"",sold_count:"",subtitle:"",title:"",tid:""}],
+                product:[{category:"",departure:"",price:"",promise:"",prompt:"",sold_count:"",subtitle:"",title:"",tid:"",product_number:""},],
                 pics:[{sm:"", md:""},{sm:"", md:""},{sm:"", md:""},{sm:"", md:""},{sm:"", md:""},{sm:"", md:""},{sm:"", md:""},],
-                categories:[{ category:""},{ category:""},{ category:""},],
-                
-            }
+                categories:[{ category:""},{ category:""},{ category:""},],           
+            },
+            aduts_count:1,
+            child_count:1,
+            total_price:"",
         }
     },
-
+    methods:{
+       modifed(i,e){
+          this.aduts_count+=i;
+          var input=document.querySelectorAll(".input_count_i");
+          var aduts_input_i=input[0];
+          var child_input_i=input[1];
+          if(this.aduts_count<=1){
+              this.aduts_count=1;
+            e.currentTarget.classList.add("disabled");
+          }else if(this.aduts_count>1){
+              aduts_input_i.classList.remove("disabled");
+          }
+       },
+       child_modifed(i,e){
+           this.child_count+=i;
+           var input=document.querySelectorAll(".input_count_i");
+           var child_input_i=input[1];
+           if(this.child_count<=1){
+            this.child_count=1;
+             e.currentTarget.classList.add("disabled");
+           }else if(this.aduts_count>1){
+            child_input_i.classList.remove("disabled");
+          }
+       },
+    },
     created() {
        if(location.search.indexOf("tid=")!=-1){
            //?tid=50
@@ -21,10 +47,8 @@ var vm=new Vue({
            axios.get(
                `http://localhost:3000/details?tid=${tid}`,
          ).then(res=>{
-             
-           console.log(res.data.categories)
+           console.log(res.data)
            this.res=res.data; 
-           
          })
         
        }

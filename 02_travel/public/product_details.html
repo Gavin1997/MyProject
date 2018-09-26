@@ -24,7 +24,7 @@
             <div class="main-content ml-4 mt-5 container d-flex justify-content-around">
                 <!-- 图片 -->
                 <div class="leftslide">
-                    <span>产品编号:082088</span>
+                    <span>产品编号:{{res.product.product_number}}</span>
                     <div class="lg_img">
                       <img :src="res.pics[0].md" alt="">
                     </div>
@@ -119,20 +119,20 @@
                                 <div index="4" class="cell_1gqH2">19</div>
                                 <div index="5" class="cell_1gqH2">20</div>
                                 <div index="6" class="cell_1gqH2 showPrice">21
-                                    <p>￥1355</p>
+                                    <p>￥{{res.product.price}}</p>
                                 </div>
                             </div>
                             <div index="3" class="row_1AIx-">
                                 <div index="0" class="cell_1gqH2">22</div>
                                 <div index="1" class="cell_1gqH2 showPrice">23
-                                       <p>￥968</p>
+                                       <p>￥{{res.product.price}}</p>
                                 </div>
                                 <div index="2" class="cell_1gqH2">24</div>
                                 <div index="3" class="cell_1gqH2">25</div>
                                 <div index="4" class="cell_1gqH2">26</div>
                                 <div index="5" class="cell_1gqH2">27</div>
                                 <div index="6" class="cell_1gqH2 showPrice">28
-                                       <p>￥3598</p>
+                                       <p>￥{{res.product.price}}</p>
                                 </div>
                             </div>
                             <div index="4" class="row_1AIx-">
@@ -172,10 +172,11 @@
                     </div>
                     <div class="booking_type">
                         <h4>产品类型</h4>
-                        <ul class="list-unstyle mt-3 clearfix type_list">
-                            <li   v-for="(c,i) of res.categories" :class="`${tid==c.tid ? 'booking_active':''}`">
+                        <ul class="list-unstyle mt-3 clearfix type_list" >
+                            <li v-for="(c,i) of res.categories" :class="`${tid==c.tid ? 'booking_active':''}`" >
                                  <a :href= "`product_details.html?tid=${c.tid}`" >{{c.category}}</a>
                                  </li>
+                              
                             <!-- <li class="ml-3"><a href="`product_details.html?tid=${tid}`">{{res.product.departure}}</a></li>
                             <li class="mt-3 ml-3"><a href="#">{{res.product.departure}}</a></li> -->
                         </ul>
@@ -187,24 +188,24 @@
                            <ul class="list-unstyle d-flex">
                                <li class="">
                                    <h4 class="">成人
-                                        <span class="pep_a_price ml-1">¥968</span>
+                                        <span class="pep_a_price ml-1">¥{{res.product.price}}</span>
                                         <span class="pep_a_conut">x1</span>
                                    </h4>
                                    <div class="input_count ml-3">
-                                       <button class="inout_count-">-</button>
-                                       <span>1</span>
-                                       <button class="input_count+">+</button>
+                                       <button class="input_count_i" @click.prevent="modifed(-1,$event)">-</button>
+                                       <span>{{aduts_count}}</span>
+                                       <button class="input_count_c" @click.prevent="modifed(1,$event)">+</button>
                                    </div>
                                </li>
                                <li class="ml-5">
                                 <h4 >儿童
-                                    <span class="pep_a_price ml-1">¥968</span>
+                                    <span class="pep_a_price ml-1">¥{{parseInt(res.product.price/2)}}</span>
                                     <span class="pep_a_conut">x1</span>
                                 </h4>
                                 <div class="input_count ml-3">
-                                        <button class="inout_count-">-</button>
-                                        <span>1</span>
-                                        <button class="input_count+">+</button>
+                                        <button class="input_count_i" @click.prevent="child_modifed(-1,$event)">-</button>
+                                        <span>{{child_count}}</span>
+                                        <button class="input_count_c" @click.prevent="child_modifed(1,$event)">+</button>
                                     </div>
                                </li>
                            </ul>
@@ -213,7 +214,7 @@
                            <p>请至少提前4天预订 儿童与成人同价 付款成功后，需待商家确认是否可以出行。</p>
                            <form action="">
                                <div class="price_submit">
-                                   <span>¥</span> <span class="total_price">0</span> <input type="button" class="order_button btn" value="立即预订">
+                                   <span>¥</span> <span class="total_price">{{total_price}}</span> <input type="button" class="order_button btn" value="立即预订">
                                </div>
                            </form>
                        </div> 
@@ -381,8 +382,7 @@
                     </div>
                 </div>
              </div>
-         </div>
-     </div>
+    </div>
      <br>
      <br>
      <br>

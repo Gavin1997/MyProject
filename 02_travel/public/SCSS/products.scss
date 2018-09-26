@@ -1,0 +1,55 @@
+// 产品页面导航栏
+.nav_products,{
+    width:1160px;
+    height:51px;
+    margin:25px 50px 0px 50px;
+    border-left:1px solid #E3E3E3;
+    border-top:0;
+    border-bottom:2px solid #13AF7E;
+    ul{
+        display: flex;
+        background-color: #FAFAFA;
+        width:1100px;
+        list-style: none;
+        position: relative; 
+        border-top:1px solid #E3E3E3;
+        border-right:1px solid #E3E3E3;
+        li{
+            width:auto;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            height:50px;
+            white-space: nowrap;
+            &:not(:last-child):after{
+                content:"|";
+                color:#ddd;
+                margin:3px;
+            }
+            a{
+                padding: 0 8px;
+                text-align: center;
+                text-decoration: none;
+                color:#323232;
+                font-size:16px;
+                display:inline-block;
+                font-weight:500;
+                height:100%;
+                line-height: 50px;
+                &:hover{
+                    background-color:#666;
+                }
+            }
+        }
+    }
+}
+.crumb_seachr{
+    width:1160px;
+    height:70px;
+    margin:0px 50px;
+    background-color: #FAFAFA;
+    li{
+        font-size:14px;
+        line-height: 70px;
+    }
+}
