@@ -31,7 +31,7 @@
         //  })
        
          axios.get(
-            "http://localhost:3000/index/")
+            "http://127.0.0.1:3000/index/")
              .then(res=>{
                  //箭头函数的this会指向继承自外部的this
                this.res=res.data;

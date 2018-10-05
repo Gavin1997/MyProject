@@ -9,7 +9,7 @@ $(function(){
              var $input=$(".zw-home-header-search>input");
              $search.click(function(){
                 // open("products.html","_self")
-                location.href=`http://localhost:3000/product_details.html?kw=${$input.val().trim()}`;
+                location.href=`http://127.0.0.1:3000/products.html?kw=${$input.val().trim()}`;
             })
             $input.keyup(function(e){
                 if(e.keyCode==13){

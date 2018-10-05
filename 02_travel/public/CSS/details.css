@@ -250,7 +250,8 @@
   font-size: 24px;
   background: #ff7466;
   border: 0;
-  margin-left: 375px; }
+  position: absolute;
+  left: 430px; }
   .order_button:hover {
     opacity: 0.9;
     cursor: pointer; }

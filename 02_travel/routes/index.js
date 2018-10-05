@@ -8,11 +8,12 @@ router.get("/",(req,res)=>{
     pool.query(sql,[],(err,result)=>{
         if(err) throw err;
         //跨域访问
-        res.writeHead(200,{
-            "Access-Control-Allow-Origin":"*"
-        })
-        res.write(JSON.stringify(result))
-        res.end()
+        // res.writeHead(200,{
+        //     "Access-Control-Allow-Origin":"*"
+        // })
+        // res.write(JSON.stringify(result))
+        // res.end()
+        res.send(result);
     })
 })
 
