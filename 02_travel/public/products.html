@@ -124,9 +124,9 @@
     </div>
     <!-- 分页内容 -->
     <div class="btn_area">
-      <span @prev() :class="disabled_info">上一页</span>
-      <span v-for="(item,i) in this.pageCount">{{i+1}}</span>
-      <span @next()>下一页</span>
+      <span @click="prev()" :class="disabled_info_prev">上一页</span>
+      <span v-for="(item,i) in pageCount" :class="`${pno=i+1? 'btn_area_active':''}`" @click.prevent="nowNum(i)">{{i+1}}</span>
+      <span @click="next()" :class="disabled_info_next">下一页</span>
     </div>
   </section>
   <footer id="i-footer">

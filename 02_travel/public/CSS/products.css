@@ -141,10 +141,12 @@
   .btn_area span {
     display: inline-block;
     color: #636363;
-    padding: 0 7px;
+    padding: 2px 7px;
     text-align: center; }
     .btn_area span:hover {
       cursor: pointer; }
-  .btn_area .btn_area_active {
-    background: #12af7e;
-    color: #fff; }
+
+.btn_area_active {
+  background: #12af7e;
+  color: #fff;
+  padding: 2px; }
