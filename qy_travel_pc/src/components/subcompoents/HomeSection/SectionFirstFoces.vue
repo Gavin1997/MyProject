@@ -5,6 +5,7 @@
         <li></li>
       </ul>
       <!-- 热门项目 -->
+    <div class="container">
       <div class="zw-home-category container mt-0 pt-0">
         <ul class="zw-home-category-list">
           <!-- 港澳台 国内 -->
@@ -410,6 +411,7 @@
           </li>
         </ul>
       </div>
+     </div>
     </div>
     <!-- 首屏广告 -->
     <div class="container zw-home-adarea p-3">
@@ -460,7 +462,6 @@
   .zw-home-category {
     position: absolute;
     z-index: 2;
-    left: 19%;
     top: 0px;
   }
 
@@ -478,6 +479,7 @@
     height: 400px;
     list-style: none;
     position: relative;
+
   }
 
   // 列表项目

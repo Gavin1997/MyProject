@@ -12,7 +12,7 @@
         <div class="zw-home-todaysale-content mt-4 ">
           <ul class="zw-home-todaysale-list d-flex justify-content-between">
             <li class="zw-home-todaysale-list-item float-left" v-for="(p,i) in res.slice(0,4)" v-cloak>
-              <a v-bind:href="p.href">
+              <a  @click.prevent="getDetails(p.tid)">
                 <img v-bind:src="p.pic" alt="">
                 <h3 class=" zw-home-todaysale-list-item-title">{{p.details}}</h3>
                 <p class="price mb-2 mr-2">{{p.price}}<span>元起</span></p>
@@ -23,7 +23,7 @@
           <!-- 图片内容 第二排 -->
           <ul class="zw-home-todaysale-list d-flex justify-content-between mt-3">
             <li class="zw-home-todaysale-list-item float-left" v-for="(p,i) in res.slice(4,8)" v-cloak>
-              <a v-bind:href="p.href">
+              <a  @click.prevent="getDetails(p.tid)">
                 <img v-bind:src="p.pic" alt="">
                 <h3 class=" zw-home-todaysale-list-item-title">{{p.details}}</h3>
                 <p class="price mb-2 mr-2">{{p.price}}<span>元起</span></p>
@@ -43,7 +43,9 @@
     },
     props:["res"],
     methods: {
-        
+        getDetails(tid){
+           this.$router.push("/product_details/"+tid)
+        }
     },
     created() {
         
@@ -84,6 +86,9 @@
         }
       }
     }
+  }
+  a{
+    cursor: pointer;
   }
 
   // 图片内容

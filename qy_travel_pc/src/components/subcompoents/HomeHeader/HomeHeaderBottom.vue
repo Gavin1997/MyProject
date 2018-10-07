@@ -4,9 +4,9 @@
       <div class="d-flex justify-content-between container pt-3">
         <!-- 标题 穷游商城大字 -->
         <div class="zw-home-header-logo ml-5 ">
-          <a href="index.html">
+          <router-link to="/home">
             <h1>穷游商城</h1>
-          </a>
+          </router-link>
         </div>
         <!-- 搜素框 -->
         <div class="zw-home-header-search mr-5">

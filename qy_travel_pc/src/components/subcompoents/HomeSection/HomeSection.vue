@@ -28,7 +28,7 @@ import SectionZhuanti from "../../subcompoents/HomeSection/SectionZhuanti"
       getMsg_1F(){
             this.$http.get("index/").then(res=>{
                   this.res=res.data;
-                  console.log(res)
+                //   console.log(res)
             })
         }
     },
