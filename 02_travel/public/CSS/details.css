@@ -237,7 +237,10 @@
   color: #ff7466;
   padding-left: 20px;
   line-height: 60px;
-  vertical-align: middle; }
+  vertical-align: middle;
+  position: absolute;
+  bottom: 0px;
+  display: flex; }
 
 .total_price {
   font-size: 30px; }

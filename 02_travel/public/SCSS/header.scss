@@ -9,7 +9,9 @@ header{
         list-style: none;
     }
 }
-
+.q-layer-header{
+    width:100%;
+}
 .header-inner {
     white-space: nowrap;
     display: flex;
@@ -100,17 +102,11 @@ opacity: 1;
         }
     }
 }
-}//头不右侧图标媒体查询
-@media screen and (max-width:1400px){
-    .q-header-fun{
-       margin-right: 10%;
-       position: relative;
-       left:-5%;
-    }
 }
+
 // 头部右侧图标注册登录
 .q-header-fun{
-    margin-left:25%;
+    margin-left:30%;
     padding-right:2%;
     ul{
         display: flex;
@@ -152,6 +148,16 @@ opacity: 1;
         }
     }
 }
+//头不右侧图标媒体查询
+@media screen and (max-width:1700px) and(min-width:1100px){
+    .q-header-fun{
+        margin-right: 30%;
+       margin-left:20%;
+       position: relative;
+       left:-5%;
+    }
+}
+
 //输入框样式
 .zw-product-header-search{
     input{

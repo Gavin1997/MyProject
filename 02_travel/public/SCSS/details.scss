@@ -11,6 +11,7 @@
 //我的订单  我的收藏  
  .zw-product-header-love{
      margin-left:180px;
+     
      ul{
          list-style: none;
          li{
@@ -236,6 +237,7 @@
 }
 // 预订类型
 .booking_type{
+ 
     h4{
         margin-left:15px;
         padding-top:20px;
@@ -301,14 +303,19 @@
         color:#636363;
     }
 }
-.price_submit{
-   width:590px;
-   height:60px;
-   color: #ff7466;
-   padding-left: 20px;
-   line-height: 60px;
-   vertical-align: middle;
-}
+.price_submit {
+    width: 590px;
+    height: 60px;
+    color: #ff7466;
+    padding-left: 20px;
+    line-height: 60px;
+    vertical-align: middle;
+    position: absolute;
+   bottom:0px;
+    display: flex;
+
+
+  }
 .total_price{
     font-size:30px;
 }
