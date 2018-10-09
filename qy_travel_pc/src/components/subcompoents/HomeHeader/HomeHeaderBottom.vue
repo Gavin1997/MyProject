@@ -4,12 +4,15 @@
       <div class="d-flex justify-content-between container pt-3">
         <!-- 标题 穷游商城大字 -->
         <div class="zw-home-header-logo ml-5 ">
-          <a href="index.html">
+          <router-link to="/home">
             <h1>穷游商城</h1>
-          </a>
+          </router-link>
         </div>
         <!-- 搜素框 -->
         <div class="zw-home-header-search mr-5">
+          <datalist id="searchlist">
+            
+          </datalist>
           <input type="text" name="keyword" placeholder="搜索国家、城市、产品" class="my-form-control">
           <div class="input-group-append h-75">
             <img class="btn p-0" src="../../../assets/img/icon/fangdajinghei.png">
@@ -25,7 +28,7 @@
             <p>尽在穷游App</p>
           </div>
           <!-- 下载按钮 -->
-          <a href="#" class="btn btn-green mt-2 ml-3 ">下载</a>
+          <a class="btn btn-green mt-2 ml-3 ">下载</a>
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@
             <ul class="zw-home-wanle-list">
               <!-- 玩乐左大图图1 -->
               <li class="zw-home-wanle-one float-left clearfix" v-for="(p,i) in res.slice(14,15)">
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <img :src="p.pic" alt="">
                   <div class="mask"></div>
                   <h3 class="title">{{p.details}}</h3>
@@ -36,21 +36,13 @@
               </li>
               <!-- 玩乐小图 大图右边1 -->
               <li class="zw-home-wanle-item float-left clearfix" v-for="(p,i) in res.slice(15,17)">
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <p class="pics"><img :src="p.pic" width="120" height="120" style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>
                 </a>
               </li>
-              <!-- 玩乐小大图 右边2 -->
-              <!-- <li class="zw-home-wanle-item float-left clearfix">
-                        <a href="#">
-                        <p class="pics"><img src="img/3F/14422177585931.jpg" width="120" height="120" style="display: block;">
-                        <h3 class="title1">【8月30日秒杀】【打卡必玩】日本东京迪斯尼乐园/迪士尼海洋1日实体票/电子票</h3></p>
-                        <p class="price">534<span>元起</span></p>
-                        </a>
-                    </li> -->
               <!-- 查看更多 -->
               <li class="zw-home-channel-more1 float-right mt-2 mr-2">
                 <a href="#">
@@ -75,7 +67,7 @@
               </li>
               <!--玩乐大图 右图3 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 " v-for="(p,i) in res.slice(17,18)" v-cloak>
-                <a :href="p.href">
+                <a@click.prevent="getDetails(p.tid)">
                   <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
@@ -84,7 +76,7 @@
               </li>
               <!-- 玩乐 图4 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-0" v-for="(p,i) in res.slice(18,19)" v-cloak>
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
@@ -94,7 +86,7 @@
               <!-- 玩乐 图5 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 pl-1" v-for="(p,i) in res.slice(19,20)"
                 v-cloak>
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
@@ -107,7 +99,7 @@
             <ul class="zw-home-wanle-list">
               <!-- 玩乐左大图图1 -->
               <li class="zw-home-wanle-one float-left clearfix" v-for="(p,i) in res.slice(14,15)">
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <img :src="p.pic" alt="">
                   <div class="mask"></div>
                   <h3 class="title">{{p.details}}</h3>
@@ -119,7 +111,7 @@
               </li>
               <!-- 玩乐小图 大图右边1 -->
               <li class="zw-home-wanle-item float-left clearfix" v-for="(p,i) in res.slice(15,17)">
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <p class="pics"><img :src="p.pic" width="120" height="120" style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
@@ -127,13 +119,6 @@
                 </a>
               </li>
               <!-- 玩乐小大图 右边2 -->
-              <!-- <li class="zw-home-wanle-item float-left clearfix">
-                        <a href="#">
-                        <p class="pics"><img src="img/3F/14422177585931.jpg" width="120" height="120" style="display: block;">
-                        <h3 class="title1">【8月30日秒杀】【打卡必玩】日本东京迪斯尼乐园/迪士尼海洋1日实体票/电子票</h3></p>
-                        <p class="price">534<span>元起</span></p>
-                        </a>
-                    </li> -->
               <!-- 查看更多 -->
               <li class="zw-home-channel-more1 float-right mt-2 mr-2">
                 <a href="#">
@@ -158,7 +143,7 @@
               </li>
               <!--玩乐大图 右图3 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 " v-for="(p,i) in res.slice(17,18)" v-cloak>
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
@@ -167,7 +152,7 @@
               </li>
               <!-- 玩乐 图4 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-0" v-for="(p,i) in res.slice(18,19)" v-cloak>
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
@@ -177,7 +162,7 @@
               <!-- 玩乐 图5 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 pl-1" v-for="(p,i) in res.slice(19,20)"
                 v-cloak>
-                <a :href="p.href">
+                <a @click.prevent="getDetails(p.tid)">
                   <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
@@ -240,7 +225,7 @@
               </li>
               <!--玩乐大图 右图3 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2">
-                <!-- <a href="#">
+                <!-- <a href=@click.prevent="getDetails(p.tid)">
                                 <p class="pics"><img src="img/3F/14422178162559.jpg" width:120px height:120px style="display: block;">
                                 <h3 class="title1">【8月13日秒杀】日本JR北海道hokkaido rail pass周游券(3/4/5/7日可选)</h3></p>
                                 <p class="price">1012<span>元起</span></p>
@@ -248,7 +233,7 @@
               </li>
               <!-- 玩乐 图4 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-0">
-                <!-- <a href="#">
+                <!-- <a href=@click.prevent="getDetails(p.tid)">
                                 <p class="pics"><img src="img/3F/14410968959037.jpg" width:120px height:120px style="display: block;">
                                 <h3 class="title1">【省钱神器】日本关西周游卡KANSAI THRU PASS(2日券/3日券)</h3></p>
                                 <p class="price">125<span>元起</span></p>
@@ -256,7 +241,7 @@
               </li>
               <!-- 玩乐 图5 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 pl-1">
-                <!-- <a href="#">
+                <!-- <a href=@click.prevent="getDetails(p.tid)">
                                 <p class="pics"><img src="img/3F/15259390915266.jpg" width:120px height:120px style="display: block;">
                                 <h3 class="title1">【8月14日秒杀】【省钱神器】全日本JR Pass周游券(7/14/21日可选)</h3></p>
                                 <p class="price">1799<span>元起</span></p>
@@ -509,12 +494,19 @@ export default {
         return{}
     },
     props:["res"],
-    methods:{},
+    methods:{
+      getDetails(tid){
+        this.$router.push({path:"/product_details/"+tid})
+      }
+    },
     created(){}
 }
 </script>
 <style lang="scss" scoped>
 /**********************当地玩乐***************/
+a{
+  cursor: pointer;
+}
 .zw-home-wanle{
     background: $my-main-Color;
     height:500px;

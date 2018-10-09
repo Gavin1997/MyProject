@@ -20,7 +20,7 @@
         <div class="zw-home-zhuanti-content mt-2">
           <ul class="zw-home-zhuanti-list container clearfix p-0">
             <li class="zw-home-zhuanti-one float-left" v-for="(p,i) in res.slice(20,21)" v-cloak>
-              <a :href="p.href" class="">
+              <a @click.prevent="getDetails(p.tid)">
                 <p class="zw-home-titlerow-icon">
                   海外<br>
                   City Walk
@@ -36,7 +36,7 @@
             </li>
             <!-- 第二个列表 图2 小 -->
             <li class="zw-home-ziyouxing-item float-left" v-for="(p,i) in res.slice(21,26)">
-              <a :href="p.href">
+              <a @click.prevent="getDetails(p.tid)">
                 <img :src="p.pic" alt="">
                 <div class="zw-home-ziyouxing-subtitle d-flex ">
                   <p>{{p.price}}<span>元起</span></p>
@@ -48,7 +48,7 @@
             </li>
             <!-- 最后一个列表 查看更多 -->
             <li class="zw-home-channel-more2 float-left">
-              <a href="#">
+              <a @click.prevent="getDetails(p.tid)">
                 <p class="title">
                   查看更多
                   <br>
@@ -90,7 +90,7 @@
         <div class="zw-home-zhuanti-content mt-2">
           <ul class="zw-home-zhuanti-list container clearfix p-0">
             <li class="zw-home-zhuanti-one float-left" v-for="(p,i) in res.slice(26,27)" v-cloak>
-              <a :href="p.href" class="">
+              <a @click.prevent="getDetails(p.tid)" class="">
                 <p class="zw-home-titlerow-icon">
                   半自<br>
                   助游
@@ -106,7 +106,7 @@
             </li>
             <!-- 第二个列表 图2 小 -->
             <li class="zw-home-ziyouxing-item float-left" v-for="(p,i) in res.slice(27,33)">
-              <a :href="p.href">
+              <a @click.prevent="getDetails(p.tid)">
                 <img :src="p.pic" alt="">
                 <div class="zw-home-ziyouxing-subtitle d-flex ">
                   <p>{{p.price}}<span>元起</span></p>
@@ -118,7 +118,7 @@
             </li>
             <!-- 最后一个列表 查看更多 -->
             <li class="zw-home-channel-more3 float-left">
-              <a href="#">
+              <a @click.prevent="getDetails(p.tid)">
                 <p class="title">
                   查看更多
                   <br>
@@ -149,11 +149,19 @@
     data() {
       return {}
     },
+    methods:{
+      getDetails(tid){
+        this.$router.push({path:"/product_details/"+tid})
+      }
+    },
     props: ["res"]
   }
 </script>
 <style lang="scss" scoped>
   /*******************************专题推荐*-4F 深度旅行*********************/
+  a{
+    cursor: pointer;
+  }
   @mixin more {
     width: 265px;
     height: 263px;

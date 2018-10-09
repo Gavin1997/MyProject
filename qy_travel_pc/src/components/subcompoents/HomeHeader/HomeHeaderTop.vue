@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <header>
       <div class="q-layer-header">
         <div class="header-inner ">
           <a href="#"><img src="../../../assets/img/icon/logo_116x36.png" alt=""></a>
@@ -80,7 +80,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </header>
   </div>
 </template>
 <script>
@@ -91,6 +91,17 @@
   }
 </script>
 <style lang="scss" scoped>
+
+.my_fontColor{
+    color: #C0C0C0;
+ }
+header{
+    width:100%;
+    background-image:linear-gradient(180deg,#323232,#2A2A2A);
+    ul{
+        list-style: none;
+    }
+}
 .header-inner {
     white-space: nowrap;
     display: flex;

@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- 楼层   1F  限时特卖-->
-    <div class="zw-home-seckill container clearfix">
-      <div class="zw-home-seckill-wrap">
+    <div class="zw-home-seckill  clearfix">
+      <div class="zw-home-seckill-wrap container">
         <div class="zw-home-seckill-titlerow clearfix">
           <h1 class="zw-home-bgtitle float-left mt-4">限时特卖</h1>
           <p class="zw-home-subtitle float-left ml-4 mt-5">每日必看的特价精选</p>
@@ -12,7 +12,7 @@
         <div class="zw-home-todaysale-content mt-4 ">
           <ul class="zw-home-todaysale-list d-flex justify-content-between">
             <li class="zw-home-todaysale-list-item float-left" v-for="(p,i) in res.slice(0,4)" v-cloak>
-              <a v-bind:href="p.href">
+              <a  @click.prevent="getDetails(p.tid)">
                 <img v-bind:src="p.pic" alt="">
                 <h3 class=" zw-home-todaysale-list-item-title">{{p.details}}</h3>
                 <p class="price mb-2 mr-2">{{p.price}}<span>元起</span></p>
@@ -23,7 +23,7 @@
           <!-- 图片内容 第二排 -->
           <ul class="zw-home-todaysale-list d-flex justify-content-between mt-3">
             <li class="zw-home-todaysale-list-item float-left" v-for="(p,i) in res.slice(4,8)" v-cloak>
-              <a v-bind:href="p.href">
+              <a  @click.prevent="getDetails(p.tid)">
                 <img v-bind:src="p.pic" alt="">
                 <h3 class=" zw-home-todaysale-list-item-title">{{p.details}}</h3>
                 <p class="price mb-2 mr-2">{{p.price}}<span>元起</span></p>
@@ -43,7 +43,9 @@
     },
     props:["res"],
     methods: {
-        
+        getDetails(tid){
+           this.$router.push("/product_details/"+tid)
+        }
     },
     created() {
         
@@ -64,6 +66,7 @@
   }
 
   .zw-home-seckill {
+    
     background-color: #F5F5F5;
     height: 755px;
 
@@ -84,6 +87,9 @@
         }
       }
     }
+  }
+  a{
+    cursor: pointer;
   }
 
   // 图片内容
