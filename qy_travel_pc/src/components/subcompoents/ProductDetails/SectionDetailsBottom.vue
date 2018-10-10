@@ -67,7 +67,11 @@
                   <li>第一天</li>
                   <li>
                     <p>17:40</p>
+<<<<<<< HEAD
                     <p>{{departure}}</p>
+=======
+                    <p>成都</p>
+>>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
                   </li>
                   <li>
                     <div class="line_wrap_2Mzcq">
@@ -94,7 +98,11 @@
                   </li>
                   <li>
                     <p>23:30</p>
+<<<<<<< HEAD
                     <p>{{departure}}</p>
+=======
+                    <p>成都</p>
+>>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
                   </li>
                   <li>3U8089 四川航空</li>
                 </ul>
@@ -137,7 +145,11 @@
           <div class="recommended_travel mt-5">
             <h2>推荐行程</h2>
             <h4 class="mt-3 mb-2">参考行程</h4>
+<<<<<<< HEAD
             <img :src="lg_pic" alt="">
+=======
+            <img src="../../../assets/img/product/details/1F/2018-09-16_230828.png" alt="">
+>>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
             <div class="product_intro_info">
               <h5>出行提示</h5>
               <p> 行程中所列航班时间为参考时间，具体出发时间以实际出票为准。</p>
@@ -152,9 +164,14 @@
               </p>
               <div class="textarea-box">
                 <div class="textarea-box1">
+<<<<<<< HEAD
                 <textarea name="" id="" cols="30" rows="10" class="text-area"></textarea>
                   <button class="btn">咨询</button>
                
+=======
+                  <input type="textarea" class="textarea">
+                  <button class="btn">咨询</button>
+>>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
                 </div>
               </div>
             </div>
@@ -167,8 +184,12 @@
 export default {
     data(){
         return{}
+<<<<<<< HEAD
     },
     props:["lg_pic","departure"]
+=======
+    }
+>>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
 }
 </script>
 <style lang="scss" scoped>
@@ -432,10 +453,16 @@ export default {
     }
   }
 
+<<<<<<< HEAD
   .text-area {
     margin-top:10px;
     width: 550px;
     height: 120px;
+=======
+  .textarea {
+    width: 550px;
+    height: 80px;
+>>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
   }
 </style>
 

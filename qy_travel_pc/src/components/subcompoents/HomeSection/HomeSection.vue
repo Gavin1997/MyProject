@@ -28,7 +28,11 @@ import SectionZhuanti from "../../subcompoents/HomeSection/SectionZhuanti"
       getMsg_1F(){
             this.$http.get("index/").then(res=>{
                   this.res=res.data;
+<<<<<<< HEAD
                 console.log(res);
+=======
+                //   console.log(res)
+>>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
             })
         }
     },

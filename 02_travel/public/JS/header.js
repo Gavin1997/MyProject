@@ -4,7 +4,31 @@ $(function(){
         url:"header.html",
         type:"get",
         success:function(res){
-            $(res).replaceAll("#header")
+            $(res).replaceAll("#header");
+            new Vue({
+                el:"#header",
+                data(){
+                    return{
+                        islogin:false,
+                        uanme:""
+                    }
+                },
+                methods:{},
+                created() {
+                },
+                mounted() {
+                   axios.get("http://127.0.0.1:3000/users/islogin").then(res=>{
+                       if(res.data.ok==1){
+                           this.islogin=false;
+                           this.uname=res.data.uname;
+                           console.log(this.uname)
+                       }else{
+                           this.islogin=true;
+                       }
+                   })
+                },
+            })
+            
             var $search=$(".input-group-append img")
              var $input=$(".zw-home-header-search>input");
              $search.click(function(){
@@ -24,4 +48,4 @@ $(function(){
             }
         }
     })
-})
+});

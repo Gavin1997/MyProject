@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require("express-session");
+const axios = require("axios")
 //引入路由模块
 const index = require("./routes/index");
 const users = require("./routes/users");
@@ -23,7 +25,12 @@ app.use(bodyParser.urlencoded({
 }));
 //托管静态资源到public目录下
 app.use(express.static(__dirname + '/public'));
-
+app.use(session({
+    secret:'随机字符串',
+    resave:false,
+    saveUninitialized:true
+}))
+axios.defaults.withCredentials=true;
 //挂载路由
 app.use("/index", index);
 app.use("/users", users);

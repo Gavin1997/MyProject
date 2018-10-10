@@ -35,7 +35,7 @@
              .then(res=>{
                  //箭头函数的this会指向继承自外部的this
                this.res=res.data;
-               console.log(this.res)
+            //    console.log(this.res)
               
           })
         

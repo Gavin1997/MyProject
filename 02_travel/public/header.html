@@ -60,7 +60,7 @@
                         </ul>
                     </div>
                     <!--导航栏右侧小图标 -->
-                    <div class="q-header-fun">
+                    <div class="q-header-fun" v-if="islogin">
                         <ul>
                             <li>
                                 <span>
@@ -77,6 +77,24 @@
                             <li><a href="login.html">登录</a></li>
                         </ul>
                     </div>
+                    <!-- 登录后-->
+                    <div class="q-header-fun" v-else id="signin">
+                            <ul>
+                                <li>
+                                    <span>
+                                        <a href="#">
+                                        <input type="text" class="input mb-2"></a>
+                                        <img src="img/icon/fangdajing.png" alt="">
+                                    </span>
+                                </li>
+                                <li class="my_fontColor">|</li>
+                                <li><a href="#"><img src="img/icon/qq.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/micro blog.png" alt=""></a></li>
+                                <li><a href="#"><img src="img/icon/wechat.png" alt=""></a></li>
+                                <li><a>Welcome</a> <span id="uanme" style="color:#fff;">Gavin</span></li>
+                                <li><a id="btnSignout" href="">注销</a></li>
+                            </ul>
+                        </div> 
                 </div>
             </div>
             

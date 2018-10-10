@@ -5,31 +5,47 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/base.css">
     <link rel="stylesheet" href="CSS/section.css">
+    <link rel="stylesheet" href="CSS/mint-ui.css"> 
     <script src="JS//vue.js"></script>
     <script src="JS/ajax.js"></script>
     <script src="JS/axios.min.js"></script>
+    <script src="JS/mint-ui.js"></script>
     <title>主页</title>
     <style>
         [v-cloak] {
             display: none
         }
-
-        ;
+        #app{
+            
+            height:350px;
+        }
+      img[lazy=loading]{
+          width:40px;
+          height:300px;
+          margin:auto;
+      }
+      .photo-list{
+          list-style: none;
+          padding-left:0;
+      }
+      .photo-list img{
+          width:100%;   
+      }
     </style>
 </head>
-
 <body>
     <!-- 头部 -->
     <header id="header">
     </header>
+
     <!-- 主体内容 -->
     <section id="main">
         <!-- 首屏图 -->
-        <div class="zw-home-firstfoces">
+        <div class="zw-home-firstfoces ">
             <ul class="zw-home-list list-unstyle">
-                <!-- <li style="background-image:url(https://pic.qyer.com/public/zworld/operation/2018/09/12/15367464448103);height:420px;"> -->
-                <li style="background-image:url(img/carousel/20180913124911.jpg);height:420px;background-size:1920px;background-repeat: no-repeat;">
+                <li style="background-image:url(img/carousel/20180913124911.jpg);height:420px;background-size:1920px;background-repeat: no-repeat;"> 
                 </li>
+              
             </ul>
 
             <!-- 热门项目 -->

@@ -462,6 +462,10 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,legend,button form,fieldse
     color: #fff;
     background-color: #4EC176;
     border-color: #4EC176;
+    cursor: pointer;
+  }
+  .btn-green:active{
+    opacity: 0.8;
   }
   /* 箭头 */
   .arrow-right{
@@ -493,4 +497,24 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,legend,button form,fieldse
   .disabled{
     opacity:0.4;
     cursor:not-allowed;
+  }
+  /* 弹出框 */
+  .alert {
+    position: relative;
+    margin-bottom: 1rem;
+    padding:0.4rem 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+  /* 弹出框 成功 */
+  .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  /* 弹出框 警告 */
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
   }

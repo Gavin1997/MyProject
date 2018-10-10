@@ -11,15 +11,14 @@
     min-width: 960px;
     min-height: 765px;
     background: url( "../img/register/web_login_bg.ecb39528.jpg") top/cover no-repeat ;
-    text-align: center;
 }
 .login-wrapper{
-    text-align: center;
-    width:380px;
+    position: absolute;
+    width:700px;
     height:570px;
-    padding:60px 0;
-    margin:0 40%;
-    
+    left:50%;
+    height:50%;
+    margin-left:-350px;  
 }
 .login-logo{
     width:380px;
@@ -29,7 +28,8 @@
         color:#fff;
     }
 }
-.login-section{
+@mixin Login-area {
+    padding-left:30px;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     background: hsla(0,0%,100%,.95);
     .btn-green{
@@ -53,6 +53,9 @@
 
     }
 }
+div.login-section{
+   @include Login-area;
+}
 .my-form-control1 {
     outline: 0;
     display: inline-block;
@@ -61,7 +64,45 @@
     line-height: 1.5;
     border-radius: 5px;
     font-size: 8px; }
-
+    .my-form-control2 {
+        outline: 0;
+        display: inline-block;
+        width: 100px;
+        padding: 10px 8px;
+        line-height: 1.5;
+        border-radius: 5px;
+        font-size: 8px;
+    }
+    .input_list{
+        margin-top:5%;
+        width:100%;
+        white-space: nowrap;
+        overflow: hidden;
+        .input_list_prompt{
+           margin-left:10px;
+            font-size:12px;
+        }
+        #vify{
+           position: relative;
+           top:10px;
+           cursor: pointer;
+        }
+    }
+   .btn-login{
+     padding:0.5rem 1rem;
+     background: #5BC0DE;
+     color:#F5F5F5;
+     outline: 0;
+     border:1px solid #5BC0DE;
+     border-radius: 5px;
+     cursor: pointer;
+     &:active{
+         opacity: 0.7;
+     }
+   }
+   .btn_position{
+    margin-left:500px;
+}
     // *****************登录页面********************/
     .login-section-top{
       
@@ -84,7 +125,14 @@
            
         }
     }
-    .login-section{
+    .login-section_login{
+        width:320px;
+        position: absolute;
+        left:50%;
+        top:50%;
+        margin-left:-160px;
+        margin-top:-160px;
+     @include Login-area;
         .login-forget{
             font-size:12px;
             margin-left:240px;
