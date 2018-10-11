@@ -2,123 +2,10 @@
   <div>
     <section class="bg-gray p-0 m-0" v-cloak>
       <!-- 主要商品详情 -->
-<<<<<<< HEAD
-      <div class="zw-product-main container">
-        <div class="main-content ml-4 mt-5  d-flex justify-content-around">
-          <!-- 图片和日期 -->
-          <section-details-image :res="res"></section-details-image>
-=======
       <div class="zw-product-main">
         <div class="main-content ml-4 mt-5 container d-flex justify-content-around">
-          <!-- 图片 -->
-          <div class="leftslide">
-            <span>产品编号:{{res.product.product_number}}</span>
-            <div class="lg_img">
-              <img :src="res.pics[0].md" alt="" style="width:100%;height:100%;">
-            </div>
-            <!-- 小图列表 -->
-            <div class="img_slide clearfix">
-              <div class="d-inline-block float-left d-flex justify-content-between  ">
-                <p class=" ">
-                  <img src="../../../assets/img/product_detalis/hover-prev.png" alt="" class="pt-4 pl-1 disabled">
-                </p>
-                <div class="slidearea">
-                  <ul class="list-unstyle sm_img_list d-flex">
-                    <li class="ml-1 " v-for="(pic,i) in res.pics" :key="i"> 
-                     <img :src="pic.sm" > 
-                    </li>
-                  </ul>
-                </div>
-                <p>
-                  <img src="../../../assets/img/product_detalis/hover-next.png" alt="" class="pt-4 pl-1 ">
-                </p>
-              </div>
-            </div>
-            <!-- 日期 -->
-            <div class="calendar mt-3 ">
-              <div class="tabs mt-3">
-                <div class="d-flex">
-                  <p>
-                    <img src="../../../assets/img/product_detalis/hover-prev.png" alt="" >
-                  </p>
-                  <ul class="zw-home-tags  d-flex list-unstyle ">
-                    <li class=" ml-5 active"><a href="" data-target="#09">2018年09月</a></li>
-                    <li class="  ml-4"><a href="" data-target="#010">2018年10月</a></li>
-                    <li class="  ml-4"><a href="" data-target="#011">2018年11月</a></li>
-                    <li class="ml-4"><a href="" data-target="#012">2018年12月</a></li>
-                  </ul>
-                  <p>
-                    <img src="../../../assets/img/product_detalis/hover-next.png" alt="" class="">
-                  </p>
-                </div>
-                <!-- 头部部分 星期 -->
-                <div class="week-header">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <!-- 日期号 -->
-                <div class="date-section">
-                  <div index="0" class="row_1AIx-">
-                    <div index="0" class="cell_1gqH2">1</div>
-                    <div index="1" class="cell_1gqH2">2</div>
-                    <div index="2" class="cell_1gqH2">3</div>
-                    <div index="3" class="cell_1gqH2">4</div>
-                    <div index="4" class="cell_1gqH2">5</div>
-                    <div index="5" class="cell_1gqH2">6</div>
-                    <div index="6" class="cell_1gqH2">7</div>
-                  </div>
-                  <div index="1" class="row_1AIx-">
-                    <div index="0" class="cell_1gqH2">8</div>
-                    <div index="1" class="cell_1gqH2">9</div>
-                    <div index="2" class="cell_1gqH2">10</div>
-                    <div index="3" class="cell_1gqH2">11</div>
-                    <div index="4" class="cell_1gqH2">12</div>
-                    <div index="5" class="cell_1gqH2">13</div>
-                    <div index="6" class="cell_1gqH2">14</div>
-                  </div>
-                  <div index="2" class="row_1AIx-">
-                    <div index="0" class="cell_1gqH2">15</div>
-                    <div index="1" class="cell_1gqH2">16</div>
-                    <div index="2" class="cell_1gqH2">17</div>
-                    <div index="3" class="cell_1gqH2">18</div>
-                    <div index="4" class="cell_1gqH2">19</div>
-                    <div index="5" class="cell_1gqH2">20</div>
-                    <div index="6" class="cell_1gqH2 showPrice">21
-                      <p>￥{{res.product.price}}</p>
-                    </div>
-                  </div>
-                  <div index="3" class="row_1AIx-">
-                    <div index="0" class="cell_1gqH2">22</div>
-                    <div index="1" class="cell_1gqH2 showPrice">23
-                      <p>￥{{res.product.price}}</p>
-                    </div>
-                    <div index="2" class="cell_1gqH2">24</div>
-                    <div index="3" class="cell_1gqH2">25</div>
-                    <div index="4" class="cell_1gqH2">26</div>
-                    <div index="5" class="cell_1gqH2">27</div>
-                    <div index="6" class="cell_1gqH2 showPrice">28
-                      <p>￥{{res.product.price}}</p>
-                    </div>
-                  </div>
-                  <div index="4" class="row_1AIx-">
-                    <div index="0" class="cell_1gqH2">29</div>
-                    <div index="1" class="cell_1gqH2">30</div>
-                    <div index="2" class="cell_1gqH2">31</div>
-                    <div index="3" class="cell_1gqH2"></div>
-                    <div index="4" class="cell_1gqH2"></div>
-                    <div index="5" class="cell_1gqH2"></div>
-                    <div index="6" class="cell_1gqH2"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
+          <!-- 图片和日期 -->
+          <section-details-image :res="res"></section-details-image>
           <!-- 右边 详情 -->
           <div class="rightside">
             <div class="product_info m-3">
@@ -144,18 +31,9 @@
             <div class="booking_type">
               <h4>产品类型</h4>
               <ul class="list-unstyle mt-3 clearfix type_list">
-<<<<<<< HEAD
                 <li v-for="(c,i) of res.categories" :class="{booking_active:changedActive==i}" @click.prevent="changeDetails(c.tid,i)">
                   <a>{{c.category}}</a>
                 </li>
-=======
-                <li v-for="(c,i) of res.categories" :class="`${tid==c.tid ? 'booking_active':''}`">
-                  <a @click.prevent="changeDetails(c.tid)">{{c.category}}</a>
-                </li>
-
-                <!-- <li class="ml-3"><a href="`product_details.html?tid=${tid}`">{{res.product.departure}}</a></li>
-                            <li class="mt-3 ml-3"><a href="#">{{res.product.departure}}</a></li> -->
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
               </ul>
               <div class="date_out">
                 <h4>出发日期</h4>
@@ -201,29 +79,19 @@
         </div>
       </div>
       <!-- 下方大图详情 -->
-<<<<<<< HEAD
       <section-Details-bottom :lg_pic="lg_pic" :departure="departure"></section-Details-bottom>
-=======
-      <section-Details-bottom></section-Details-bottom>
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
     </section>
   </div>
 </template>
 <script>
-<<<<<<< HEAD
   // 引入子组件
   import SectionDetailsBottom from "../ProductDetails/SectionDetailsBottom.vue"
   import SectionDetailsImage from "../ProductDetails/SectionDetailsImage.vue"
-=======
-// 引入子组件
-import SectionDetailsBottom from "../ProductDetails/SectionDetailsBottom"
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
   export default {
     data() {
       return {
         res: {
           product: [],
-<<<<<<< HEAD
           pics: ["sm", "md"],
           categories: [],
         },
@@ -233,21 +101,10 @@ import SectionDetailsBottom from "../ProductDetails/SectionDetailsBottom"
         child_count: 1,
         tid: this.$route.params.tid,
         changedActive: 0
-=======
-          pics: ["sm","md"],
-          categories:[],
-        },
-        aduts_count: 1,
-        child_count: 1,
-        tid:this.$route.params.tid,
-        
-        
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
       }
     },
     methods: {
       getMsg() {
-<<<<<<< HEAD
         this.$http.get("details?tid=" + this.tid).then(res => {
           this.res = res.data;
           this.lg_pic = res.data.product.lg_pic;
@@ -263,18 +120,6 @@ import SectionDetailsBottom from "../ProductDetails/SectionDetailsBottom"
           console.log(this.res)
         });
         this.changedActive = i;
-=======
-          this.$http.get("details?tid="+this.tid).then(res => {
-             console.log(res.data)
-            this.res = res.data;
-          })
-      },
-      changeDetails(tid){
-        this.$router.push("/product_details/"+tid);
-        this.$http.get("details?tid="+tid).then(res => {
-          this.res = res.data;
-        })
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
       },
       modifed(i, e) {
         this.aduts_count += i;
@@ -301,7 +146,6 @@ import SectionDetailsBottom from "../ProductDetails/SectionDetailsBottom"
       },
 
     },
-<<<<<<< HEAD
     watch: {},
     computed: {
       total_price() {
@@ -310,15 +154,6 @@ import SectionDetailsBottom from "../ProductDetails/SectionDetailsBottom"
     },
     created() {
       this.getMsg()
-=======
-    computed: {
-      total_price() {
-        return Math.ceil(this.res.product.price / 2 )* this.child_count + this.res.product.price * this.aduts_count
-      }
-    },
-    created() {
-        this.getMsg()
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
     },
     // mounted() {
     //     (async function () {
@@ -362,10 +197,10 @@ import SectionDetailsBottom from "../ProductDetails/SectionDetailsBottom"
     //         })
     //     })();
     // }
-<<<<<<< HEAD
     components: {
       SectionDetailsBottom,
       SectionDetailsImage
+      // SectionDetailsCalendar
     }
   }
 
@@ -375,17 +210,6 @@ import SectionDetailsBottom from "../ProductDetails/SectionDetailsBottom"
     cursor: pointer;
   }
 
-=======
-    components:{
-      SectionDetailsBottom
-    }
-  }
-</script>
-<style lang="scss" scoped>
-a{
-  cursor: pointer;
-}
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
   .my-form-control1 {
     border: 1px solid #00b081;
     outline: 0;
@@ -422,196 +246,6 @@ a{
     }
   }
 
-<<<<<<< HEAD
-=======
-  //  主要内容
-  .zw-product-main {
-    background: $my-main-Color;
-    width: 1160px;
-    margin: 0px auto 0;
-
-    //清楚外边距垂直抵消问题
-    &:before {
-      content: "";
-      display: table;
-    }
-  }
-
-  // 左边图片内容
-  .leftslide {
-    width: 512px;
-
-    span {
-      position: absolute;
-      left:5rem;
-      color: #fff;
-      margin: 10px;
-      font-size: 8px;
-    }
-
-    div.lg_img {
-      img {
-        width: 512px;
-        height: 330px;
-      }
-    }
-  }
-
-  // 下方小图滑动
-  .img_slide {
-    border: 1px solid #ddd;
-    width: 510px;
-
-    p {
-      width: 30px;
-      height: 80px;
-      z-index: 10;
-
-      &:hover {
-        background: rgb(216, 214, 214);
-        cursor: pointer;
-      }
-
-      img {
-        width: 22px;
-        height: 32px;
-      }
-    }
-
-    div:first-child {
-      width: 510px;
-    }
-
-    .disabled {
-      opacity: 0.4;
-    }
-  }
-
-  .slidearea {
-    width: 400px;
-    overflow: hidden;
-  }
-
-  // 小图列表
-  .sm_img_list {
-    overflow: hidden !important;
-    transition: all 0.5s linear;
-
-    li {
-      width: 70px;
-      height: 65px;
-      margin-top: 10px;
-      background: #fff;
-    }
-
-    img {
-      width: 65px;
-
-      &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-        transform: scale(1.1);
-      }
-    }
-  }
-
-  // 日期选择
-  .calendar {
-    background: #fff;
-    width: 510px;
-
-    &:before {
-      content: "";
-      display: table;
-    }
-
-    a {
-      text-decoration: none;
-      color: #636363;
-      font-size: 13px;
-    }
-  .zw-home-tags {
-    position:relative;
-    top:-5px;
-  }
-    // 清楚上边距带来的影响
-    .tabs {
-      img {
-        width: 8px;
-        height: 12px;
-        margin: 5px 0 5px 25px;
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
-
-    .active {
-      border-bottom: 4px solid #ff7467;
-    }
-  }
-
-  .week-header {
-    margin-left: 25px;
-    width: 450px;
-    background: #f5f5f5;
-    
-
-    span {
-      color: #636363;
-      position: relative;
-      display: inline-block;
-      padding: 3px 13px;
-    }
-  }
-
-  .date-section {
-    width: 510px;
-    overflow: hidden; 
-    position: relative;
-    .showPrice{
-      &:hover{
-        border: 1px solid #ff7466;
-        cursor: pointer;
-      }
-      p{
-        position: relative;
-        top:-50px;
-    
-      }
-    }
-  }
-
-  .row_1AIx- {
-    height: 69px;
-    border-bottom: 1px solid #f5f5f5;
-    position: relative;
-
-    p {
-      text-align: center;
-      margin-top: 3px;
-      margin-right: 2px;
-      color: #ff7467;
-      font-size: 12px;
-      font-weight: 500;
-    }
-  }
-
-  .cell_1gqH2 {
-  
-    text-align: center;
-    color: #636363;
-    height: 70px;
-    width: 70px;
-    line-height: 70px;
-    float: left;
-    cursor: not-allowed;
-    text-align: center;
-    box-sizing: border-box;
-    font-weight: 500;
-  }
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
 
   // 右边部分内容
   .rightside {
@@ -687,11 +321,8 @@ a{
 
   // 预订类型
   .booking_type {
-<<<<<<< HEAD
     text-align: left;
 
-=======
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
     h4 {
       margin-left: 15px;
       padding-top: 20px;
@@ -703,11 +334,8 @@ a{
     }
 
     ul.type_list {
-<<<<<<< HEAD
       cursor: pointer;
 
-=======
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
       li {
         margin-top: 5px;
         margin-left: 10px;
@@ -734,10 +362,7 @@ a{
 
   .date_out {
     text-align: left;
-<<<<<<< HEAD
 
-=======
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
     h4 {
       border: 0 !important;
     }
@@ -782,19 +407,11 @@ a{
     padding-left: 20px;
     line-height: 60px;
     vertical-align: middle;
-<<<<<<< HEAD
     position: absolute;
     bottom: 0px;
     display: flex;
 
 
-=======
-    position:absolute;
-    bottom:0px;
-    display: flex;
-  
-   
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
   }
 
   .total_price {
@@ -858,9 +475,4 @@ a{
     }
   }
 
-<<<<<<< HEAD
 </style>
-=======
-  
-</style>
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8

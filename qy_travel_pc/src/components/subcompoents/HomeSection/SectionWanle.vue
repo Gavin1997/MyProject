@@ -121,7 +121,7 @@
               <!-- 玩乐小大图 右边2 -->
               <!-- 查看更多 -->
               <li class="zw-home-channel-more1 float-right mt-2 mr-2">
-                <a href="#">
+                <a href="">
                   <p class="title">
                     查看更多
                     <br>
@@ -633,6 +633,7 @@ h3.title{
 }
 .zw-home-channel-more1{
     a{
+        
         text-decoration: none;
         color:#fff;
     }
@@ -642,6 +643,7 @@ h3.title{
     background-color: #ff6a71;
     background-image: linear-gradient(180deg,#ff6476,#ff7467);
     p{
+      margin-top:50px;
         &:hover{
             opacity: 0.6;
         }

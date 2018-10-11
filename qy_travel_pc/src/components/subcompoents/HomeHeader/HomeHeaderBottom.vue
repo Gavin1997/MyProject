@@ -10,10 +10,13 @@
         </div>
         <!-- 搜素框 -->
         <div class="zw-home-header-search mr-5">
-          <datalist id="searchlist">
-            
+          <datalist id="s_advice">
+            <option>日本</option>
+            <option>国庆</option>
+            <option>美国</option>
+            <option>欧洲</option>
           </datalist>
-          <input type="text" name="keyword" placeholder="搜索国家、城市、产品" class="my-form-control">
+          <input type="text" name="keyword" placeholder="搜索国家、城市、产品" class="my-form-control" list="s_advice">
           <div class="input-group-append h-75">
             <img class="btn p-0" src="../../../assets/img/icon/fangdajinghei.png">
           </div>
@@ -37,10 +40,11 @@
 <script>
   export default {
     data() {
-      return {}
+      return {};
     },
     methods: {}
-  }
+  };
+
 </script>
 <style lang="scss" scoped>
   /*********穷游商城 第三个导航栏 ***********/
@@ -54,9 +58,8 @@
     }
 
     h1 {
-      color: #13AF7E;
+      color: #13af7e;
       font-weight: normal;
-
     }
   }
 
@@ -73,7 +76,6 @@
       left: 480px;
       cursor: pointer;
     }
-
   }
 
   // 输入框 搜索框
@@ -83,12 +85,11 @@
     width: 500px;
     padding: 10px 8px;
     line-height: 1.5;
-    background-color: #F1F1F1;
+    background-color: #f1f1f1;
     border-radius: 20px;
     font-size: 8px;
     // background:#F1F1F1 url("../img/icon/fangdajinghei.png") no-repeat 98% center;
     background-size: 20px 20px;
-
   }
 
   // 右侧下载APP
@@ -126,4 +127,5 @@
       text-decoration: none;
     }
   }
+
 </style>

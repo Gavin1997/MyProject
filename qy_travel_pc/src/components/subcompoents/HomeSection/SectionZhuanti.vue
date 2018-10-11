@@ -175,6 +175,7 @@
     }
 
     p {
+      margin-top:50px;
       &:hover {
         opacity: 0.6;
       }

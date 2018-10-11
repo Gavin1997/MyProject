@@ -59,10 +59,10 @@
   // 左边图片内容
   .leftslide {
     width: 512px;
-    position:relative;
+
     span {
       position: absolute;
-      left: 0.5rem;
+      left: 5rem;
       color: #fff;
       margin: 10px;
       font-size: 8px;

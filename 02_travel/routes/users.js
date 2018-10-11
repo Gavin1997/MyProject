@@ -11,7 +11,7 @@ router.post("/register", (req, res) => {
     var phone = req.body.phone;
     var user_name = req.body.user_name;
     var gender = req.body.gender;
-    var reg2 = /^[0-9a-zA-Z]{6,12}$/
+    var reg2 = /^[0-9a-zA-Z]{6,12}$/;
     if (!uname || !reg2.test(uname)) {
         res.send({
             code: -1,
@@ -76,10 +76,10 @@ router.post("/signin", (req, res) => {
     var sql = "select *from qy_user where uname=? and upwd=?";
     pool.query(sql, [uname, upwd], (err, result) => {
         if (err) console.log(err);
-        res.writeHead(200, {
-            "Content-Type": "application/json;charset=utf-8",
-            "Access-Control-Allow-Origin": "*"
-        });
+        // res.writeHead(200, {
+        //     "Content-Type": "application/json;charset=utf-8",
+        //     "Access-Control-Allow-Origin": "*"
+        // });
         // console.log(result);
         if (result.length > 0) {
                 res.write(JSON.stringify({

@@ -6,11 +6,7 @@
       </ul>
       <!-- 热门项目 -->
     <div class="container">
-<<<<<<< HEAD
       <div class="zw-home-category  mt-0 pt-0">
-=======
-      <div class="zw-home-category container mt-0 pt-0">
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
         <ul class="zw-home-category-list">
           <!-- 港澳台 国内 -->
           <li class="zw-home-category-list-item" id="hongkong">
@@ -446,6 +442,7 @@
     data() {
       return {}
     },
+    props:["imgArry"],
     methods: {}
   }
 </script>
@@ -475,11 +472,6 @@
     width: 280px;
     height: 400px;
     list-style: none;
-<<<<<<< HEAD
-=======
-    position: relative;
-
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
   }
 
   // 列表项目

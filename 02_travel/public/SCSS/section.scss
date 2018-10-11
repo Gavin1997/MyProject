@@ -3,19 +3,25 @@
 .zw-home-firstfoces{
     position: relative;
 }
+.carousel_circle_list{
+    position:absolute;
+    left:70rem;
+    bottom:1rem;
+}
+.on{
+    opacity: 1;
+    background: #000 !important;
+}
+//轮播小点图
+.carousel_circle{
+    display: inline-block;
+    width:40px;
+    height:5px;
+    background: #666;
+    opacity: 0.4;
+    cursor: pointer;
+}
 // 热门项目
-.zw-home-category{
-    position: absolute;
-    z-index: 2;
-    left:19%;
-    top:0px;
-}
-@media screen and (max-width:996px){
-    .zw-home-category{  
-        margin-left:-280px;
-    }
-        
-}
 /****************查看更多****************/
 @mixin more { 
     width:265px;
@@ -31,10 +37,12 @@
 }
 /****************查看更多****************/
 .zw-home-category-list{
+    position: absolute;
+    z-index: 2;
+    top:0px;
     width:280px;
     height:400px;
     list-style: none;
-    position: relative;
     
 }
 // 列表项目
@@ -114,7 +122,6 @@
 /********* 热门项目里隐藏的内容 *******/
 .zw-home-wanle-content{
     display: none !important;
-    position:relative;
 }
 .show{
     display:block !important;
@@ -163,10 +170,9 @@
               }
           }
         }
-    }
-    // 标题
-    
+    }  
 }
+
 // 首屏广告
 .zw-home-adarea{
     list-style: none;
@@ -194,6 +200,7 @@
 .zw-home-seckill {
     background-color: #F5F5F5;
     height:755px;
+  
    
     .zw-home-seckill-switch{
         font-size:14px;

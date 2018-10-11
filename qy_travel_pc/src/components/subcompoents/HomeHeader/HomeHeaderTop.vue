@@ -74,8 +74,8 @@
               <li><a href="#"><img src="../../../assets/img/icon/qq.png" alt=""></a></li>
               <li><a href="#"><img src="../../../assets/img/icon/micro blog.png" alt=""></a></li>
               <li><a href="#"><img src="../../../assets/img/icon/wechat.png" alt=""></a></li>
-              <li><a href="register.html">注册</a></li>
-              <li><a href="login.html">登录</a></li>
+              <li><router-link to="/user_register">注册</router-link></li>
+              <li><router-link to="/user_login">登录</router-link></li>
             </ul>
           </div>
         </div>
@@ -195,9 +195,10 @@ opacity: 1;
     }
 }
 }//头不右侧图标媒体查询
-@media screen and (max-width:1400px){
+@media screen and (max-width:1700px) and(min-width:1100px){
     .q-header-fun{
-       margin-right: 10%;
+        margin-right: 30%;
+       margin-left:20%;
        position: relative;
        left:-5%;
     }

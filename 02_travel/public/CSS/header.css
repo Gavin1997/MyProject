@@ -8,9 +8,6 @@ header {
   header ul {
     list-style: none; }
 
-.q-layer-header {
-  width: 100%; }
-
 .header-inner {
   white-space: nowrap;
   display: flex;

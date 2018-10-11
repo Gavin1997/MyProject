@@ -9,9 +9,6 @@ header{
         list-style: none;
     }
 }
-.q-layer-header{
-    width:100%;
-}
 .header-inner {
     white-space: nowrap;
     display: flex;
@@ -29,6 +26,7 @@ header{
        margin-left:10px;
     }
 }
+//列表样式
 //列表样式
 .q-header-nav{ 
     ul{
@@ -256,7 +254,6 @@ opacity: 1;
         padding:0 5px;
     }
   }
-
 //   二级导航 背景
 .zw-header-new-wrapper{
     background:linear-gradient(180deg,#43C67B,#10BFA4);

@@ -1,7 +1,8 @@
 <template>
   <div>
+    <swipe :list="imgArry"></swipe>
    <!-- 首屏图 -->
-   <section-first-foces></section-first-foces>
+   <!-- <section-first-foces></section-first-foces> -->
    <!-- 1F 限时特卖 -->
    <section-today-sale :res="res"></section-today-sale>
    <!-- 2F 自由行 -->
@@ -13,6 +14,7 @@
   </div>
 </template>
 <script>
+import Swipe from "../../subcompoents/more/swipe"
 import SectionFirstFoces from "../../subcompoents/HomeSection/SectionFirstFoces"
 import SectionTodaySale from "../../subcompoents/HomeSection/SectionTodaySale"
 import SectionZiyouxing from "../../subcompoents/HomeSection/SectionZiyouxing"
@@ -21,23 +23,27 @@ import SectionZhuanti from "../../subcompoents/HomeSection/SectionZhuanti"
   export default {
     data() {
       return {
-        res:[]
+        res:[],
+        imgArry:[],
       }
     },
     methods: {
-      getMsg_1F(){
+      getMsg(){
             this.$http.get("index/").then(res=>{
                   this.res=res.data;
-<<<<<<< HEAD
-                console.log(res);
-=======
-                //   console.log(res)
->>>>>>> 37ed5b8aecf1afd7f7e0097d2443feb378292aa8
             })
-        }
+        },
+        //获取图片列表
+      getlist(){
+          this.$http.get("index/list").then(result=>{
+              console.log(result.data)
+              this.imgArry=result.data;
+          })
+      }
     },
     created() {
-      this.getMsg_1F()
+      this.getMsg(),
+      this.getlist()
     },
     components: {
       SectionFirstFoces,
@@ -45,6 +51,7 @@ import SectionZhuanti from "../../subcompoents/HomeSection/SectionZhuanti"
       SectionZiyouxing,
       SectionWanle,
       SectionZhuanti,
+      Swipe
     }
   }
 </script>
