@@ -194,11 +194,10 @@ opacity: 1;
         }
     }
 }
-}//头不右侧图标媒体查询
+}//头部右侧图标媒体查询
 @media screen and (max-width:1700px) and(min-width:1100px){
     .q-header-fun{
-        margin-right: 30%;
-       margin-left:20%;
+        margin-right: 40%;
        position: relative;
        left:-5%;
     }

@@ -2,7 +2,7 @@
   <div>
     <section class="bg-gray p-0 m-0" v-cloak>
       <!-- 主要商品详情 -->
-      <div class="zw-product-main">
+      <div class="zw-product-main container">
         <div class="main-content ml-4 mt-5 container d-flex justify-content-around">
           <!-- 图片和日期 -->
           <section-details-image :res="res"></section-details-image>

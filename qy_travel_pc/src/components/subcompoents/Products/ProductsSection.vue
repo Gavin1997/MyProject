@@ -39,7 +39,6 @@
           </div>
           <!-- 右边本周热卖 -->
           <div class="zw-new-bigcard-aside">
-
           </div>
         </div>
       </div>
@@ -54,162 +53,175 @@
   </div>
 </template>
 <script>
-  export default {
-    data() {
-      return {}
-    },
-    props:["res","pageCount"],
-    methods: {},
-    created() {
-
-    },
-  }
-
+export default {
+  data() {
+    return {  
+      pno: 0,
+      kw: decodeURI(location.search.split("=")[1]),
+      n: 0,
+      disabled_info_prev: "disabled",
+      disabled_info_next: "btn_area_active",
+      disabled_info_num: "",
+      changeActive: false
+    };
+  },
+   props: ["res","pageCount"],
+  methods: {
+     getDetails(tid){
+       console.log(tid)
+      //  this.$router.push({path:`/product_details/${tid}`})
+     }
+  },
+  created() {
+       this.$emit("get");
+  },
+  mounted() {
+    
+  },
+};
 </script>
 <style lang="scss" scoped>
-  .zw-new-bigcard-wrap {
-    width: 880px;
-  }
+.zw-new-bigcard-wrap {
+  width: 880px;
+}
 
-  .zw-new-bigcard-item {
-    background: #fff;
-    position: relative;
-    width: 100%;
-    font-size: 16px;
-    box-sizing: border-box;
-    height: 155px;
+.zw-new-bigcard-item {
+  background: #fff;
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+  height: 155px;
 
-    a {
-      text-decoration: none;
+  a {
+    text-decoration: none;
 
-      img {
-        width: 225px;
-        height: 154px;
-      }
-    }
-
-    .zw-new-bigcard-item-section {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-left: 1rem;
+    img {
+      width: 225px;
       height: 154px;
     }
+  }
 
-    .zw-new-bigcard-item-tag {
+  .zw-new-bigcard-item-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1rem;
+    height: 154px;
+  }
 
-      a {
-        color: #323232;
-        font-weight: 500;
-        font-size: 18px;
+  .zw-new-bigcard-item-tag {
+    text-align: left;
+    a {
+      color: #323232;
+      font-weight: 500;
+      font-size: 18px;
 
-        &:hover {
-          color: #12af7e;
-        }
+      &:hover {
+        color: #12af7e;
       }
     }
+  }
 
-    .zw-new-bigcard-item-middle {
-      padding-left: 0.6rem;
+  .zw-new-bigcard-item-middle {
+    padding-left: 0.6rem;
 
-      ul {
-        list-style: none;
+    ul {
+      list-style: none;
 
-        li {
-          max-width: 100px;
-          padding: 2px 6px;
-          height: 20px;
-          line-height: 20px;
-          border: 1px solid #4a90e2;
-          border-radius: 2px;
-          text-align: center;
-          font-size: 14px;
-          color: #4a90e2;
-        }
-      }
-    }
-
-    .zw-new-bigcard-item-bottom {
-      height: 40px;
-      position: absolute;
-      top: 7rem;
-
-      .zw-new-bigcard-item-price {
-        .item-price {
-          span:first-child {
-            color: #ff7363;
-            font-size: 20px;
-          }
-
-          span:nth-child(2) {
-            font-size: 13px;
-          }
-
-          span.line {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 13px;
-          }
-        }
-      }
-    }
-
-    .zw-new-bigcard-item-booking {
-      text-align: center;
-      position: relative;
-      left: 32.2rem;
-      top: -3.3rem;
-
-      .sold_out {
-        span:first-child {
-          color: #12af7e;
-          font-size: 14px;
-        }
-
-        span:last-child {
-          color: #999;
-          font-size: 12px;
-        }
-      }
-
-      .item-booking_btn {
-        width: 120px;
-        height: 40px;
-        background: #ff7362;
-        line-height: 40px;
+      li {
+        max-width: 100px;
+        padding: 2px 6px;
+        height: 20px;
+        line-height: 20px;
+        border: 1px solid #4a90e2;
+        border-radius: 2px;
         text-align: center;
-        color: #fff;
+        font-size: 14px;
+        color: #4a90e2;
+      }
+    }
+  }
 
-        &:hover {
-          cursor: pointer;
+  .zw-new-bigcard-item-bottom {
+    height: 40px;
+    position: absolute;
+    top: 7rem;
+
+    .zw-new-bigcard-item-price {
+      .item-price {
+        span:first-child {
+          color: #ff7363;
+          font-size: 20px;
+        }
+
+        span:nth-child(2) {
+          font-size: 13px;
+        }
+
+        span.line {
+          text-decoration: line-through;
+          color: #999;
+          font-size: 13px;
         }
       }
     }
   }
 
-  .btn_area {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: flex-end;
-    width: 910px;
+  .zw-new-bigcard-item-booking {
+    text-align: center;
+    position: relative;
+    left: 32.2rem;
+    top: -3.3rem;
 
-    span {
-      display: inline-block;
-      color: #636363;
-      padding: 2px 7px;
+    .sold_out {
+      span:first-child {
+        color: #12af7e;
+        font-size: 14px;
+      }
+
+      span:last-child {
+        color: #999;
+        font-size: 12px;
+      }
+    }
+
+    .item-booking_btn {
+      width: 120px;
+      height: 40px;
+      background: #ff7362;
+      line-height: 40px;
       text-align: center;
+      color: #fff;
 
       &:hover {
         cursor: pointer;
       }
     }
-
   }
+}
 
-  .btn_area_active {
-    background: #12af7e;
-    color: #fff;
-    padding: 2px;
+.btn_area {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 910px;
+
+  span {
+    display: inline-block;
+    color: #636363;
+    padding: 2px 7px;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
+}
 
+.btn_area_active {
+  background: #12af7e;
+  color: #fff;
+  padding: 2px;
+}
 </style>

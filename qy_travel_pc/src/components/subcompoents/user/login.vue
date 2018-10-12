@@ -134,6 +134,10 @@ import Qs from "qs"
       border: 1px solid #5cad77;
       border-radius: 5px;
       outline: 0;
+      cursor: pointer;
+      &:active{
+        opacity: 0.7;
+      }
     }
   }
 

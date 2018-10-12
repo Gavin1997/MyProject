@@ -273,6 +273,10 @@ a{
         border:1px solid #5CAD77;
         border-radius: 5px;
         outline: 0;
+        cursor: pointer;
+      &:active{
+        opacity: 0.7;
+      }
     }
     .login-section-bottom{
         font-size:14px;

@@ -2,7 +2,9 @@
   <div>
     <div class="zw-home-firstfoces">
       <ul class="zw-home-list list-unstyle">
-        <li></li>
+        <li>
+           <swipe></swipe>
+        </li>
       </ul>
       <!-- 热门项目 -->
     <div class="container">
@@ -438,12 +440,16 @@
   </div>
 </template>
 <script>
+import Swipe from "../../subcompoents/more/swipe"
   export default {
     data() {
       return {}
     },
-    props:["imgArry"],
-    methods: {}
+    
+    methods: {},
+    components:{
+            Swipe
+    }
   }
 </script>
 <style lang="scss" scoped>
@@ -454,7 +460,7 @@
 
     .zw-home-list {
       li {
-        background-image: url("../../../assets/img/carousel/20180913124911.jpg");
+        // background-image: url("../../../assets/img/carousel/2018-10-10_191122.png");
         background-color: #f5f5f5;
         height: 420px;
       }

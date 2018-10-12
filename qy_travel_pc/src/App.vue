@@ -1,11 +1,29 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view v-if="isRouterActive"/>
   </div>
 </template>
 
 <script>
 export default {
+  provide(){
+    return{
+      reload:this.reload
+    }
+  },
+  data(){
+    return{
+      isRouterActive:true
+    }
+  },
+  methods:{
+    reload(){
+      this.isRouterActive = false;
+      this.$nextTick(() => {
+        this.isRouterActive = true
+      })
+    }
+  },
   name: 'App',
   watch:{
     '$route':function(to,from) {

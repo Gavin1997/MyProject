@@ -71,9 +71,11 @@
       return {}
     },
     props:["kw"],
-    methods: {},
+    methods: {
+      
+    },
     created() {
-
+      
     },
   }
 

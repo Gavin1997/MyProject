@@ -62,7 +62,7 @@
 
     span {
       position: absolute;
-      left: 5rem;
+      left: 23rem;
       color: #fff;
       margin: 10px;
       font-size: 8px;

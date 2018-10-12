@@ -1,7 +1,7 @@
 <template>
 <div class="app_subcomp_swipt">
     <mt-swipe :auto="3000">
-      <mt-swipe-item v-for="(item,i) in list" :key="item.id">
+      <mt-swipe-item v-for="(item,i) in imgArry" :key="item.id">
         <img :src="item.img" alt="">
       </mt-swipe-item>
     </mt-swipe>
@@ -11,10 +11,20 @@
 export default {
   data(){
     return{
+      imgArry:[],
     }
   },
-  props:["list"],
+  methods:{
+    getlist(){
+          this.$http.get("index/list").then(result=>{
+              this.imgArry=result.data;
+              console.log(this.imgArry)
+          })
+      }
+  },
+
   created(){
+    this.getlist();
   }
   
 }
@@ -29,7 +39,8 @@ export default {
 }
 .app_subcomp_swipt .mint-swipe img {
   width: 100%;
-  height:420px;
+  height:100%;
+  
 }
 </style>
 

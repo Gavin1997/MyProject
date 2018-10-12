@@ -11,23 +11,21 @@
           </div>
           <!-- 搜素框 -->
           <div class="zw-home-header-search mr-5">
-            <input type="text" name="keyword" placeholder="请输入目的地/产品名称" class="my-form-control">
+            <input type="text" name="keyword" placeholder="请输入目的地/产品名称" class="my-form-control"  @keydown="search($event)" v-model="newkw">
             <div class="input-group-append h-75">
-              <button class="search_btn"></button>
+              <button class="search_btn" @click="click_search($event)"></button>
             </div>
           </div>
           <!-- 右边订单和收藏 -->
           <div class="zw-home-header-app d-flex ml-5 ">
             <div class="my_order">
               <img src="../../../assets/img/icon/20180910234323.png" alt="">
-             <p>我的订单</p>
+              <p>我的订单</p>
             </div>
             <div class="my_love">
               <img src="../../../assets/img/icon/20180910234252.png" alt="">
               <p>我的收藏</p>
             </div>
-            <!-- 下载按钮 -->
-             
           </div>
         </div>
       </div>
@@ -36,11 +34,39 @@
 </template>
 <script>
   export default {
+    inject:['reload'],
     data() {
-      return {}
+      return {
+         newkw:""  //d当前组件的newkw
+      }
+    },
+    props: ["kw"],
+    methods: {
+      //搜索事件 回车
+      search(e) {
+        if (e.keyCode == 13) {
+          console.log(this.newkw)
+          this.$router.push({
+            path: "/products/" + this.newkw.trim()
+          })
+          this.reload();
+        }
+        
+      },
+      //图标点击事件
+      click_search(e){
+        this.$router.push({
+            path: "/products/" + this.newkw.trim()
+          })
+          this.reload();
+      }
+    },
+    created() {
+
     },
 
   }
+
 </script>
 <style lang="scss" scoped>
   /*********穷游商城 第三个导航栏 ***********/
@@ -54,9 +80,8 @@
     }
 
     h1 {
-      color: #13AF7E;
+      color: #13af7e;
       font-weight: normal;
-
     }
   }
 
@@ -65,65 +90,68 @@
   }
 
   .input-group-append {
-    
-      position: absolute;
-      width: 56px;
-      height: 30px;
-      top: 0px;
-      left: 517px;
-      
-    
-
+    position: absolute;
+    width: 56px;
+    height: 30px;
+    top: 0px;
+    left: 517px;
   }
 
   // 输入框 搜索框
   .my-form-control {
     display: block;
-    height:20px !important;
-    width:500px;
+    height: 20px !important;
+    width: 500px;
     padding: 10px 8px;
     line-height: 1.5;
     background-color: #f6f6f6;
-    border-radius:3px;
-    border:1px solid #13af7e;
+    border-radius: 3px;
+    border: 1px solid #13af7e;
     font-size: 16px;
     // background:#F1F1F1 url("../img/icon/fangdajinghei.png") no-repeat 98% center;
     background-size: 20px 20px;
-
   }
-  .search_btn{
-      width:100%;
-      height:42px;
-      border:0;
-      outline: 0;
-      background: #13af7e url("../../../assets/img/icon/fangdabai.png") no-repeat center center;
-      background-size:16px;
-      &:hover{
-          cursor: pointer;
-      }
+
+  .search_btn {
+    width: 100%;
+    height: 42px;
+    border: 0;
+    outline: 0;
+    background: #13af7e url("../../../assets/img/icon/fangdabai.png") no-repeat center center;
+    background-size: 16px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   // 右侧下载APP
   .zw-home-header-app {
     position: relative;
-    .my_order , .my_love{
-        display: flex;
-        text-align: center;
-        justify-content: space-between;
-        margin: 12px 12px 12px 20px;
-        &:hover{
-            cursor: pointer;
-        }
+
+    .my_order,
+    .my_love {
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      margin: 12px 12px 12px 20px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
       img {
         width: 20px;
         height: 20px;
       }
-      p{
-          padding-left:5px;
-          color:#13af7e;
-          &:hover{
-               color:cadetblue;
-          }
+
+      p {
+        padding-left: 5px;
+        color: #13af7e;
+
+        &:hover {
+          color: cadetblue;
+        }
       }
     }
 
@@ -135,4 +163,5 @@
       text-decoration: none;
     }
   }
+
 </style>

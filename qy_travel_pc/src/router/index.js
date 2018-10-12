@@ -25,7 +25,7 @@ export default new Router({
       component:ProductDetails
     },
     {
-      path:'/products',
+      path:'/products/:kw',
       name:'HomeProducts',
       component:HomeProducts
     },
