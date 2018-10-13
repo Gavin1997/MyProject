@@ -20,7 +20,7 @@
                 <!-- <span :class="unameClass">请输入用户名不能为空</span> -->
               </div>
               <div>
-                <input type="text" placeholder="密码" class="my-form-control1 mt-3" v-model="upwd">
+                <input type="password" placeholder="密码" class="my-form-control1 mt-3" v-model="upwd">
                 <!-- <span :class="upwdClass">请输入密码不能为空</span> -->
               </div>
               <p class="login-forget mt-3 mb-2"><a href="#">忘记密码?</a></p>

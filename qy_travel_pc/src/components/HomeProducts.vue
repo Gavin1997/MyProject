@@ -9,9 +9,10 @@
     <section class="products_section container">
       <div id="app" class="container">
       <!-- 产品页也头部 -->
-      <products-top ></products-top>
+      <products-top :kw="kw"></products-top>
       <!-- 产品列表搜索 -->
-      <products-section :res="res" :pageCount="pageCount" @get="getMsg"></products-section>
+      <products-section :res="res" :pageCount="pageCount" @get="getMsg" :notfond="notfond"></products-section>
+      <!-- <products-recommend></products-recommend> -->
       </div>
     </section>
     </div>
@@ -31,6 +32,7 @@ import HomeFooter from "./subcompoents/HomeFooter/HomeFooter"
     return {
       res:{},
       pageCount:[],
+      notfond:"",
       kw:this.$route.params.kw,
     }
   },
@@ -39,12 +41,14 @@ import HomeFooter from "./subcompoents/HomeFooter/HomeFooter"
         this.$http.get(`products?kw=${this.kw}&pno=1`).then(res=>{
           this.res = res.data.data.products;
           this.pageCount=res.data.data.pageCount;
+          if(res.data.code==-1){
+            this.notfond="没有找到你输入的信息哦,请换一个关键词试试吧!!!"
+          }
         });
       },
   },
   created() {
     this.getMsg();
-    console.log(this.kw)
   },
     components:{
       HomeHeaderTop,
@@ -52,7 +56,8 @@ import HomeFooter from "./subcompoents/HomeFooter/HomeFooter"
       HeaderDetailsBottom,
       ProductsSection,
       ProductsTop,
-      HomeFooter
+      HomeFooter,
+   
     }
   }
 

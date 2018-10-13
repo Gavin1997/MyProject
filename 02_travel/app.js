@@ -30,7 +30,6 @@ app.use(session({
     resave:false,
     saveUninitialized:true
 }))
-axios.defaults.withCredentials=true;
 //挂载路由
 app.use("/index", index);
 app.use("/users", users);

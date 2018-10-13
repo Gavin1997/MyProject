@@ -2,25 +2,25 @@
   <div>
     <!-- 图片 -->
     <div class="leftslide">
-      <span>产品编号:{{res.product.product_number}}</span>
       <div class="lg_img">
-        <img :src="res.pics[0].md" alt="" style="width:100%;height:100%;">
+        <img :src="res.pics[`${i}`].md" alt="" style="width:100%;height:100%;">
+           <span>产品编号:{{res.product.product_number}}</span>
       </div>
       <!-- 小图列表 -->
       <div class="img_slide clearfix">
         <div class="d-inline-block float-left d-flex justify-content-between  ">
           <p class=" ">
-            <img src="../../../assets/img/product_detalis/hover-prev.png" alt="" class="pt-4 pl-1 disabled">
+            <img src="../../../assets/img/product_detalis/hover-prev.png" alt="" class="pt-4 pl-1 disabled" @click="prev()">
           </p>
           <div class="slidearea">
-            <ul class="list-unstyle sm_img_list d-flex">
-              <li class="ml-1 " v-for="(pic,i) in res.pics" :key="i">
-                <img :src="pic.sm">
+            <ul class="list-unstyle sm_img_list d-flex " :class="{move:changedActive==n}">
+              <li class="ml-1 " v-for="(pic,i) in res.pics" :key="i" >
+                <img :src="pic.sm" @mouseenter="changeImg(i)" >
               </li>
             </ul>
           </div>
           <p>
-            <img src="../../../assets/img/product_detalis/hover-next.png" alt="" class="pt-4 pl-1 ">
+            <img src="../../../assets/img/product_detalis/hover-next.png" alt="" class="pt-4 pl-1 " @click="next()">
           </p>
         </div>
       </div>
@@ -33,9 +33,34 @@
   import SectionDetailsCalendar from "./SectionDetailsCalendar.vue"
   export default {
     data() {
-      return{}
+      return{
+        i:0,
+        n:-1,
+        move:"",
+        changedActive:0
+      }
     },
-    props: ["res"],
+      props: ["res"],
+    methods:{
+      changeImg(i){
+        this.i=i;
+      },
+    next(){
+      this.n++;
+      this.changedActive++;
+    
+    },
+    prev(){
+
+    }
+    },
+    watch:{
+      changedActive(){
+           console.log(this.n,this.changedActive);
+           this.changedActive=this.n;
+      }
+    },
+  
     components:{
       SectionDetailsCalendar
     }
@@ -44,6 +69,10 @@
 </script>
 <style lang="scss" scoped>
   //  主要内容
+  .move{
+    margin-left:-80px;
+    transition: all 0.5s linear;
+  }
   .zw-product-main {
     background: $my-main-Color;
     width: 1160px;
@@ -59,16 +88,16 @@
   // 左边图片内容
   .leftslide {
     width: 512px;
-
-    span {
+    div.lg_img {
+      position:relative;
+       span {
       position: absolute;
-      left: 23rem;
+      top:0;
+      left:0;
       color: #fff;
       margin: 10px;
       font-size: 8px;
     }
-
-    div.lg_img {
       img {
         width: 512px;
         height: 330px;

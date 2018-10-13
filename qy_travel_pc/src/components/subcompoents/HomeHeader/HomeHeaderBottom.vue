@@ -18,7 +18,7 @@
           </datalist>
           <input type="text" name="keyword" placeholder="搜索国家、城市、产品" class="my-form-control" list="s_advice"  @keydown="search($event)" v-model="kw">
           <div class="input-group-append h-75">
-            <img class="btn p-0" src="../../../assets/img/icon/fangdajinghei.png">
+            <img class="btn p-0" src="../../../assets/img/icon/fangdajinghei.png" @click="click_search()">
           </div>
         </div>
         <!-- 右边下载 -->
@@ -47,9 +47,11 @@
     methods: {
       search(e){
         if(e.keyCode==13){
-          console.log(this.kw)
             this.$router.push({path:"/products/"+this.kw.trim()})
         }
+      },
+      click_search(){
+        this.$router.push({path:"/products/"+this.kw.trim()})
       }
     }
   };

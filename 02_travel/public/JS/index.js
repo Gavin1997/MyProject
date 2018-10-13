@@ -48,7 +48,6 @@ new Vue({
 
     },
     mounted() {
-
         setInterval(() => {
             this.nowindex++
             if (this.nowindex === this.imgArray.length) {
@@ -57,7 +56,6 @@ new Vue({
                 this.nowindex + 1
             }
         }, 2000)
-
     },
     created() {
         this.getlist(),
@@ -71,13 +69,13 @@ new Vue({
          
     },
     computed: {
-        nextindex() {
-            if (this.nowindex === this.imgArray.length - 1) {
-                return 0
-            } else {
-                return this.nowindex + 1
-            }
-        }
+        // nextindex() {
+        //     if (this.nowindex === this.imgArray.length - 1) {
+        //         return 0
+        //     } else {
+        //         return this.nowindex + 1
+        //     }
+        // }
     }
 
 })

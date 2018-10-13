@@ -42,7 +42,6 @@ new Vue({
             })
         },
         next() {
-            console.log();
             if (this.pno < this.pageCount - 1) {
                 this.pno++;
                 this.n++;

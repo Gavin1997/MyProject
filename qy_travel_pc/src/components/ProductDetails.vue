@@ -8,6 +8,8 @@
     <section-Details class="mt-3"></section-Details>
     <!-- 尾部 -->
     <home-footer></home-footer>
+    <!-- 返回goback -->
+    <sidebar></sidebar>
   </div>
 </template>
 <script>
@@ -16,7 +18,8 @@
   import HomeHeaderMiddel from "./subcompoents/HomeHeader/HomeHeaderMiddle"
   import HomeFooter from "./subcompoents//HomeFooter/HomeFooter"
   import HeaderDetailsBottom from "./subcompoents/ProductDetails/HeaderDetailsBottom"
-  import SectionDetails from "./subcompoents/ProductDetails/SectionDetails.vue"
+  import SectionDetails from "./subcompoents/ProductDetails/SectionDetails"
+  import Sidebar from "./subcompoents/more/sidebar.vue"
 
   export default {
     data() {
@@ -32,7 +35,8 @@
       HomeHeaderMiddel,
       HomeFooter,
       HeaderDetailsBottom,
-      SectionDetails
+      SectionDetails,
+      Sidebar
     }
   }
 </script>

@@ -109,15 +109,12 @@
           this.res = res.data;
           this.lg_pic = res.data.product.lg_pic;
           this.departure = res.data.product.departure;
-          console.log(this.res);
-
         })
       },
       changeDetails(tid, i) {
         this.$router.push("/product_details/" + tid);
         this.$http.get("details?tid=" + tid).then(res => {
           this.res = res.data;
-          console.log(this.res)
         });
         this.changedActive = i;
       },

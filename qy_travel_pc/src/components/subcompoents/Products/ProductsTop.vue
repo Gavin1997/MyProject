@@ -49,7 +49,7 @@
         <ul class="clearfix list-unstyle">
           <li class="float-left ml-4">您已选择&gt;</li>
           <!-- <li class="float-left "> &nbsp; "{{decodeURI(this.kw)}}"</li> -->
-          <li class="float-left "> &nbsp; 先说这个</li>
+          <li class="float-left "> &nbsp; {{kw}}</li>
         </ul>
       </div>
       <div class="stwrap mt-4">

@@ -18,7 +18,6 @@ export default {
     getlist(){
           this.$http.get("index/list").then(result=>{
               this.imgArry=result.data;
-              console.log(this.imgArry)
           })
       }
   },
@@ -32,7 +31,7 @@ export default {
 <style lang="scss" scoped>
 
 .app_subcomp_swipt .mint-swipe {
-  height: 420px;
+  height: 26.25rem;
 }
 .app_subcomp_swipt .mint-swipe .mint-swipe.item{
   text-align: center;

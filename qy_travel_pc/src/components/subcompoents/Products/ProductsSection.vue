@@ -2,36 +2,39 @@
   <div>
     <!-- 产品列表 -->
     <div>
+      <h1 style="color:sliver">{{notfond}}</h1>
       <div class="zw-module-productlist mt-4">
         <!-- 左边详情主要列表 -->
         <div class="zw-new-bigcard-wrap">
-          <!-- 产品1 -->
-          <div class="zw-new-bigcard-item clearfix mt-3" v-for="(item,i) in res">
-            <a href="" class="float-left" @click.prevent="getdetails(item.tid)"> <img class="img-fluid" :src="item.md"></a>
-            <div class="zw-new-bigcard-item-section">
-              <div class="zw-new-bigcard-item-tag float-left">
-                <h4><a href="#">{{item.title}}</a></h4>
-              </div>
-              <div class="zw-new-bigcard-item-middle mt-2">
-                <ul>
-                  <li>秒杀</li>
-                </ul>
-              </div>
-              <div class="zw-new-bigcard-item-bottom ml-1 ">
-                <div class="zw-new-bigcard-item-price">
-                  <div class="item-price">
-                    <span>¥</span>
-                    <span style="color:#999"><b style="color:#ff7363; font-size:25px;">{{item.price}}</b> 起</span>
-                    <span class="line">{{item.price}}元</span>
-                  </div>
+          <!-- 产品区域 -->
+          <div>
+            <div class="zw-new-bigcard-item clearfix mt-3" v-for="(item,i) in res">
+              <a href="" class="float-left" @click.prevent="getdetails(item.tid)"> <img class="img-fluid" :src="item.md"></a>
+              <div class="zw-new-bigcard-item-section">
+                <div class="zw-new-bigcard-item-tag float-left">
+                  <h4><a href="#">{{item.title}}</a></h4>
                 </div>
-                <div class="zw-new-bigcard-item-booking">
-                  <div class="sold_out">
-                    <span>{{item.sold_count}}</span>
-                    <span>件已售</span>
+                <div class="zw-new-bigcard-item-middle mt-2">
+                  <ul>
+                    <li>秒杀</li>
+                  </ul>
+                </div>
+                <div class="zw-new-bigcard-item-bottom ml-1 ">
+                  <div class="zw-new-bigcard-item-price">
+                    <div class="item-price">
+                      <span>¥</span>
+                      <span style="color:#999"><b style="color:#ff7363; font-size:25px;">{{item.price}}</b> 起</span>
+                      <span class="line">{{item.price}}元</span>
+                    </div>
                   </div>
-                  <div class="item-booking_btn">
-                    <p>立即预定</p>
+                  <div class="zw-new-bigcard-item-booking">
+                    <div class="sold_out">
+                      <span>{{item.sold_count}}</span>
+                      <span>件已售</span>
+                    </div>
+                    <div class="item-booking_btn">
+                      <p>立即预定</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -39,6 +42,7 @@
           </div>
           <!-- 右边本周热卖 -->
           <div class="zw-new-bigcard-aside">
+            <products-recommend></products-recommend>
           </div>
         </div>
       </div>
@@ -46,45 +50,117 @@
     <!-- 分页内容 -->
     <div class="btn_area">
       <span @click="prev()" :class="disabled_info_prev">上一页</span>
-      <span v-for="(item,i) in pageCount" :class="`${pno=i+1? 'btn_area_active':''}`" @click.prevent="nowNum(i)">{{i+1}}</span>
+      <span v-for="(item,i) in pageCount" :class="{btn_area_active:changedActive==i}" @click.prevent="nowNum(i)">{{i+1}}</span>
       <span @click="next()" :class="disabled_info_next">下一页</span>
     </div>
-
+    <!-- 定位返回顶部 -->
+        <sidebar></sidebar>
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {  
-      pno: 0,
-      kw: decodeURI(location.search.split("=")[1]),
-      n: 0,
-      disabled_info_prev: "disabled",
-      disabled_info_next: "btn_area_active",
-      disabled_info_num: "",
-      changeActive: false
-    };
-  },
-   props: ["res","pageCount"],
-  methods: {
-     getDetails(tid){
-       console.log(tid)
-      //  this.$router.push({path:`/product_details/${tid}`})
-     }
-  },
-  created() {
-       this.$emit("get");
-  },
-  mounted() {
-    
-  },
-};
+//推荐商品 悬浮
+import ProductsRecommend from "../Products/ProductsRecommend"
+// 返回顶部
+import Sidebar from "../more/sidebar"
+  export default {
+    inject: ['reload'],
+    data() {
+      return {
+        pno: 0,
+        // kw: decodeURI(location.search.split("=")[1]),
+        kw: this.$route.params.kw,
+        n: 0,
+        i:0,
+        disabled_info_prev: "disabled",
+        disabled_info_next: "btn_area_active",
+        disabled_info_num: "",
+        changedActive: 0,
+        res:"",
+        pageCount:"",
+      };
+    },
+    props: ["notfond"],
+    methods: {
+      getdetails(tid) {
+        this.$router.push({
+          path: `/product_details/${tid}`
+        })
+      },
+      getmore() {
+        this.$http.get(`products?kw=${this.kw}&pno=${this.pno}`).then(res => {
+          this.res = res.data.data.products;
+          this.pageCount = res.data.data.pageCount;
+        });
+      },
+      next() {
+        if (this.pno < this.pageCount - 1) {
+          this.pno++;
+          this.n++;
+          this.disabled_info_next = "btn_area_active";
+          this.disabled_info_prev = "btn_area_active";
+          this.getmore();
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        } else {
+          this.disabled_info_next = "disabled"
+        }
+      },
+      prev() {
+        if (this.disabled_info_prev != "disabled") {
+          if (this.pno < this.pageCount && this.pno > 0) {
+            this.pno--;
+            this.n--;
+            this.getmore();
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            this.disabled_info_next = "btn_area_active";
+            this.disabled_info_prev = "btn_area_active";
+          } else {
+            this.disabled_info_prev = "disabled";
+          }
+        }
+      },
+      nowNum(i) {
+          this.i= i;
+          this.pno = i;
+          this.changedActive = i;
+          this.getmore();
+          this.disabled_info_prev = "btn_area_active";
+          this.disabled_info_next = "btn_area_active";
+      },
+    },
+    watch:{
+      pno(){
+        if(this.pno == this.n ){
+          this.changedActive = this.n;
+        }else if(this.pno==this.i){
+           this.changedActive = this.i;
+        }
+        else{
+          this.changedActive = "";
+        }
+      }
+    },  
+    created() {
+      // this.$emit("get");
+      this.getmore();
+    },
+    mounted() {
+    },
+    components:{
+       ProductsRecommend,
+       Sidebar
+    }
+  };
+
 </script>
 <style lang="scss" scoped>
+.zw-module-productlist {
+  position: relative;
+}
 .zw-new-bigcard-wrap {
   width: 880px;
 }
-
 .zw-new-bigcard-item {
   background: #fff;
   position: relative;
@@ -112,6 +188,7 @@ export default {
 
   .zw-new-bigcard-item-tag {
     text-align: left;
+
     a {
       color: #323232;
       font-weight: 500;
@@ -218,10 +295,15 @@ export default {
     }
   }
 }
-
 .btn_area_active {
   background: #12af7e;
   color: #fff;
   padding: 2px;
+}
+// 右边本周日本
+.zw-new-bigcard-aside{
+   position:absolute;
+   top:0;
+   left:57rem;
 }
 </style>

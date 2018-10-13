@@ -76,12 +76,10 @@ router.post("/signin", (req, res) => {
     var sql = "select *from qy_user where uname=? and upwd=?";
     pool.query(sql, [uname, upwd], (err, result) => {
         if (err) console.log(err);
-        // res.writeHead(200, {
-        //     "Content-Type": "application/json;charset=utf-8",
-        //     "Access-Control-Allow-Origin": "*"
-        // });
-        // console.log(result);
+       
+        console.log(result);
         if (result.length > 0) {
+            req.session.uid=result[0].uid;//获取session
                 res.write(JSON.stringify({
                     ok: 1,
                     msg: `登录成功,将跳转到主页.....`
