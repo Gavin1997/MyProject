@@ -1,0 +1,54 @@
+/* 1网页背景色 */
+page{
+  background-color: #f1f1f1;
+}
+/* 2 卡片区域块中的布局 */
+.card{
+  background: #fff;
+  border:1px solid #ddd;
+  border-radius:10rpx;
+  margin:60rpx 20rpx;
+  padding:30rpx;
+  display: flex;
+  flex-direction: column;
+}
+/* 3.标题 */
+.card-title{
+  font-size:18px; 
+  margin-bottom:20rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+/* 4:日期 下划线 */
+.card-date{
+  font-size:14px;
+  color:#666;
+  border-bottom:1rpx solid #ccc;
+  padding-bottom:20rpx;
+  margin-bottom:20rpx;
+}
+/* 5.图片 */
+.card-img{
+  width:100%;
+  height:300rpx;
+}
+.card-bottom{
+  width:100%;
+}
+/* 6.详情 */
+.card-desc{
+  font-size:17px;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+}
+/* 7.查看详情 */
+.card-bread{
+  font-size:14px;
+  color:#666;
+  border-top:1px solid  #ccc;
+  padding-top:20rpx;
+}
+
