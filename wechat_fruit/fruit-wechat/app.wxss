@@ -1,0 +1,63 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+/* 2.灰色的空白区域 */
+.divider{
+  height:20rpx;
+  background: #f1f1f1;
+  box-shadow: 0 5rpx 5rpx  rgba(0,0,0,.1) inset;  /*h v blur speard color inset*/
+}
+/*3. 通用箭头大于 */
+.arrow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arrow::after{
+  content:"";
+  border-top:4rpx solid #ccc;
+  border-right:4rpx solid #ccc;
+  transform: rotate(45deg);
+  width:16rpx;
+  height:16rpx;
+}
+/*4. 商品打分 */
+.shop-start{
+  position: relative;
+}
+.shop-start .star-before{
+   color:#ff9900;
+   position: absolute;
+   top:0;
+   left:0;
+   width:75%;    /*商品打分*/
+   overflow: hidden;
+}
+.shop-start .star-after{
+   color:#e2e2e2;
+}
+
+/* 5.字体样式 */
+.text-ellipse{
+  overflow: hidden;   /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+}
+/* 6.每列分割线 */
+.cell{
+  background-color:#fff;
+  font-size: 16px;
+}
+.cell-item{
+  border-bottom: 1rpx solid #ddd;
+  padding:20rpx 30rpx;
+}
