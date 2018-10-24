@@ -1,7 +1,9 @@
 {
   "pages": [
+    "pages/category/category",
     "pages/logs/logs",
     "pages/index/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +25,7 @@
         "selectedIconPath": "/assets/tabbar/tabbar_color01.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/category/category",
         "text": "分类",
         "iconPath": "/assets/tabbar/tabbar_gray02.png",
         "selectedIconPath": "/assets/tabbar/tabbar_color02.png"

@@ -6,6 +6,7 @@ import HomeProducts from '@/components/HomeProducts'
 import UserLogin from '@/components/UserLogin'
 import UserRegister from '@/components/UserRegister'
 import MyCollection from '@/components/MyCollection'
+import UserInformation from '@/components/UserInformation'
 
 Vue.use(Router)
 
@@ -49,6 +50,12 @@ export default new Router({
       path:'/my_collection',
       name:'MyCollection',
       component:MyCollection
+    },
+    // 用户信息表
+    {
+      path:"/user_information",
+      name:"UserInformation",
+      component:UserInformation
     }
   ],
   // mode:'history',

@@ -1,0 +1,9 @@
+<!-- 这是自定义组件的内部WXML结构 -->
+<!-- <view class="inner">
+  {{innerText}}
+</view>
+<slot></slot> -->
+<view class="slide-bar">
+  <image lazy-load="{{true}}" mode="aspectFill" src="../../../assets/nav_icons/lianxi.png"></image>
+  <image lazy-load="{{true}}" mode="aspectFill" src="../../../assets/nav_icons/shopcart.png"></image>
+</view>

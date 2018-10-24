@@ -8,7 +8,7 @@
   </view>
 <!--图片轮播  组件-->
 <view class="slider">
-  <swiper autoplay interval="3500" indicator-dots="{{true}}" indicator-active-color='{{afterColor}}'>
+  <swiper autoplay interval="3000" indicator-dots="{{true}}" indicator-active-color='{{afterColor}}'>
     <swiper-item>
       <image src="../../assets/carousel/carousel01.png" mode="aspectFill" lazy-load="{{true}} " width="375" height="150" />
     </swiper-item>
@@ -67,7 +67,7 @@
         </view>
       </view>
     </navigator>
-  </scroll-view>
+</scroll-view>
   <!-- 分割框 -->
   <view class="divider">
   </view>
@@ -80,8 +80,7 @@
        <view class="greatsale-text-triangle" ></view>
     </view>
   </view>
-
-  <!-- 商品展示1 -->
+  <!-- 秒杀商品展示1 -->
   <view class="zw-home-product">
     <view class="product-image">
       <image src="../../assets/product/jiezhi.jpg" lazy-load="{{true}}" mode="aspectFill"/>
@@ -98,9 +97,9 @@
         <view class="product-sale-msg">
           <view class="count-down">
             <text>距结束</text>
-            <text class="count-down-active">12小时</text>:
-            <text class="count-down-active">06分</text>:
-            <text class="count-down-active">52分</text>
+            <text class="count-down-active">{{hours}}时</text>:
+            <text class="count-down-active">{{mintues}}分</text>:
+            <text class="count-down-active">{{s}}秒</text>
           </view>
           <view class="product-saled">
             <text>已售12%</text>
@@ -130,9 +129,9 @@
         <view class="product-sale-msg">
           <view class="count-down">
             <text>距结束</text>
-            <text class="count-down-active">12小时</text>:
-            <text class="count-down-active">06分</text>:
-            <text class="count-down-active">52分</text>
+            <text class="count-down-active">{{hours}}小时</text>:
+            <text class="count-down-active">{{mintues}}分</text>:
+            <text class="count-down-active">{{s}}秒</text>
           </view>
           <view class="product-saled">
             <text>已售12%</text>
@@ -152,7 +151,7 @@
     </view>
     <view class="product-detail">
       <view class="prodcut-title">
-        <text>新西兰绿奇异果 36#果 6个装】味道甘甜,维生素C含量高</text>
+        <text class="text-ellipse">新西兰绿奇异果 36#果 6个装】味道甘甜,维生素C含量高</text>
       </view>
       <view class="product-info">
         <view class="product-price">
@@ -162,9 +161,9 @@
         <view class="product-sale-msg">
           <view class="count-down">
             <text>距结束</text>
-            <text class="count-down-active">12小时</text>:
-            <text class="count-down-active">06分</text>:
-            <text class="count-down-active">52分</text>
+            <text class="count-down-active">{{hours}}小时</text>:
+            <text class="count-down-active">{{mintues}}分</text>:
+            <text class="count-down-active">{{s}}秒</text>
           </view>
           <view class="product-saled">
             <text>已售6%</text>
@@ -177,4 +176,170 @@
       </view>
     </view>
     </view>
+
+ 
+ <!-- 精选 -->
+  <view class="zw-home-greatsale">
+    <view class="greatsale-image">
+       <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/index/cherry.png" />
+       <text class="greatsale-text">精选</text>
+       <view class="greatsale-text-triangle" ></view>
+    </view>
+  </view>
+
+  <!-- 精选商品展示 -->
+  <view class="zw-home-choiceness-warp">
+    <view class="product-choicenss">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/shiliu.jpg"></image>
+      <text class="text-ellipse">石榴 6个 甜蜜蜜,红心</text>
+     <view class="product-num">
+         <text class="saleprice">¥49.90</text>
+         <view class="btn_add">+</view>
+      </view>
+    </view>
+        <view class="product-choicenss">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/niuyopguo.jpg"></image>
+      <text class="text-ellipse">墨西哥进口牛油果</text>
+      <view class="product-num">
+         <text class="saleprice">¥36.90</text>
+         <view class="btn_add">+</view>
+      </view>
+    </view>
+        <view class="product-choicenss">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/putao.jpg"></image>
+      <text class="text-ellipse">顺丰包邮 陕西户木紫葡萄</text>
+     <view class="product-num">
+         <text class="saleprice">¥112.00</text>
+         <view class="btn_add">+</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新品 -->
+   <view class="zw-home-greatsale">
+    <view class="greatsale-image">
+       <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/index/shanzu.png" />
+       <text class="greatsale-text">精选</text>
+       <view class="greatsale-text-triangle" ></view>
+    </view>
+  </view>
+  <!-- 新品商品展示 -->
+  <view class="zw-home-choiceness-warp">
+    <view class="product-choicenss">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/shiliu.jpg"></image>
+      <text class="text-ellipse">石榴 6个 甜蜜蜜,红心</text>
+     <view class="product-num">
+         <text class="saleprice">¥49.90</text>
+         <view class="btn_add">+</view>
+      </view>
+    </view>
+        <view class="product-choicenss">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/niuyopguo.jpg"></image>
+      <text class="text-ellipse">墨西哥进口牛油果</text>
+      <view class="product-num">
+         <text class="saleprice">¥36.90</text>
+         <view class="btn_add">+</view>
+      </view>
+    </view>
+        <view class="product-choicenss">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/putao.jpg"></image>
+      <text class="text-ellipse">顺丰包邮 陕西户木紫葡萄</text>
+     <view class="product-num">
+         <text class="saleprice">¥112.00</text>
+         <view class="btn_add">+</view>
+      </view>
+    </view>
+  </view>
+  <!-- 小图轮播区域 -->
+  <view class="divider" style="margin-top:30rpx;"></view>
+  <view class="sub_slider">
+    <swiper autoplay interval="3000" indicator-dots="{{true}}" indicator-active-color="{{afterColor}}">
+      <swiper-item style="height:200rpx">
+        <image class="" src="../../assets/carousel/carousel04.png" mode="aspectFill" lazy-load="true"/>
+      </swiper-item>
+        <swiper-item>
+        <image class="" src="../../assets/carousel/carousel05.png" mode="aspectFill" lazy-load="true"/>
+      </swiper-item>
+    </swiper>
+  </view>  
+  <view class="divider"></view>
+
+  <!-- 每日推荐 -->
+  <view class="zw-home-todaysale">
+    <text class="todaysale-eng">Daily Recommand</text>
+    <image src="../../assets/index/leave.png"  lazy-load="{{true}}"/> 
+    <text class="todaysale-title">每日推荐</text>
+  </view>
+
+  <!-- 每日推荐产品区域 -->
+  <!-- 产品1 -->
+  <view class="todaysale-product">
+    <view class="todaysale-image">
+     <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/aiqiguo.jpg"/>
+    </view>
+    <view class="todaysale-product-info">
+      <view class="todaysale-detail">
+        <text class="text-ellipse">爱奇果 进口泰国山竹1.5Kg装,新鲜唯美,一口一个,好营养</text>
+      <view class="product-num2">
+         <text class="saleprice">¥49.90</text>
+         <view class="btn_add_white">+</view>
+      </view>
+        </view>
+    </view>
+  </view>
+  <!-- 产品2 -->
+  <view class="todaysale-product">
+    <view class="todaysale-image">
+     <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/shiliu.jpg"/>
+    </view>
+    <view class="todaysale-product-info">
+      <view class="todaysale-detail">
+        <text class="text-ellipse">石榴 6个 甜甜的,初恋的味道</text>
+      <view class="product-num2">
+         <text class="saleprice">¥69.90</text>
+         <view class="btn_add_white">+</view>
+      </view>
+        </view>
+    </view>
+  </view>
+  <!-- 产品3 -->
+    <view class="todaysale-product">
+    <view class="todaysale-image">
+     <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/niuyopguo.jpg"/>
+    </view>
+    <view class="todaysale-product-info">
+      <view class="todaysale-detail">
+        <text class="text-ellipse">墨西哥进口牛油果 6个 香到没朋友</text>
+      <view class="product-num2">
+         <text class="saleprice">¥36.90</text>
+         <view class="btn_add_white">+</view>
+      </view>
+        </view>
+    </view>
+  </view>
+  <!-- 产品4-->
+    <view class="todaysale-product">
+    <view class="todaysale-image">
+     <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/putao.jpg"/>
+    </view>
+    <view class="todaysale-product-info">
+      <view class="todaysale-detail">
+        <text class="text-ellipse">顺丰空运 陕西户木紫葡萄 新品</text>
+      <view class="product-num2">
+         <text class="saleprice">¥1190.00</text>
+         <view class="btn_add_white">+</view>
+      </view>
+        </view>
+    </view>
+  </view>
+
+  <view>
+  <!-- 以下是对一个自定义组件的引用 -->
+  <!-- 联系和购物车 -->
+  <my-slider></my-slider>
+</view>
+ 
+ 
+    
+
     

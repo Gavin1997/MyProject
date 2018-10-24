@@ -15,7 +15,7 @@ Page({
     marquee_margin:30,//文字距离图片的右边距
     marqueeDistance:0,//向左移动的距离
     marqueePace:1,
-    timer:20//定时器的间隔秒数
+    timer:20,//定时器的间隔秒数
   },
 
   /**
@@ -29,9 +29,12 @@ Page({
       length,
       windowWidth:10
     }),
+    //1.调用滚动字体函数
     that.scrollTxt();
+    //2.调用倒计时函数
+    var date_interval = setInterval(that.countDwon,1000);
   },
-  //滚动字体函数
+  //1.滚动字体函数
   scrollTxt:function(){
     var that = this;
     var length = that.data.length;//字体的长度
@@ -58,6 +61,31 @@ Page({
         //换行显示
         that.setData({marquee_margin:"1000"})
       }
+  },
+  //2.倒计时函数
+  countDwon:function(end){
+    var now = new Date();
+    var end = new Date("2018/11/11 18:00:00");
+    var s = parseInt((end-now)/1000);//时间差的秒数
+    if(s>0){
+      var day = parseInt(s/3600/24);//剩余天数
+      if(day<10) d = "0"+d;
+      var hours = parseInt(s%(3600*24)/3600);
+      if(hours<10) hours="0"+hours;
+      var mintues = parseInt(s%3600/60);
+      if(mintues<10) mintues= "0"+mintues;
+      s = s%60;
+      if(s<10) s="0"+s;
+      this.setData({
+        day,
+        hours,
+        mintues,
+        s
+      })
+    }else{
+      clearInterval(date_interval);
+      date_interval = null;
+    }
   },
           
           
