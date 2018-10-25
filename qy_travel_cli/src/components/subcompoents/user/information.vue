@@ -35,17 +35,33 @@
     <div class="user-detail">
       <div class="user-set-nav">
         <ul class="list-unstyle">
-          <li class="active">
-            <img src="../../../assets/img/icon/user.png" alt="">
-            <span>个人资料</span>
-          </li>
-          <li>
-            <img src="../../../assets/img/icon/avatar_icon.png">
-            <span>修改头像</span>
+          <li :class="{active:isself==i}" v-for="(item,i) in self" @click="changeTab(i)">
+            <img :src="item.pic" alt="">
+        
+            <span>{{item.title}}</span>
           </li>
         </ul>
       </div>
-      <div class="user-detail-show">
+        <!-- 修改头像 -->
+       <div class="user-detail-show"  v-if="isself">
+        <div class="user-show-title">
+         
+          <h3>修改头像</h3>
+        </div>
+        <div class="user-info-deatils">
+            <ul class="list-unstyle">
+               <li class="info-img"></li>
+               <li class="chose-img"> 
+                  <!-- <form methods="POST" action="/uploads" enctype="multipart/from-data"  @submit.prevent="submit"> -->
+                     <input type="file" name="avatar-pic" class="">
+                     <button type="button" value="确定">确定</button>
+                 <span>支持jpg、png、jpeg、bmp，图片大小1M以内</span>
+               </li>
+            </ul>
+        </div>
+      </div>
+      <!-- 个人资料 -->
+      <div class="user-detail-show" v-else>
         <div class="user-show-title">
           <h3>个人资料</h3>
           <button>编辑资料</button>
@@ -63,6 +79,7 @@
             </ul>
         </div>
       </div>
+     
     </div>
   </div>
 </template>
@@ -70,14 +87,33 @@
   export default {
     data() {
       return {
+        self:[
+          {
+           title:"个人资料",
+           pic:require("../../../assets/img/icon/user.png")
+          },
+          {
+            title:"修改头像",
+            pic:require("../../../assets/img/icon/avatar_icon.png")
+          }
+        ],
         isman: true,
+        isself:0,//是否是个人资料状态
       }
     },
-    methods: {},
+    methods: {
+      //跟换导航栏
+      changeTab(i){
+        this.isself = i;
+      }
+    },
   }
 
 </script>
 <style lang="scss" scoped>
+a{
+  cursor: pointer;
+}
   .user-info-warp {
     width: 978px;
     height: 110px;
@@ -239,12 +275,38 @@
     display: flex;
     justify-content: space-between;
   }
+  .info-img{
+    width:100px;
+    height:100px;
+    overflow: hidden;
+    border:1px solid #ddd;
+    border-radius: 50%;
+    background: #F8F8F8 url("../../../assets/img/register/200.jpg") no-repeat center center;
+    background-size:contain; 
+  }
+  .chose-img{
+      button{
+        background: #3f9f5f;
+        color:#fff;
+        border:0;
+        padding:8px 13px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover{
+           opacity: .7;
+        }
+      }
+      span{
+        font-size:13px;
+        color:#000;
+      }
+   
+  }
 
   .user-set-nav {
     // width: 208px;
     // height: 102px;
     text-align: left;
-
     ul {
       li {
         width: 230px;
@@ -266,12 +328,12 @@
           color: #636363;
           position: relative;
           top: -3px;
+          cursor: pointer;
         }
-
       }
-
       .active {
         background: #72AF8B;
+        cursor: pointer;
 
         span {
           color: #fff !important;
@@ -300,6 +362,7 @@
           border:0;
           color:#fff;
           padding:0.5rem 0.4rem;
+          cursor: pointer;
       }
   }
 .user-info-deatils{

@@ -20,11 +20,11 @@
                 <!-- <span :class="unameClass">请输入用户名不能为空</span> -->
               </div>
               <div>
-                <input type="password" placeholder="密码" class="my-form-control1 mt-3" v-model="upwd">
+                <input type="password" placeholder="密码" class="my-form-control1 mt-3" v-model="upwd" @keydown="login($event)">
                 <!-- <span :class="upwdClass">请输入密码不能为空</span> -->
               </div>
               <p class="login-forget mt-3 mb-2"><a href="#">忘记密码?</a></p>
-              <button type="button" value="登录" class="btn-green" @click="login()">登录</button>
+              <button type="button" value="登录" class="btn-green" @click="login($event)">登录</button>
               <p :class="login_active" class="mt-2" style="width:80%;" v-text="res.msg"></p>
             </form>
             <div class="login-auth d-flex justify-content-around mt-3">
@@ -52,7 +52,7 @@ import Qs from "qs"
       }
     },
     methods: {
-      login() {
+      login(e) {
       this.$http.post("users/signin",
           Qs.stringify({
             uname: this.uname,
@@ -68,6 +68,9 @@ import Qs from "qs"
                 this.$router.push({path:`${this.$route.query.redirect}`})
               }else{
                 setTimeout(()=>{
+                  if(e.Keycode==13){
+                    this.$router.push({path:"/home"})
+                  }
                  this.$router.push({path:"/home"})
                  },2000)
               }

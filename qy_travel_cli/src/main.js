@@ -5,9 +5,17 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import Qs from 'qs'
-//引入mint-ui
-import 'mint-ui/lib/style.css'
-import {Swipe,SwipeItem} from "mint-ui"
+
+//引入 element-ui  按需求
+import 'element-ui/lib/theme-chalk/index.css'
+import {Button,carousel,CarouselItem} from 'element-ui'
+// Vue.component(Button.name,Button);
+//项目中所有拥有 size 属性的组件的默认尺寸均为 'small'，弹框的初始 z-index 为 3000。
+Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
+Vue.use(Button)
+Vue.use(carousel)
+Vue.use(CarouselItem)
+
 //引入基础样式css文件
 import base from './assets/css/base.css'
 //引入公共js
@@ -23,11 +31,6 @@ axios.defaults.withCredentials = true;
 // axios.defaults.headers = {
 //   "Content-Type": 'application/x-www-from-urlencoded'
 // }
-// 使用mint-ui 轮播组件
-Vue.component(Swipe.name,Swipe);
-Vue.component(SwipeItem.name,SwipeItem);
-
-
 // Vue.config.productionTip = false
 //自定义指令 获取焦点
 Vue.directive("focus",{

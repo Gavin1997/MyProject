@@ -98,7 +98,10 @@
               <li class="my_fontColor">|</li>
               <li class="dropdown my_collection">
                 <a>Welcome</a> <span id="uanme" style="color:#fff;" v-text="uname"></span>
-                  <p @click="gocollection()">我的订单</p>
+                  <ul>
+                    <li> <p @click="goUserInfo()">个人中心</p></li>
+                    <li> <p @click="gocollection()">我的收藏</p></li>
+                  </ul>
                 </li>
               <li><a id="btnSignout" @click="signout()">注销</a></li>
             </ul>
@@ -127,6 +130,9 @@
         },
         gocollection(){
           this.$router.push({path:"/my_collection"})
+        },
+        goUserInfo(){
+          this.$router.push({path:"/user_information"})
         }
     },
     created(){
@@ -360,21 +366,22 @@ a{
     }
     .my_collection {
       position:relative;
-      p{
-        color:#666;
+      ul{
+        li{ color:#666;
         margin-left:60px;
-        display: none;
-        cursor: pointer;
-        position:absolute;
-         background: #ffffff;
+         cursor: pointer;
+          background: #ffffff;
          padding:0.4rem 0.8rem;
-         top:1.5rem;
-        &:hover{
+          &:hover {
           color:#3DC681;
-      
         }
+         }
+        display: none;
+        position:absolute;
+         top:1.5rem;
+       
       }
-      &:hover p{
+      &:hover ul{
           display: block;
       }
     }
