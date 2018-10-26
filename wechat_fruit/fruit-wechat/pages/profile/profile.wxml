@@ -1,0 +1,67 @@
+<view class="user-info-top">
+  <image  lazy-load="{{true}}"   mode="aspectFill" src="../../assets/profile/bg.png" class="bg-image"/>
+  <view class="user-info-avatar">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/portrait.jpg" class="avatar-image"/>
+    <text class="info-name">龚哥脉动你的身体</text>
+  </view>
+</view>
+<!-- 灰色区域 -->
+<view class="divider"></view>
+<!-- 个人导航栏 -->
+<view class="user-nav">
+  <view class="nav-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/pay.png"/>
+    <text>待付款</text>
+  </view>
+  <view class="nav-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/Shipping.png"/>
+    <text>待发货</text>
+  </view>
+  <view class="nav-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/havest.png"/>
+    <text>待收货</text>
+  </view>
+  <view class="nav-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/comment.png"/>
+    <text>待评价</text>
+  </view>
+</view>
+<!-- 灰色区域 -->
+<view class="divider"></view>
+<!-- 条形导航 -->
+<view class="cell ">
+  <view class="cell-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/shopcar.png"/>
+    <text>购物车</text>
+  </view>
+</view>
+<view class="cell ">
+  <view class="cell-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/vip.png"/>
+    <text>会员卡</text>
+  </view>
+</view>
+<view class="cell ">
+  <view class="cell-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/discount.png"/>
+    <text>优惠券</text>
+  </view>
+</view>
+<view class="cell ">
+  <view class="cell-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/score.png"/>
+    <text>积分</text>
+  </view>
+</view>
+<view class="cell ">
+  <view class="cell-item">
+    <image lazy-load="{{true}}" mode="aspectFit" src="../../assets/profile/ours.png"/>
+    <text>我的拼团</text>
+  </view>
+</view>
+<view class="cell ">
+  <view class="cell-item">
+    <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/profile/inform.png"/>
+    <text>系统通知</text>
+  </view>
+</view>

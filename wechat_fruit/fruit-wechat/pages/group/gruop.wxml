@@ -1,0 +1,108 @@
+<!-- 产品1 -->
+<view class="product-gruop-warp">
+  <view class="gruop-image">
+    <image class="" src="../../assets/pingtuan/liulan.png" mode="aspectFill" lazy-load="{{true}}">
+    </image>
+        <text class="gruop-bygroup">三人团</text>
+  </view> 
+  <view class="group-info">
+    <view class="group-info-title">
+      <text clsas="text-ellipse2">泰国进口 金枕头榴莲 泰国进口 金枕头榴莲 2.5-3kg 1个装</text>
+    </view>
+    <view class="group-info-num">
+      <view class="product-price">
+        <text class="product-newprice">¥99.90</text>
+        <text class="product-oldprice">¥149.90</text>
+      </view>
+       <text class="info-start">去拼团</text>
+       
+    </view>
+  </view> 
+</view>
+<!-- 产品2 -->
+<view class="product-gruop-warp">
+  <view class="gruop-image">
+    <image class="" src="../../assets/pingtuan/mihoutao.png" mode="aspectFill" lazy-load="{{true}}">
+    </image>
+        <text class="gruop-bygroup">三人团</text>
+  </view> 
+  <view class="group-info">
+    <view class="group-info-title">
+      <text clsas="text-ellipse2">新西兰旅奇异果 36#果6个装] 西兰旅奇异果</text>
+    </view>
+    <view class="group-info-num">
+      <view class="product-price">
+        <text class="product-newprice">¥19.90</text>
+        <text class="product-oldprice">¥49.90</text>
+      </view>
+       <text class="info-start">去拼团</text>
+       
+    </view>
+  </view> 
+</view>
+<!-- 产品3 -->
+<view class="product-gruop-warp">
+  <view class="gruop-image">
+    <image class="" src="../../assets/pingtuan/yintao.png" mode="aspectFill" lazy-load="{{true}}">
+    </image>
+        <text class="gruop-bygroup">三人团</text>
+  </view> 
+  <view class="group-info">
+    <view class="group-info-title">
+      <text clsas="text-ellipse2">美国车厘子 1磅装 果径约26-28mm 新鲜水果</text>
+    </view>
+    <view class="group-info-num">
+      <view class="product-price">
+        <text class="product-newprice">¥69.90</text>
+        <text class="product-oldprice">¥89.90</text>
+      </view>
+       <text class="info-start">去拼团</text>  
+    </view>
+  </view> 
+</view>
+<!-- 产品4 -->
+<view class="product-gruop-warp">
+  <view class="gruop-image">
+    <image class="" src="../../assets/pingtuan/boluo.png" mode="aspectFill" lazy-load="{{true}}">
+    </image>
+        <text class="gruop-bygroup">三人团</text>
+  </view> 
+  <view class="group-info">
+    <view class="group-info-title">
+      <text clsas="text-ellipse2">进口水果 菲律宾进口凤梨两个装 单果约重1000-1500g 养颜护肤</text>
+    </view>
+    <view class="group-info-num">
+      <view class="product-price">
+        <text class="product-newprice">¥45.90</text>
+        <text class="product-oldprice">¥89.90</text>
+      </view>
+       <text class="info-start">去拼团</text>  
+    </view>
+  </view> 
+</view>
+<!-- 产品5 -->
+<view class="product-gruop-warp">
+  <view class="gruop-image">
+    <image class="" src="../../assets/pingtuan/lizhi.png" mode="aspectFill" lazy-load="{{true}}">
+    </image>
+        <text class="gruop-bygroup">三人团</text>
+  </view> 
+  <view class="group-info">
+    <view class="group-info-title">
+      <text clsas="text-ellipse2">澳洲进口荔枝 新鲜水果</text>
+    </view>
+    <view class="group-info-num">
+      <view class="product-price">
+        <text class="product-newprice">¥29.90</text>
+        <text class="product-oldprice">¥59.90</text>
+      </view>
+       <text class="info-start">去拼团</text>  
+    </view>
+  </view> 
+</view>
+
+<!-- 对组件的引用 -->
+  <view>
+  <!-- 联系和购物车 -->
+  <my-slider></my-slider>
+</view>

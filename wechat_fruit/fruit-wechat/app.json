@@ -1,9 +1,12 @@
 {
   "pages": [
-    "pages/category/category",
+    "pages/profile/profile",
+    "pages/store/store",
     "pages/logs/logs",
+    "pages/group/gruop",
+    "pages/category/category",
     "pages/index/index"
-    
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,19 +34,19 @@
         "selectedIconPath": "/assets/tabbar/tabbar_color02.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/group/gruop",
         "text": "拼团",
         "iconPath": "/assets/tabbar/tabbar_gray03.png",
         "selectedIconPath": "/assets/tabbar/tabbar_color03.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/store/store",
         "text": "门店",
         "iconPath": "/assets/tabbar/tabbar_gray04.png",
         "selectedIconPath": "/assets/tabbar/tabbar_color04.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/profile/profile",
         "text": "我的",
         "iconPath": "/assets/tabbar/tabbar_gray05.png",
         "selectedIconPath": "/assets/tabbar/tabbar_color05.png"

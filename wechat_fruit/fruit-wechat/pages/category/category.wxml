@@ -1,5 +1,5 @@
 <!-- 搜素框 -->
-<view class="search_box">
+<view class="search_box"> 
   <view class="search">
     <view class="search_arr">
       <icon class="searchcion" size='18' type='search'></icon>
@@ -7,21 +7,131 @@
     </view>
   </view>
 </view>
-
-
 <!-- 导航条 -->
 <view class="navbar">
   <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index?'active':''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
-</view>   
+</view>
 
 <!-- 当季时令 -->
 <view hidden="{{currentTab!==0}}">
-   当季时令
+  <view class="zw-category-product-warp">
+    <!-- 1. -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/liulan.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>泰国进口 金枕头 榴莲 新鲜美味首选</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥36.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>
+    <!-- 2 -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/qiyiguo.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>新西兰绿奇异果 #36 高维生素C 无污染</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥36.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>
+    <!-- 3 -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/chelizi.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>美国车厘子 1榜重 好吃看得见</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥89.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>
+    <!-- 4 -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/jiezhi.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>澳洲进口荔枝 新鲜水果 入口甘甜</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥36.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>
+    <!-- 5 -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/yunnan.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>澳洲进口荔枝 新鲜水果 入口甘甜</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥36.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>   
+  </view>
 </view>
 
 <!-- 葡萄糖果 -->
 <view hidden="{{currentTab!==1}}">
-  葡萄浆果
+ <view class="zw-category-product-warp">
+    <!-- 1. -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/niuyopguo.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>墨西哥进口 牛油果 6个</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥46.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>
+    <!-- 2 -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/putao.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>新西兰绿奇异果 #36 高维生素C 无污染</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥36.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>
+    <!-- 3 -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/chelizi.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>美国车厘子 1榜重 好吃看得见</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥89.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>
+    <!-- 4 -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/jiezhi.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>澳洲进口荔枝 新鲜水果 入口甘甜</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥36.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>
+    <!-- 5 -->
+    <view class="zw-category-product">
+      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/yunnan.jpg" />
+      <view class="category-product-title text-ellipse">
+        <text>澳洲进口荔枝 新鲜水果 入口甘甜</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥36.90</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view>   
+  </view>
 </view>
 
 <!-- 西瓜密瓜 -->
@@ -48,4 +158,3 @@
   <!-- 联系和购物车 -->
   <my-slider></my-slider>
 </view>
- 

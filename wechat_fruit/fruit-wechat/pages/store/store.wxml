@@ -1,0 +1,63 @@
+<!-- 门店图文 -->
+<!-- 门店图片 -->
+<view class="store-image-warp">
+  <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/store/mendian.png" />
+  <view class="trans-bg">
+    <view class="image-small">
+      <image mode="widthFix" lazy-load="{{true}}" src="../../assets/store/small_circle.png"></image>
+    </view>
+    <text class="store-name">小农果园</text>
+  </view>
+</view>
+<!-- 品牌介绍 -->
+<view class="store-intro">
+  <view class="store-intro-title">
+    <text>品牌介绍</text>
+  </view>
+  <view class="store-intro-detail">
+    <text>我们都是精选最新鲜的水果提供给客户，坚持做：更好吃“的水果，保证粒粒鲜果在手，给都市人群达到维生素的满满补充，致力于让天下人享受水果好生活。</text>
+  </view>
+</view>
+<!-- 分割框 -->
+<view class="divider"></view>
+
+<!-- 联系方式 -->
+<view class="store-contact">
+  <view class="store-intro-title">
+    <text>联系方式</text>
+  </view>
+  <view class="store-contact-info">
+    <view class="contact-detail">
+      <text class="stroe-pone">客户电话</text>
+      <text class="stroe-time">周一至周日 8:00-23:00</text>
+    </view>
+    <image src="../../assets/store/phone.png" lazy-load="{{true}}"  mode="widthFix"/>
+  </view>
+  <!-- 地址 -->
+   <view class="store-contact-info">
+    <view class="contact-detail">
+      <text class="stroe-pone">门店地址</text>
+      <text class="stroe-time">成都市温江区长安路79号</text>
+    </view>
+    <image src="../../assets/store/nav.png" lazy-load="{{true}}"  mode="widthFix"/>
+  </view>
+  </view>
+
+<!-- 门店展示 -->
+<view class="store-intro">
+  <view class="store-intro-title">
+    <text>门店展示</text>
+  </view>
+  </view>
+  <view class="store-show-warp">
+    <view class="store-show">
+      <image src="../../assets/store/mendian1.png" mode="aspectFill" lazy-load="{{true}}"/>
+      <image src="../../assets/store/mendian2.png" mode="aspectFill" lazy-load="{{true}}"/>
+      <image src="../../assets/store/mendian3.png" mode="aspectFill" lazy-load="{{true}}"/>
+      <image src="../../assets/store/mendian4.png" mode="aspectFill" lazy-load="{{true}}"/>
+    </view>
+  </view>
+<!-- 引入组件 -->
+<view>
+  <my-slider></my-slider>
+</view>

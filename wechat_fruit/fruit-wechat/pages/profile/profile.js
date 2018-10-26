@@ -1,21 +1,11 @@
-// pages/category/category.js
+// pages/profile/profile.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     navbar:["当季时令","葡萄浆果"," 西瓜蜜瓜","芒橙柑柚","桃李"],
-     currentTab:0,
-     checkCodeBtnOpacity:1,
-     checkCodeOpacity:0,
-     animationData:{}
-  },
-  //导航栏切换更换index
-  navbarTap:function(e){
-    this.setData({
-      currentTab:e.currentTarget.dataset.idx
-    })
+
   },
 
   /**
