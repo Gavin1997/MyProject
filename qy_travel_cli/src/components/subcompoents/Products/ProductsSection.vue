@@ -93,7 +93,6 @@ import Sidebar from "../more/sidebar"
         this.$http.get(`products?kw=${this.kw}&pno=${this.pno}`).then(res => {
           this.res = res.data.data.products;
           this.pageCount = res.data.data.pageCount;
-          console.log(res.data.data)
         });
       },
       next() {

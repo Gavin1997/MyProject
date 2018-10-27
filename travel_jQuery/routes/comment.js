@@ -68,18 +68,18 @@ router.get("/searchcomment", (req, res) => {
         var tid = req.query.tid;
         //1.查询总共商品的页数
         var sql = "SELECT count(com_id) AS c FROM product_comment where tid=?";
-        await new Promise(function (resolve) {
+        await new Promise(function (open) {
             pool.query(sql, [tid], (err, result) => {
                 if (err) throw err;
                 var pageCount = Math.ceil(result[0].c / pageSize);
                 obj.pageCount = pageCount;
-                resolve();
+                open();
             });
         });
         //2.当前页内容
         var offset = parseInt((pno-1)*pageSize);
         var sql = "SELECT `com_id`, `uname`, `content`, `ctime` FROM `product_comment` WHERE tid=? ORDER BY `ctime` DESC LIMIT ?,?";
-        await new Promise(function (resolve) {
+        await new Promise(function (open) {
             pool.query(sql, [tid, offset, pageSize], (err, result) => {
                 if (err) throw err;
                 obj.comments = result;
@@ -87,7 +87,7 @@ router.get("/searchcomment", (req, res) => {
                     code: 1,
                     obj
                 });
-                resolve()
+                open()
             })
         })
     })()

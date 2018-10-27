@@ -24,6 +24,7 @@ router.get("/", (req, res) => {
         if (err) throw err;
         data = {};
         data.pno = parseInt(req.query.pno);
+		if(!data.pno){data.pno=0}
         data.pageSize = req.query.pageSize;
         if (!data.pageSize) {
             data.pageSize = 10
@@ -50,7 +51,7 @@ router.get("/", (req, res) => {
 router.get("/list", (req, res) => {
     (async function () {
         var pno =parseInt(req.query.pno);
-        var pageSize = req.query.pageSize;
+        var pageSize = parseInt(req.query.pageSize);
         if (!pno) {
             pno = 1
         }
@@ -82,7 +83,9 @@ router.get("/list", (req, res) => {
             })
         })
     })()
-})
+});
+
+
 
 
 
