@@ -36,6 +36,7 @@
                     <button v-for="(item,i) in pageCount" :class="{active:changedActive==i}" @click="num(i)">{{i+1}}</button>
                     <button @click="next()" :class="disabled_next_info">下一页</button>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -145,7 +146,6 @@
         display: flex;
         justify-content: flex-end;
     }
-
     .active {
         background: #08b6f6;
     }

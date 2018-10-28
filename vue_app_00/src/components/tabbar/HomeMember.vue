@@ -6,8 +6,13 @@
              <img src="../../img/profile/200.jpg" alt="" width="64" hieght="64">
          </div>
          <div class="user-info-name">
-            <p class="user-name">weigong</p>
-            <a href="">退出登录</a>
+            <p class="user-name" v-if="islogin">{{uname}}
+                  <a @click="signout()">退出登录</a>
+            </p>
+            <p class="user-name" v-else>当前还没登录
+                <a @click="godetail()">立即登录</a>
+            </p>
+          
          </div>
      </div>
      <!-- 分割灰色 -->
@@ -53,15 +58,43 @@
         </div>
       <div class="divider"></div>
      </div>
+     <footer class="qui-footerBasic">
+    <p class="copyright">2004-2017 © 穷游网™ qyer.com All rights reserved.</p>
+  </footer>
     </div>
 </template>
 <script>
     export default{
+        inject:["reload"],
     data(){
-        return{}
+        return{
+            islogin:true,
+            uname:""
+        }
     },
-     methods:{},
-     created(){}
+     methods:{
+         //退出登录
+          signout(){
+        this.$axios.get("users/signout").then(res=>{
+            this.reload()
+        })
+      },
+      godetail(){
+          this.$router.push("/home/users/login");
+      }
+     },
+     created(){
+     this.$axios.get("users/islogin").then(res=>{
+         if(res.data.ok ==1){
+           this.uname = res.data.uname;
+           this.islogin = true;
+           this.islogin_register = false
+         }else{
+            this.islogin = false
+            this.islogin_register = true
+         }
+      })
+     }
    }
 </script>
 <style scoped>
@@ -157,4 +190,13 @@
 .cell-item span{
     margin-left:10px;
 }
+  .qui-footerBasic{
+    margin: 0 auto;
+    padding: 20px 0 20px 0;
+    background-color: #FFF;
+    text-align: center;
+  }
+  .copyright{
+     font-size:12px;
+  }
 </style>

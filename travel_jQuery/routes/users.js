@@ -67,6 +67,34 @@ router.post("/register", (req, res) => {
         }
     })
 });
+router.post("/register_phone",(req,res)=>{
+    var uid = req.body.uid;
+    var uname = req.body.uname;
+    if(!uname){
+        res.send({code:-1,msg:"请输入正确的用户名"});
+        return;
+    }
+    var upwd = req.body.upwd;
+    if(!upwd){
+        res.send({code:-1,msg:"请输入正确的密码"})
+        return;
+    }
+    var phone = req.body.phone;
+    if(!phone){
+        res.send({code:-1,msg:"请输入正确的手机号码"})
+        return;
+    }
+    var sql = "INSERT INTO `qy_user`(`uid`, `uname`, `upwd`, `email`, `phone`, `user_name`, `gender`) VALUES (null,?,?,null,?,null,null)";
+    pool.query(sql, [ uname, upwd, phone], (err, result) => {
+        if (err) throw err;
+        if (affectedRows = 1) {
+            res.send({
+                code: 1,
+                msg: `注册成功,欢迎${uname}!请点击登录按钮登录`
+            })
+        }
+    })
+})
 //注册验证用户名不能为一样
 router.get("/verify",(req,res)=>{
     var uname = req.query.uname;
@@ -126,6 +154,6 @@ router.get("/islogin",(req,res)=>{
 });
 router.get("/signout",(req,res)=>{
     req.session.uid=undefined;
-    res.send();
+    res.send({ok:1});
 });
 module.exports = router;

@@ -2,7 +2,9 @@
   <div class="app">
     <!-- 主页组件 HomeContainer.vue -->
     <!-- 1:轮播图 -->
-
+  <!-- <router-link to="/" slot="left">
+    <mt-button icon="back">返回</mt-button>
+  </router-link> -->
     <mt-swipe :auto="3000">
       <mt-swipe-item v-for="item in list" :key="item.id">
         <img :src="item.img" alt="">
@@ -63,13 +65,17 @@
   } from "mint-ui";
 
   export default {
+    inject:['reload'],
     data() {
       return {
         list: [],
         recommendlist: [],
         pno: 0,
         pageSize: 4,
-        pageCount: ""
+        pageCount: "",
+        islogin:false,
+        islogin_register:true,
+        uname:"",//d当前session中的名字
       };
     },
     methods: {
@@ -105,15 +111,18 @@
           this.pno = parseInt(Math.random() * this.pageCount);
           this.getRecommendList();
         }
-      }
+      },
     },
     created() {
       this.getImageList();
       this.getRecommendList();
+    },
+    mounted(){
     }
   };
 </script>
 <style scoped>
+
   .app .mint-swipe {
     height: 160px;
   }

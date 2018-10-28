@@ -1,10 +1,17 @@
 <template>
     <div class="app-container">
-
         <!-- 1:顶部导航 -->
-        <mt-header fixed title="心灵旅游" style="background: linear-gradient(180deg, #43C67B, #10BFA4);"></mt-header>
+        <mt-header title="心灵旅游" fixed style="background: linear-gradient(180deg, #43C67B, #10BFA4);">
+            <!-- <router-link to="/" slot="left">
+    <mt-button icon="back">返回</mt-button>
+  </router-link> -->
+            <mt-button slot="right" @click="gouserinfo()" v-if="islogin">{{uname}}</mt-button>
+            <mt-button slot="right" style="margin:0 5px;" @click="signout()" v-if="islogin">退出登录</mt-button>
+            <mt-button slot="right" style="margin:0 5px;" @click="goregister()" v-if="islogin_register">注册</mt-button>
+            <mt-button slot="right" @click="gologin()" v-if="islogin_register">登录</mt-button>
+        </mt-header>
         <!-- 2:路由 -->
-        <router-view v-if="isRouterAlive" @shwobox="showbox()"></router-view>
+        <router-view v-if="isRouterAlive"></router-view>
         <!-- 3:tabbar -->
         <nav class="mui-bar mui-bar-tab">
             <router-link class="mui-tab-item " to="/home/index">
@@ -17,7 +24,8 @@
                 <span class="mui-tab-label">搜索</span>
             </router-link>
             <router-link class="mui-tab-item" to="/home/shopcart">
-                <span class="mui-icon mui-icon-extra mui-icon-extra-heart"><span class="mui-badge">{{$store.getters.optCount}}</span></span>
+                <!-- <span class="mui-icon mui-icon-extra mui-icon-extra-heart"><span class="mui-badge">{{$store.getters.optCount}}</span></span> -->
+                <span class="mui-icon mui-icon-extra mui-icon-extra-heart"><span class="mui-badge">{{num}}</span></span>
                 <span class="mui-tab-label">我的收藏</span>
             </router-link>
 
@@ -34,13 +42,19 @@
         provide() {
             return {
                 reload: this.reload,
+
             }
         },
         data() {
             return {
                 isRouterAlive: true,
                 list: [],
-                num: 0
+                num: 0,
+                if_tab_show: true,
+                islogin: false,
+                islogin_register: true,
+                uname: "", //d当前session中的名字
+
             }
         },
         methods: {
@@ -50,10 +64,74 @@
                     this.isRouterAlive = true;
                 })
             },
+            //判断用户是否登录
+            isLogin() {
+                this.$axios.get("users/islogin").then(res => {
+                    if (res.data.ok == 1) {
+                        this.uname = res.data.uname;
+                        this.islogin = true;
+                        this.islogin_register = false
+                    } else {
+                        this.islogin = false
+                        this.islogin_register = true
+                    }
+                })
+            },
+            //跳转用户信息
+            gouserinfo() {
+                this.$router.push({
+                    path: "/home/member"
+                })
+            },
+            //跳转用户注册
+            goregister() {
+                this.$router.push({
+                    path: "/home/users/register"
+                })
+            },
+            //跳转用户登录
+            gologin() {
+                this.$router.push({
+                    path: "/home/users/login"
+                });
+
+            },
+            //退出登录
+            signout() {
+                this.$axios.get("users/signout").then(res => {
+                    this.reload()
+                })
+            }
         },
         created() {
-           
+            this.isLogin();
         },
+        watch: {
+            '$route'(to, from) {
+                // this.isLogin();
+                (async function (self) {
+                    //1.判断用户是否登录
+                    var res = await self.$axios.get("/users/islogin")
+                    if (res.data.ok == 1) {
+                        self.isLogin = true;
+                        self.uname = res.data.uname;
+                        self.uid = res.data.uid;
+                    } else {
+                        self.isLogin = false;
+                    }
+                    //2.查询当前用户的购物车
+                    var res = await self.$axios.get(`/collection/searchlist?uname=${self.uname}`)
+                    self.products_res = res.data.data;
+                    self.num = self.products_res.length;
+                    if (res.data.code == -1) {
+                        self.ifshow = true;
+                        self.res_msg = res.data.msg;
+                    } else {
+                        self.ifshow = false;
+                    }
+                })(this)
+            }
+        }
     }
 </script>
 <style>

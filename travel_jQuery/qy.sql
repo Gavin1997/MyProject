@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-10-21 19:06:54
+-- Generation Time: 2018-10-28 10:02:27
 -- 服务器版本： 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -63,7 +63,32 @@ INSERT INTO `product_comment` (`com_id`, `uname`, `content`, `ctime`, `tid`) VAL
 (119, 'dangdang', '高大哥大哥的', '2018-10-21 22:04:39', 4),
 (120, 'dangdang', '高大哥大哥的', '2018-10-21 22:04:42', 4),
 (121, 'dangdang', '这个是第10个商品的评论', '2018-10-22 00:15:11', 10),
-(122, 'dangdang', '哈哈哈', '2018-10-22 01:01:25', 16);
+(122, 'dangdang', '哈哈哈', '2018-10-22 01:01:25', 16),
+(123, 'dangdang', '哈哈', '2018-10-22 22:30:50', 7),
+(124, 'dangdang', '啥子意思', '2018-10-22 22:30:58', 7),
+(125, 'dangdang', '第一个[]评论', '2018-10-22 22:31:23', 4),
+(126, 'dangdang', '好好', '2018-10-22 22:31:46', 4),
+(127, 'dangdang', '高大哥大哥的', '2018-10-22 22:34:30', 4),
+(128, 'dangdang', '123123', '2018-10-22 22:41:59', 4),
+(129, 'dangdang', '大大大', '2018-10-22 22:46:47', 4),
+(130, 'dangdang', '更多高大哥大哥的', '2018-10-22 22:47:12', 4),
+(131, 'dangdang', '方式发顺丰', '2018-10-22 23:12:47', 4),
+(132, 'dangdang', '发送方式发顺丰', '2018-10-22 23:13:07', 4),
+(133, 'dangdang', '发送方式发顺丰凡啊', '2018-10-22 23:13:26', 4),
+(134, 'dangdang', '再试一次', '2018-10-22 23:17:52', 4),
+(135, 'dangdang', '法法', '2018-10-22 23:18:12', 4),
+(136, 'dangdang', '发发发发发', '2018-10-22 23:18:27', 4),
+(137, 'dangdang', '发发发发', '2018-10-22 23:18:47', 4),
+(138, 'dangdang', '发送的方式', '2018-10-22 23:19:03', 4),
+(139, 'dangdang', '发发发', '2018-10-22 23:19:14', 4),
+(140, 'dangdang', '放松放松', '2018-10-22 23:19:20', 4),
+(141, 'dangdang', '方式发顺丰', '2018-10-22 23:19:49', 4),
+(142, 'dangdang', '烦死烦死烦死', '2018-10-22 23:20:23', 4),
+(143, 'dangdang', '烦死烦死烦死', '2018-10-22 23:20:40', 4),
+(144, 'dangdang', '发发发', '2018-10-22 23:23:27', 4),
+(145, 'dangdang', '这样试一试', '2018-10-22 23:23:55', 4),
+(146, 'dangdang', '我爱我的小媳妇儿,因为她很可爱', '2018-10-22 23:26:22', 4),
+(147, 'dangdang', '方法', '2018-10-25 23:41:09', 41);
 
 -- --------------------------------------------------------
 
@@ -171,6 +196,51 @@ INSERT INTO `qy_index_product` (`qid`, `details`, `pic`, `price`, `href`, `seq_r
 (30, '成都直飞日本名古屋-大阪-京都-箱根-东京6天5晚半自助游（东京一天自由活动，早去晚回，全程升级俩晚希尔顿或同级，至少一晚日式温泉', 'http://127.0.0.1:3000/img/5F/FrwxrlrT7FCCB9ssZxDXNMcI1DmN.jpg', '4999', 'product_details.html?tid=88', 30, 88),
 (31, '天津直飞芽庄5-7天半自助游（优质越南航空/1-2天自由行/赠送京津往返接送大巴/赠送意外险/市区游）', 'http://127.0.0.1:3000/img/5F/15232433616585.jpg', '999', 'product_details.html?tid=91', 31, 91),
 (32, '北京直飞巴厘岛7天5晚半自助游（纯玩无购物含WIFI+希尔顿洲际同级+独栋泳池别墅+蓝梦出海含海底漫步+定制牛人种珊瑚）', 'http://127.0.0.1:3000/img/5F/FnQ39_T9XNGF03HhlIRlLlJjyeBX.jpg', '7299', 'product_details.html?tid=94', 32, 94);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `qy_news`
+--
+
+DROP TABLE IF EXISTS `qy_news`;
+CREATE TABLE `qy_news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `content` varchar(2000) DEFAULT NULL,
+  `click` int(11) DEFAULT NULL,
+  `img_url` varchar(255) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  `ctime` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `qy_news`
+--
+
+INSERT INTO `qy_news` (`id`, `title`, `content`, `click`, `img_url`, `price`, `ctime`) VALUES
+(1, '中国驻美大使：中美关系何去何从，再一次需要做出历史性选择', '新华社华盛顿9月27日消息，中国驻美国大使崔天凯27日表示，中美关系何去何从，再一次需要做出历史性的选择。中方致力于同美方共同秉持不冲突不对抗、相互尊重、合作共赢的理念，期待美方同样做出正确选择。\r\n中国驻美大使馆当晚举行国庆招待会。崔天凯在致辞中说，当今世界正经历百年未有之大变局。作为联合国安理会两个常任理事国和世界上最大的两个经济体，中美关系何去何从，再一次需要做出历史性的选择。\r\n崔天凯说，这个选择事关两国各界利益，特别是事关两国青年一代的前途和命运。他说，中方的选择已经明确。中方致力于同美方共同秉持不冲突不对抗、相互尊重、合作共赢的理念，增进互信，扩大合作，以建设性方式解决分歧，建立健康稳定、持续发展的中美关系，造福两国人民和整个人类社会。我们期待美方同样做出正确的选择。', 100, 'http://127.0.0.1:3000/img/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(2, '国务院教督办约谈“问题营养餐”负责人：严肃追责，绝不姑息', '554645646456456发发卡机饭卡就会发狂', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(3, '123', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(4, '124', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(5, '125', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(6, '126', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(7, '127', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(8, '128', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(9, '129', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(10, '1210', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(11, '1211', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(12, '1212', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(13, '1213', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(14, '1214', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(15, '1215', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(16, '1216', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:47'),
+(17, '1217', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:48'),
+(18, '1218', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:48'),
+(19, '1219', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:48'),
+(20, '1220', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:48'),
+(21, '1221', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:48'),
+(22, '1233', '123', 0, 'http://127.0.0.1:3000/banner1.png', '0.00', '2018-09-25 18:58:48');
 
 -- --------------------------------------------------------
 
@@ -1040,7 +1110,8 @@ INSERT INTO `qy_user` (`uid`, `uname`, `upwd`, `email`, `phone`, `user_name`, `g
 (2, 'dangdang', '123456', 'dang@qq.com', '13501234568', '林当', 1),
 (3, 'doudou', '123456', 'dou@qq.com', '13501234569', '窦志强', 1),
 (4, 'yaya', '123456', 'ya@qq.com', '13501234560', '秦小雅', 0),
-(5, 'Joanna', '970925G', '574931609@qq.com', '13076064035', '程子轩', 0);
+(5, 'Joanna', '970925G', '574931609@qq.com', '13076064035', '程子轩', 0),
+(6, 'weiwei', '123456789', NULL, '123456456', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1063,6 +1134,12 @@ ALTER TABLE `qy_collection`
 --
 ALTER TABLE `qy_index_product`
   ADD PRIMARY KEY (`qid`);
+
+--
+-- Indexes for table `qy_news`
+--
+ALTER TABLE `qy_news`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `qy_product_family`
@@ -1096,7 +1173,7 @@ ALTER TABLE `qy_user`
 -- 使用表AUTO_INCREMENT `product_comment`
 --
 ALTER TABLE `product_comment`
-  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 --
 -- 使用表AUTO_INCREMENT `qy_collection`
 --
@@ -1107,6 +1184,11 @@ ALTER TABLE `qy_collection`
 --
 ALTER TABLE `qy_index_product`
   MODIFY `qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
+-- 使用表AUTO_INCREMENT `qy_news`
+--
+ALTER TABLE `qy_news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- 使用表AUTO_INCREMENT `qy_product_family`
 --
@@ -1126,7 +1208,7 @@ ALTER TABLE `qy_travel_product`
 -- 使用表AUTO_INCREMENT `qy_user`
 --
 ALTER TABLE `qy_user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

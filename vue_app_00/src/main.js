@@ -17,7 +17,6 @@ import './lib/mui/css/mui.css'
 // 导入 MUI 的样式表，扩展图标样式，购物车图标
 // 还需要加载图标字体文件
 import './lib/mui/css/icons-extra.css'
-
 //引入vuex组建
 import Vuex from "vuex";
 //注册
@@ -49,21 +48,20 @@ var store = new Vuex.Store({
     }       
 });
 
-
-
 //main.js
 //1.引入Header组件
 import {
     Header,
     Button,
     Tabbar,
-    TabItem
+    TabItem,
 } from "mint-ui"
 //2.注册        标签名称     组件对象
 Vue.component(Header.name, Header);
 Vue.component(Button.name, Button);
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
+
 //引入Swipe 轮播组件
 import {
     Swipe,
@@ -95,10 +93,10 @@ Vue.prototype.$axios = axios;
 //设置axios-ajax访问记基础路径
 axios.defaults.baseURL = "http://127.0.0.1:3000/"
 //设置axios-ajx访问格式
-axios.defaults.headers = {
-    'Content-Type': 'application/x-www-form-urlencoded'
-}
-
+// axios.defaults.headers = {
+//     'Content-Type': 'application/x-www-form-urlencoded'
+// }
+axios.defaults.withCredentials = true;
 //6.全局的ajax访问基础路径  Vue-Resource
 Vue.http.options.root = "http://127.0.0.1:3000/"
 //7.设置全局ajax post访问格式

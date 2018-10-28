@@ -9,8 +9,9 @@ router.post("/add", (req, res) => {
     if (!title) {
         res.send({
             code: -1,
-            msg: "添加到我的收藏失败了,请刷新页面再试一试"
+            msg: "添加到我的收藏失败了,请刷新页面再试一试" 
         })
+        return
     }
     var subtitle = req.body.subtitle;
     if (!subtitle) {
@@ -18,6 +19,7 @@ router.post("/add", (req, res) => {
             code: -1,
             msg: "添加到我的收藏失败了,请刷新页面再试一试"
         })
+        return
     }
     var price = req.body.price;
     if (!price) {
@@ -25,6 +27,7 @@ router.post("/add", (req, res) => {
             code: -1,
             msg: "添加到我的收藏失败了,请刷新页面再试一试"
         })
+        return
     }
     var old_price = req.body.price;
     var sold_count = req.body.sold_count;
@@ -36,6 +39,7 @@ router.post("/add", (req, res) => {
             code:-1,
             msg:"添加到我的收藏失败了,请刷新页面再试一试"
         })
+        return
     }
     var sql = "INSERT INTO `qy_collection`(`cid`, `uname`, `title`, `subtitle`, `price`, `old_price`, `sold_count`, `md_pic`, `uid`, `tid`) VALUES (null,?,?,?,?,?,?,?,?,?)";
     pool.query(sql, [uname, title, subtitle, price, old_price, sold_count, md_pic, uid, tid], (err, result) => {
@@ -43,12 +47,12 @@ router.post("/add", (req, res) => {
         if (result.affectedRows > 0) {
             res.send({
                 code: 1,
-                msg: "加入购物车成功"
+                msg: "加入收藏列表成功"
             })
         } else {
             res.send({
                 code: -1,
-                msg: "加入购物车失败,请检查一下再试试吧!!"
+                msg: "加入收藏列表失败,请检查一下再试试吧!!"
             })
         }
     });

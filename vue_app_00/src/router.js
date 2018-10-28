@@ -12,6 +12,9 @@ import NewsDetailsContainer from "./components/news/NewsDetailContainer.vue"
 //商品列表
 import GoodList from "./components/goods/GoodList.vue"
 import GoodInfo from "./components/goods/GoodsInfo.vue"
+//用户列表
+import Register from "./components/user/register.vue"
+import Login from "./components/user/login.vue"
 
 
 Vue.use(Router)
@@ -29,6 +32,9 @@ export default new Router({
     {path:'/newsdetail/:id',component:NewsDetailsContainer},
     {path:'/home/goodslist',component:GoodList},
     {path:'/home/goodsinfo/:id',component:GoodInfo},
+    {path:'/home/users/register',component:Register},
+    {path:'/home/users/login',component:Login}
+    
  
     // {path:'/home/goodsinfo/:id',component:GoodInfo,name:"goodsinfo"}
   ]

@@ -18,7 +18,7 @@ router.get("/",(req,res)=>{
 });
 //获取轮播
 router.get("/list",(req,res)=>{
-    var sql = "SELECT `cid`, `img`, `title`, `href` FROM `qy_index_carousel` WHERE 1";
+    var sql = "SELECT `cid`, `img`, `title`,`href` FROM `qy_index_carousel` WHERE 1";
     pool.query(sql,[],(err,result)=>{
         if(err) throw err;
         res.send(result);
@@ -42,7 +42,7 @@ router.get("/recommend",(req,res)=>{
             })
         })
         var offset = parseInt((pno-1)*pageSize);
-        var sql = "SELECT qid,details,pic,price FROM `qy_index_product` LIMIT ?,?";
+        var sql = "SELECT qid,details,pic,tid,price FROM `qy_index_product` LIMIT ?,?";
         pool.query(sql,[offset,pageSize],(err,result)=>{
             if(err) throw err;
             data.products = result;

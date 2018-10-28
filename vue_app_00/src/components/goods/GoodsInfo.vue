@@ -1,24 +1,29 @@
 <template>
   <!-- 轮播 -->
+  <div>
   <div class="app-goods-info">
     <div class="mui-card">
       <div class="mui-card-content">
         <div class="mui-card-content-inner">
-          <swiper :list="list"></swiper>
+          <mt-swipe :auto="3000" style="height:200px;">
+      <mt-swipe-item v-for="(item,i) in imgList" :key="item.id">
+        <img :src="item.md" alt="" style="width:100%">
+      </mt-swipe-item>
+    </mt-swipe>
         </div>
       </div>
     </div>
     <!-- 第二部分购买区域 -->
      
    		<div class="mui-card">
-				<div class="mui-card-header">{{listinfo.title}}</div>
+				<div class="mui-card-header">{{products.title}}</div>
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
-            <div class="details">{{listinfo.title}}</div>
+            <div class="details">{{products.title}}</div>
             <div class="price">
             <b>市场价: </b>
-            <span class="old">{{(Number(listinfo.price)).toFixed(2)}}</span>
-            <span class="now">销售价:{{(Number(listinfo.price)).toFixed(2)}}</span>
+            <span class="old">{{(Number(products.price)).toFixed(2)}}</span>
+            <span class="now">销售价:{{(Number(products.price)).toFixed(2)}}</span>
            </div>
           <div class="count">
             <h6>购买数量</h6>
@@ -28,7 +33,7 @@
          
             <p class="booking">
               <mt-button size="small" type="primary">立即购买</mt-button>
-              <mt-button size="small" type="danger" @click="addCart()">加入购物车</mt-button>
+              <mt-button size="small" type="default" :class="{love_active:iscollection}" @click="addCart()">收藏</mt-button>
             </p>
           </div>
 					</div>
@@ -41,25 +46,29 @@
         <div class="mui-card-content-inner">
            <div>
             <ul class="info-list">
-              <li>商品货号:{{listinfo.lid}}</li>
-              <li>商品名称:{{listinfo.title}}</li>
-              <li>处理器:{{listinfo.cpu}}</li>
-              <li>系统:{{listinfo.os}}</li>
+              <li>商品货号:{{products.product_number}}</li>
+             <li>商品特色:{{products.subtitle}}</li>
+              <li>我们承诺:{{products.promise}}</li>
+              <li>注意事项:{{products.prompt}}</li> 
             </ul>
           </div>
         </div>
         <div class="mui-card-footer">
         <div class="intro">
           <p> 
-            <mt-button size="small">图文介绍</mt-button>
+            <mt-button size="small" @click="show_lgImg()">图文介绍</mt-button>
           </p>
           <p>
             <mt-button size="small">商品评论</mt-button>
            </p>
         </div>
         </div>
+         <div class="intro-img" v-if="ifshow_lgImg">
+          <img :src="products.lg_pic" alt="">
+        </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 <script>
@@ -72,33 +81,90 @@ export default {
   inject: ['reload'],
   data() {
     return {
+      count:1,
+      tid: this.$route.params.id,
       list: [],
-      lid: this.$route.params.id,
-      listinfo: {},
-      count: 1,
+      md:[],
+      imgList:[],
+      products:[],
+      ifshow_lgImg:false,
+      islogin:false,
+      uname:"",//当前登录的用户名
+      uid:"",//当前用户的uid
+      iscollection: false,
     };
   },
   methods: {
   
     addCart(){
-      var lid=this.listinfo.lid;
-      var title=this.listinfo.title;
+      var tid=this.products.tid;
+      var title=this.products.title;
       var count=this.count;
-      var price=this.listinfo.price;
-      var obj={lid,title,count,price};
-      var url="cartlist/savecart";
-      var obj=(Qs.stringify(obj));
-      this.$axios.post(url, obj).then(res=>{
-          if(res.data.code==1){
-             Toast({
-               message:"添加购物车成功",
-               duration:1000
-             });
-             //修改vuex中共享的数据 参数是方法名称
-             this.$store.commit("increment",this.count);
-            // this.$store.commit("clearcount")
-          };
-     })
+      var price=this.products.price;
+      var md_pic = this.md;
+      var subtitle = this.products.subtitle;
+      var old_price = this.products.old_price;
+      var sold_count = this.products.sold_count;
+      var uid = this.uid;
+      var uname = this.uname;
+      // console.log(title,subtitle,price,old_price,sold_count,md_pic,tid,uid,uname)
+      var obj={title,subtitle,price,old_price,sold_count,md_pic,tid,uid,uname};
+      var url="/collection/add";
+       var obj=(Qs.stringify(obj));
+        if (this.isLogin == false) {
+          this.$router.push({path:"/home/users/login"
+            });
+          return;
+        }
+         if (this.isLogin == true) {
+          //如果当前图标不为高亮状态 
+          if (this.iscollection == false) {
+            //发送请求 添加数据到数据库
+            this.$axios
+              .post(
+                url,
+                obj
+              )
+              .then(res => {
+                console.log(res)
+                if(res.data.code==1){
+                  this.iscollection = true;
+                  Toast({
+                    message:"加入收藏列表成功",
+                    duration:1500
+                  })
+                }else{
+                  Toast({
+                    message:"加入收藏列表失败,请刷新一下试试",
+                    duration:1500
+                  })
+                }
+              });
+          } else {
+            this.$axios
+              .post(
+                "/collection/delete",
+                Qs.stringify({
+                  tid: this.tid
+                })
+              )
+              .then(res => {
+                if(res.data.code==1){
+                  Toast({
+                    message:"删除成功",
+                    duration:1500
+                  })
+                  this.iscollection = false;
+                }
+              });
+          }
+        }
+          
+    //          //修改vuex中共享的数据 参数是方法名称
+    //          this.$store.commit("increment",this.count);
+    //         // this.$store.commit("clearcount")
+    //       };
+    //  }
    
    
     },
@@ -109,13 +175,38 @@ export default {
     goAdd(){
       if(this.count>=99){return};
        this.count = this.count+1;
+    },
+    show_lgImg(){
+      if(this.ifshow_lgImg===false){
+        this.ifshow_lgImg = true;
+      }else{
+        this.ifshow_lgImg = false;
+      }
     }
   },
   created() {
-    this.getImageList();
-    this.$axios.get("goodslist/details?lid=" + this.lid).then(result => {
-      this.listinfo = result.data[0];
-      // console.log(this.listinfo);
+      (async function (self) {
+        //1.判断是否登录
+        var res = await self.$axios.get("/users/islogin")
+        if (res.data.ok == 1) {
+          self.isLogin = true;
+          self.uname = res.data.uname;
+          self.uid = res.data.uid;
+        } else {
+          self.isLogin = false;
+        }
+        //2.判断当前产品是否被当前用户收藏
+        var res = await self.$axios.get(`/collection/iscollection?uname=${self.uname}&tid=${self.tid}`)
+        if (res.data.code == 1) {
+          self.iscollection = true;
+        } else {
+          self.iscollection = false;
+        }
+      })(this);
+    this.$axios.get("details?tid=" + this.tid).then(res => {
+        this.products = res.data.product;
+        this.imgList  = res.data.pics;
+        this.md = res.data.pics[0].md;
     });
   },
   components: {
@@ -126,6 +217,10 @@ export default {
 <style scoped>
 .old {
   text-decoration: line-through;
+}
+.love_active{
+  background: #EF4F4F !important;
+  color:#fff;
 }
 .price .now {
   color: #ff7467;
@@ -155,11 +250,21 @@ ul.info-list {
 .info-list li {
   font-size: 12px;
   color: #666;
+  padding:5px 0;
+  letter-spacing: 1px;
+  border-bottom:1px solid #ddd;
 }
 div.intro {
   display: flex !important;
-  width: 355px;
+  width: 100%;
   justify-content: space-between;
   padding: 10px;
+}
+.intro-img{
+  width:100%;
+}
+.intro-img img{
+  width:100%;
+  
 }
 </style>
