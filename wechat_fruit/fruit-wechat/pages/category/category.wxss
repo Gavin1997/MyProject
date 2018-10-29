@@ -48,7 +48,7 @@
 .zw-category-product-warp{
   display: flex;
   justify-content: space-between;
-  width:375px;
+  width:100%;
   flex-wrap: wrap;
 }
 .zw-category-product{ 

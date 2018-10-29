@@ -219,7 +219,7 @@
    <view class="zw-home-greatsale">
     <view class="greatsale-image">
        <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/index/shanzu.png" />
-       <text class="greatsale-text">精选</text>
+       <text class="greatsale-text">新品</text>
        <view class="greatsale-text-triangle" ></view>
     </view>
   </view>

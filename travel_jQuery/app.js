@@ -12,6 +12,7 @@ const details = require("./routes/details");
 const prodcuts = require("./routes/products");
 const collection = require("./routes/collection");
 const comment = require("./routes/comment");
+const Newslist = require("./routes/newslist");
 
 var app = express();
 //加载处理跨域模块
@@ -73,3 +74,4 @@ app.use("/details", details);
 app.use("/products", prodcuts);
 app.use("/collection",collection);
 app.use("/comment",comment);
+app.use("/newslist",Newslist);
