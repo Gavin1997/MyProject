@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 
 //加载路由模块
+const index = require ("./routes/index");
+const products = require("./routes/products");
+const tabbar = require("./routes/tabbar");
 
 var app = express();
 const cors = require("cors");
@@ -23,3 +26,6 @@ app.get("/",(req,res)=>{
   res.send("wjhahjalkj")
 })
 //挂载路由
+app.use("/index",index);
+app.use("/products",products);
+app.use("/tabbar",tabbar);

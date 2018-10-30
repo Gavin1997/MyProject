@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    banner_img_list: [],
+    banner_img_list_top: [],//顶部轮播图
+    banner_img_list_bottom:[],//下方轮播图
+    indexList:[],//主页详情信息
+    miaosha:[],//秒杀板块
+    jingxuan:[],//精选模块
+    xinping:[],//新品模块
     indicatorDots: true,//显示面板指示点
     autoplay: true,//自动播放
     beforeColor: "white",//指示点颜色
@@ -22,6 +27,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //1.向服务器发送请求获取图片轮播
+    wx.request({
+      url: 'http://127.0.0.1:3333/index/imglist',
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (result)=>{
+        this.setData({
+          banner_img_list_top:result.data.slice(0,3),
+          banner_img_list_bottom:result.data.slice(3)
+        })
+      },
+    });
+    //2.获取主页信息数据
+    wx.request({
+      url:'http://127.0.0.1:3333/index/index',
+      methods:'GET',
+      dataType:'json',
+      success:(result)=>{
+        this.setData({
+          indexList:result.data,
+          miaosha:result.data.slice(2,8),
+          jingxuan:result.data.slice(9,12),
+          xinping:result.data.slice(13)
+        })
+      }
+    });
     var that = this;
     //文字的长度
     let length = that.data.text.length * that.data.size;
@@ -29,10 +61,11 @@ Page({
       length,
       windowWidth:10
     }),
-    //1.调用滚动字体函数
+    //2.调用滚动字体函数
     that.scrollTxt();
-    //2.调用倒计时函数
+    //3.调用倒计时函数
     var date_interval = setInterval(that.countDwon,1000);
+    
   },
   //1.滚动字体函数
   scrollTxt:function(){

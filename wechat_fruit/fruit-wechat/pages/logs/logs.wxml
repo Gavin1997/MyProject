@@ -1,3 +1,4 @@
+<wxs module="filter" src="../../filter/percent.wxs"></wxs>
 <!--logs.wxml-->
 <!-- 搜素框 -->
   <view class="search">
@@ -9,14 +10,8 @@
 <!--图片轮播  组件-->
 <view class="slider">
   <swiper autoplay interval="3000" indicator-dots="{{true}}" indicator-active-color='{{afterColor}}'>
-    <swiper-item>
-      <image src="../../assets/carousel/carousel01.png" mode="aspectFill" lazy-load="{{true}} " width="375" height="150" />
-    </swiper-item>
-    <swiper-item>
-      <image src="../../assets/carousel/carousel02.png" mode="aspectFill" lazy-load="{{true}} " width="375" height="150" />
-    </swiper-item>
-    <swiper-item>
-      <image src="../../assets/carousel/carousel03.png" mode="aspectFill" lazy-load="{{true}} " width="375" height="150" />
+    <swiper-item wx:for="{{ banner_img_list_top}}" wx:key="{{item.cid}}">
+      <image src="{{item.img_url}}" mode="aspectFill" lazy-load="{{true}} " width="375" height="150" />
     </swiper-item>
   </swiper>
 </view>
@@ -24,7 +19,7 @@
 <!-- 首页推荐 广告 -->
 <view class="zw-home-recommend">
   <view class="zw-home-recommend-image">
-      <image src="../../assets/index/index1.png"></image>
+      <image src="{{indexList[0].pics}}"></image>
    </view>
    <view class="zw-home-recommend-info">
       <text class="info-title"><text class="dist-small">·</text><text class="dist-big">·</text>新鲜果送<text class="dist-big">·</text><text class="dist-small">·</text></text>
@@ -75,24 +70,24 @@
   <!-- 秒杀活动 -->
   <view class="zw-home-greatsale">
     <view class="greatsale-image">
-       <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/index/mihoutao.png" />
+       <image lazy-load="{{true}}" mode="aspectFill" src="{{indexList[1].pics}}" />
        <text class="greatsale-text">秒杀</text>
        <view class="greatsale-text-triangle" ></view>
     </view>
   </view>
   <!-- 秒杀商品展示1 -->
-  <view class="zw-home-product">
+  <view class="zw-home-product" wx:for="{{miaosha}}" wx:key="{{item.iid}}">
     <view class="product-image">
-      <image src="../../assets/product/jiezhi.jpg" lazy-load="{{true}}" mode="aspectFill"/>
+      <image src="{{item.pics}}" lazy-load="{{true}}" mode="aspectFill"/>
     </view>
     <view class="product-detail">
       <view class="prodcut-title">
-        <text>澳洲进口荔枝  新鲜水果</text>
+        <text>{{item.title}}</text>
       </view>
       <view class="product-info">
         <view class="product-price">
-          <text class="product-newprice">¥29.90</text>
-          <text class="product-oldprice">¥59.90</text>
+          <text class="product-newprice">¥{{item.price}}</text>
+          <text class="product-oldprice">¥{{item.old_price}}</text>
         </view>
         <view class="product-sale-msg">
           <view class="count-down">
@@ -102,71 +97,7 @@
             <text class="count-down-active">{{s}}秒</text>
           </view>
           <view class="product-saled">
-            <text>已售12%</text>
-            <view class="progress">
-              <view class="oldprogress"></view>
-              <view class="newprogress"></view>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-    </view>
-      <!-- 商品展示2 -->
-  <view class="zw-home-product">
-    <view class="product-image">
-      <image src="../../assets/product/chelizi.jpg" lazy-load="{{true}}" mode="aspectFill"/>
-    </view>
-    <view class="product-detail">
-      <view class="prodcut-title">
-        <text class="text-ellipse">美国进口车厘子 1磅装  果经约26-28,新鲜,巴适,安逸,饱满水嫩</text>
-      </view>
-      <view class="product-info">
-        <view class="product-price">
-          <text class="product-newprice">¥59.90</text>
-          <text class="product-oldprice">¥89.90</text>
-        </view>
-        <view class="product-sale-msg">
-          <view class="count-down">
-            <text>距结束</text>
-            <text class="count-down-active">{{hours}}小时</text>:
-            <text class="count-down-active">{{mintues}}分</text>:
-            <text class="count-down-active">{{s}}秒</text>
-          </view>
-          <view class="product-saled">
-            <text>已售12%</text>
-            <view class="progress">
-              <view class="oldprogress"></view>
-              <view class="newprogress"></view>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-    </view>
-      <!-- 商品展示3 -->
-  <view class="zw-home-product">
-    <view class="product-image">
-      <image src="../../assets/product/qiyiguo.jpg" lazy-load="{{true}}" mode="aspectFill"/>
-    </view>
-    <view class="product-detail">
-      <view class="prodcut-title">
-        <text class="text-ellipse">新西兰绿奇异果 36#果 6个装】味道甘甜,维生素C含量高</text>
-      </view>
-      <view class="product-info">
-        <view class="product-price">
-          <text class="product-newprice">¥29.90</text>
-          <text class="product-oldprice">¥49.90</text>
-        </view>
-        <view class="product-sale-msg">
-          <view class="count-down">
-            <text>距结束</text>
-            <text class="count-down-active">{{hours}}小时</text>:
-            <text class="count-down-active">{{mintues}}分</text>:
-            <text class="count-down-active">{{s}}秒</text>
-          </view>
-          <view class="product-saled">
-            <text>已售6%</text>
+            <text>已售{{filter.Percentage(item.sold_count,item.count_num)}}</text>
             <view class="progress">
               <view class="oldprogress"></view>
               <view class="newprogress"></view>
@@ -181,7 +112,7 @@
  <!-- 精选 -->
   <view class="zw-home-greatsale">
     <view class="greatsale-image">
-       <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/index/cherry.png" />
+       <image lazy-load="{{true}}" mode="aspectFill" src="{{indexList[8].pics}}" />
        <text class="greatsale-text">精选</text>
        <view class="greatsale-text-triangle" ></view>
     </view>
@@ -189,27 +120,11 @@
 
   <!-- 精选商品展示 -->
   <view class="zw-home-choiceness-warp">
-    <view class="product-choicenss">
-      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/shiliu.jpg"></image>
-      <text class="text-ellipse">石榴 6个 甜蜜蜜,红心</text>
+    <view class="product-choicenss" wx:for="{{jingxuan}}" wx:key="item.iid">
+      <image lazy-load="{{true}}" mode="aspectFill" src="{{item.pics}}"></image>
+      <text class="text-ellipse">{{item.title}}}</text>
      <view class="product-num">
-         <text class="saleprice">¥49.90</text>
-         <view class="btn_add">+</view>
-      </view>
-    </view>
-        <view class="product-choicenss">
-      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/niuyopguo.jpg"></image>
-      <text class="text-ellipse">墨西哥进口牛油果</text>
-      <view class="product-num">
-         <text class="saleprice">¥36.90</text>
-         <view class="btn_add">+</view>
-      </view>
-    </view>
-        <view class="product-choicenss">
-      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/putao.jpg"></image>
-      <text class="text-ellipse">顺丰包邮 陕西户木紫葡萄</text>
-     <view class="product-num">
-         <text class="saleprice">¥112.00</text>
+         <text class="saleprice">¥{{item.price}}</text>
          <view class="btn_add">+</view>
       </view>
     </view>
@@ -218,34 +133,18 @@
   <!-- 新品 -->
    <view class="zw-home-greatsale">
     <view class="greatsale-image">
-       <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/index/shanzu.png" />
+       <image lazy-load="{{true}}" mode="aspectFill" src="{{indexList[12].pics}}" />
        <text class="greatsale-text">新品</text>
        <view class="greatsale-text-triangle" ></view>
     </view>
   </view>
   <!-- 新品商品展示 -->
   <view class="zw-home-choiceness-warp">
-    <view class="product-choicenss">
-      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/shiliu.jpg"></image>
-      <text class="text-ellipse">石榴 6个 甜蜜蜜,红心</text>
+    <view class="product-choicenss" wx:for="{{xinping}}" wx:key="item.iid">
+      <image lazy-load="{{true}}" mode="aspectFill" src="{{item.pics}}"></image>
+      <text class="text-ellipse">{{item.title}}}</text>
      <view class="product-num">
-         <text class="saleprice">¥49.90</text>
-         <view class="btn_add">+</view>
-      </view>
-    </view>
-        <view class="product-choicenss">
-      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/niuyopguo.jpg"></image>
-      <text class="text-ellipse">墨西哥进口牛油果</text>
-      <view class="product-num">
-         <text class="saleprice">¥36.90</text>
-         <view class="btn_add">+</view>
-      </view>
-    </view>
-        <view class="product-choicenss">
-      <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/putao.jpg"></image>
-      <text class="text-ellipse">顺丰包邮 陕西户木紫葡萄</text>
-     <view class="product-num">
-         <text class="saleprice">¥112.00</text>
+         <text class="saleprice">¥{{item.price}}</text>
          <view class="btn_add">+</view>
       </view>
     </view>
@@ -254,12 +153,9 @@
   <view class="divider" style="margin-top:30rpx;"></view>
   <view class="sub_slider">
     <swiper autoplay interval="3000" indicator-dots="{{true}}" indicator-active-color="{{afterColor}}">
-      <swiper-item style="height:200rpx">
-        <image class="" src="../../assets/carousel/carousel04.png" mode="aspectFill" lazy-load="true"/>
-      </swiper-item>
-        <swiper-item>
-        <image class="" src="../../assets/carousel/carousel05.png" mode="aspectFill" lazy-load="true"/>
-      </swiper-item>
+      <swiper-item style="height:200rpx" wx:for="{{banner_img_list_bottom}}" wx:key="{{item.cid}}">
+        <image class="" src="{{item.img_url}}" mode="aspectFill" lazy-load="true"/>
+        </swiper-item>
     </swiper>
   </view>  
   <view class="divider"></view>
