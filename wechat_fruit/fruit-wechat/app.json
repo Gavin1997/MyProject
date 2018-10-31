@@ -1,12 +1,15 @@
 {
   "pages": [
+    "pages/details/details",
     "pages/logs/logs",
+   
+   
+    "pages/profile/profile",
     "pages/store/store",
     "pages/group/gruop",
     "pages/category/category",
-    "pages/profile/profile",
     "pages/index/index"
-   
+  
   ],
   "window": {
     "backgroundTextStyle": "light",

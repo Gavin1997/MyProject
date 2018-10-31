@@ -64,13 +64,12 @@ INSERT INTO `fruit_product`(`pid`, `title`, `price`, `old_price`, `md`, `lg`) VA
 (null,'石榴 6个 单果300-500g 新鲜甜石榴水果',49.90,59.90,'http://127.0.0.1:3333/img/product/shiliu.jpg','http://127.0.0.1:3333/img/product/lg/shiliu.jpg'),
 (null,'墨西哥进口牛油果 6个 单果110-150g 中大鳄梨新鲜水',36.90,49.90,'http://127.0.0.1:3333/img/product/niuyopguo.jpg','http://127.0.0.1:3333/img/product/lg/niuyouguo.jpg'),
 (null,'顺丰空运 陕西户太八号葡萄新鲜水果 2.5kg 非云南无籽夏黑葡萄提子',119.0,189.90,'http://127.0.0.1:3333/img/product/putao.jpg','http://127.0.0.1:3333/img/product/lg/putao.jpg'),
-(null,'顺丰空运 陕西户太八号葡萄新鲜水果 2.5kg 非云南无籽夏黑葡萄提子',119.0,189.90,'http://127.0.0.1:3333/img/product/putao.jpg','http://127.0.0.1:3333/img/product/lg/putao.jpg'),
 (null,'泰国进口 金枕头榴莲 泰国进口 金枕头榴莲 2.5-3kg 1个装',49.0,89.90,'http://127.0.0.1:3333/img/product/liulan.jpg','http://127.0.0.1:3333/img/product/lg/liulan.jpg'),
 (null,'新西兰绿奇异果 36#果 6个装】西兰绿奇异果 6',49.90,89.90,'http://127.0.0.1:3333/img/product/qiyiguo.jpg','http://127.0.0.1:3333/img/product/lg/qiyiguo.jpg'),
 (null,'美国进口车厘子 1磅装 果径约26-28mm 新鲜水果',89.90,119.90,'http://127.0.0.1:3333/img/product/chelizi.jpg','http://127.0.0.1:3333/img/product/lg/chelizi.jpg'),
 (null,'澳洲进口荔枝 新鲜水果',59.90,119.90,'http://127.0.0.1:3333/img/product/jiezhi.jpg','http://127.0.0.1:3333/img/product/lg/lizhi.jpg'),
 (null,'心扉鲜果礼盒（进口苹果鲜橙龙眼）',109.90,119.90,'http://127.0.0.1:3333/img/product/longyan.png','http://127.0.0.1:3333/img/product/lg/xianguolihe.jpg'),
-(null,'Moms Love鲜果礼盒 （进口苹果火龙果橙子奇异果）',269.90,339.90,'http://127.0.0.1:3333/img/product/lihe','http://127.0.0.1:3333/img/product/lg/momlove.jpg'),
+(null,'Moms Love鲜果礼盒 （进口苹果火龙果橙子奇异果）',269.90,339.90,'http://127.0.0.1:3333/img/product/lihe.jpg','http://127.0.0.1:3333/img/product/lg/momlove.jpg'),
 (null,'云南无眼凤梨2个装大果 薄皮非菠萝 约6-8斤左右',23.90,49.90,'http://127.0.0.1:3333/img/product/yunnan.jpg','http://127.0.0.1:3333/img/product/lg/boluo.jpg'),
 (null,'红苹果,如少女的脸庞,粉里透红',56.90,66.90,'http://127.0.0.1:3333/img/product/apple.jpg','http://127.0.0.1:3333/img/product/lihe.jpg');
 
@@ -131,3 +130,6 @@ INSERT INTO `fruit_profile`(`id`, `bg`, `user_avatar`, `pay`, `deliver`, `re_goo
 (null,'http://127.0.0.1:3333/img/profile/bg.png','http://127.0.0.1:3333/img/profile/portrait.jpg','http://127.0.0.1:3333/img/profile/pay.png','http://127.0.0.1:3333/img/profile/Shipping.png','http://127.0.0.1:3333/img/profile/havest.png','http://127.0.0.1:3333/img/profile/comment.png',
 'http://127.0.0.1:3333/img/profile/shopcar.png','http://127.0.0.1:3333/img/profile/vip.png','http://127.0.0.1:3333/img/profile/discount.png','http://127.0.0.1:3333/img/profile/score.png','http://127.0.0.1:3333/img/profile/ours.png','http://127.0.0.1:3333/img/profile/inform.png'
 );
+
+
+

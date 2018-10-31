@@ -1,32 +1,20 @@
-// pages/profile/profile.js
+// pages/details/details.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   pageList:[]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  this.getMsg()
+
   },
-  getMsg(){
-    wx.request({
-      url: 'http://127.0.0.1:3333/tabbar/profile',
-      data: {},
-      method: 'GET',
-      dataType: 'json',
-      success: (result)=>{
-        this.setData({
-          pageList:result.data[0]
-        })
-      },
-    });
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

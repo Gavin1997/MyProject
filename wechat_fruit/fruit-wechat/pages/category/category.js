@@ -9,12 +9,43 @@ Page({
      currentTab:0,
      checkCodeBtnOpacity:1,
      checkCodeOpacity:0,
-     animationData:{}
+     animationData:{},
+     products:[],
+     hasMore:true
+    
   },
   //导航栏切换更换index
   navbarTap:function(e){
     this.setData({
-      currentTab:e.currentTarget.dataset.idx
+      currentTab:e.currentTarget.dataset.idx,
+    })
+    setTimeout(()=>{
+      this.setData({
+        hasMore:false
+      })
+    },1000)
+    setTimeout(()=>{
+      this.setData({
+        hasMore:true
+      },2000)
+    })
+  },
+  getMsg(){
+    wx.request({
+      url:'http://127.0.0.1:3333/products/products',
+      methods:'GET',
+      dataType:"json",
+      success:(result)=>{
+        this.setData({
+          products:result.data,
+        })
+        setTimeout(()=>{
+          this.setData({
+            hasMore:false
+          })
+        },1000)
+        
+      }
     })
   },
 
@@ -22,7 +53,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //获得商品
+    this.getMsg()
   },
 
   /**

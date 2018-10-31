@@ -11,6 +11,10 @@ Page({
     miaosha:[],//秒杀板块
     jingxuan:[],//精选模块
     xinping:[],//新品模块
+    recommendList:[],//每日推荐
+    hasMore:true, //是否显示正在加载
+    pno:0,//当前页面的页数
+    pageSize:4,//当前页面显示的产品数量
     indicatorDots: true,//显示面板指示点
     autoplay: true,//自动播放
     beforeColor: "white",//指示点颜色
@@ -21,6 +25,7 @@ Page({
     marqueeDistance:0,//向左移动的距离
     marqueePace:1,
     timer:20,//定时器的间隔秒数
+    
   },
 
   /**
@@ -54,6 +59,18 @@ Page({
         })
       }
     });
+    //3.获取推荐产品分页,加载更多
+    wx.request({
+      url:"http://127.0.0.1:3333/products/list",
+      methods:'GET',
+      dataType:'json',
+      success:(result)=>{
+        this.setData({
+          recommendList:result.data.data.products
+        })
+      }
+    })
+
     var that = this;
     //文字的长度
     let length = that.data.text.length * that.data.size;
@@ -143,6 +160,7 @@ Page({
    */
   onHide: function () {
     console.log("4:当前组件--onHide")
+    
   },
 
   /**
@@ -164,7 +182,30 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log("6:监听用户上拉动作")
+        //3.获取推荐产品分页,加载更多
+        wx.request({
+          url:"http://127.0.0.1:3333/products/list",
+          data:{
+            pno:++this.data.pno,
+            pageSize:this.data.pageSize
+          },
+          methods:'GET',
+          dataType:'json',
+          success:(result)=>{
+            var pageCount = result.data.data.pageCount;
+            if(this.data.pno>=pageCount){
+              this.setData({
+                hasMore:false,
+              })
+            }
+            var rows = this.data.recommendList.concat(result.data.data.products);
+            this.setData({
+               recommendList:rows
+            })
+           
+          }
+         
+        })
   },
 
   /**

@@ -1,5 +1,15 @@
 
 /* 搜索 */
+/* 显示前 */
+.show_transfrom{
+  opacity: 0 ;
+  transition: all 1s linear;
+}
+/* 显示后 */
+.mask-show{
+  opacity: 1;
+  transition: all 1s linear;
+}
 .search_box {
   background: #F8F8F8;
   height:100rpx;

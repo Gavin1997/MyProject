@@ -4,7 +4,7 @@
   <view class="search">
     <view class="search_arr">
       <icon class="searchcion" size='18' type='search'></icon>
-      <input class="" disabled placeholder="请输入搜索内容" value="" />
+      <input type="text" disabled placeholder="请输入搜索内容" value=""  hover-class="navigator-hover" />
     </view>
   </view>
 <!--图片轮播  组件-->
@@ -92,6 +92,7 @@
         <view class="product-sale-msg">
           <view class="count-down">
             <text>距结束</text>
+            <text class="count-down-active">{{day}}天</text>:
             <text class="count-down-active">{{hours}}时</text>:
             <text class="count-down-active">{{mintues}}分</text>:
             <text class="count-down-active">{{s}}秒</text>
@@ -169,65 +170,23 @@
 
   <!-- 每日推荐产品区域 -->
   <!-- 产品1 -->
-  <view class="todaysale-product">
+  <view class="todaysale-product" wx:for="{{recommendList}}" wx:key="item.pid">
     <view class="todaysale-image">
-     <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/aiqiguo.jpg"/>
+     <image lazy-load="{{true}}" mode="aspectFill" src="{{item.md}}"/>
     </view>
     <view class="todaysale-product-info">
       <view class="todaysale-detail">
-        <text class="text-ellipse">爱奇果 进口泰国山竹1.5Kg装,新鲜唯美,一口一个,好营养</text>
+        <text class="text-ellipse">{{item.title}}</text>
       <view class="product-num2">
-         <text class="saleprice">¥49.90</text>
+         <text class="saleprice">¥{{item.price}}</text>
          <view class="btn_add_white">+</view>
       </view>
         </view>
     </view>
   </view>
-  <!-- 产品2 -->
-  <view class="todaysale-product">
-    <view class="todaysale-image">
-     <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/shiliu.jpg"/>
-    </view>
-    <view class="todaysale-product-info">
-      <view class="todaysale-detail">
-        <text class="text-ellipse">石榴 6个 甜甜的,初恋的味道</text>
-      <view class="product-num2">
-         <text class="saleprice">¥69.90</text>
-         <view class="btn_add_white">+</view>
-      </view>
-        </view>
-    </view>
-  </view>
-  <!-- 产品3 -->
-    <view class="todaysale-product">
-    <view class="todaysale-image">
-     <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/niuyopguo.jpg"/>
-    </view>
-    <view class="todaysale-product-info">
-      <view class="todaysale-detail">
-        <text class="text-ellipse">墨西哥进口牛油果 6个 香到没朋友</text>
-      <view class="product-num2">
-         <text class="saleprice">¥36.90</text>
-         <view class="btn_add_white">+</view>
-      </view>
-        </view>
-    </view>
-  </view>
-  <!-- 产品4-->
-    <view class="todaysale-product">
-    <view class="todaysale-image">
-     <image lazy-load="{{true}}" mode="aspectFill" src="../../assets/product/putao.jpg"/>
-    </view>
-    <view class="todaysale-product-info">
-      <view class="todaysale-detail">
-        <text class="text-ellipse">顺丰空运 陕西户木紫葡萄 新品</text>
-      <view class="product-num2">
-         <text class="saleprice">¥1190.00</text>
-         <view class="btn_add_white">+</view>
-      </view>
-        </view>
-    </view>
-  </view>
+<!-- 正在加载 -->
+<view class="loadmore loading" wx:if="{{hasMore}}">正在加载</view>
+
 
   <view>
   <!-- 以下是对一个自定义组件的引用 -->
