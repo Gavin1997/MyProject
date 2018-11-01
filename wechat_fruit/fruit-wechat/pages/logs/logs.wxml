@@ -69,14 +69,15 @@
 
   <!-- 秒杀活动 -->
   <view class="zw-home-greatsale">
-    <view class="greatsale-image">
-       <image lazy-load="{{true}}" mode="aspectFill" src="{{indexList[1].pics}}" />
+    <view class="greatsale-image"  >
+       <image lazy-load="{{true}}" mode="aspectFill" src="{{indexList[1].pics}}" bindtap='HandlermiaoshaDetails' data-iid="{{indexList[1].iid}}" />
        <text class="greatsale-text">秒杀</text>
        <view class="greatsale-text-triangle" ></view>
     </view>
   </view>
   <!-- 秒杀商品展示1 -->
-  <view class="zw-home-product" wx:for="{{miaosha}}" wx:key="{{item.iid}}">
+
+  <view class="zw-home-product" wx:for="{{miaosha}}" wx:key="{{item.iid}}" data-iid="{{item.iid}}"  bindtap="HanlermiaoshaProducts">
     <view class="product-image">
       <image src="{{item.pics}}" lazy-load="{{true}}" mode="aspectFill"/>
     </view>
@@ -111,7 +112,7 @@
 
  
  <!-- 精选 -->
-  <view class="zw-home-greatsale">
+  <view class="zw-home-greatsale" bindtap="HandlerjingxuanDetails" data-iid="{{indexList[8].iid}}">
     <view class="greatsale-image">
        <image lazy-load="{{true}}" mode="aspectFill" src="{{indexList[8].pics}}" />
        <text class="greatsale-text">精选</text>
@@ -121,7 +122,7 @@
 
   <!-- 精选商品展示 -->
   <view class="zw-home-choiceness-warp">
-    <view class="product-choicenss" wx:for="{{jingxuan}}" wx:key="item.iid">
+    <view class="product-choicenss" wx:for="{{jingxuan}}" wx:key="item.iid" data-iid="{{item.iid}}" bindtap="HanlerjingxuanProducts">
       <image lazy-load="{{true}}" mode="aspectFill" src="{{item.pics}}"></image>
       <text class="text-ellipse">{{item.title}}}</text>
      <view class="product-num">
@@ -132,7 +133,7 @@
   </view>
 
   <!-- 新品 -->
-   <view class="zw-home-greatsale">
+   <view class="zw-home-greatsale" bindtap="HandlerjingxuanDetails" data-iid="{{indexList[12].iid}}">
     <view class="greatsale-image">
        <image lazy-load="{{true}}" mode="aspectFill" src="{{indexList[12].pics}}" />
        <text class="greatsale-text">新品</text>
@@ -141,7 +142,7 @@
   </view>
   <!-- 新品商品展示 -->
   <view class="zw-home-choiceness-warp">
-    <view class="product-choicenss" wx:for="{{xinping}}" wx:key="item.iid">
+    <view class="product-choicenss" wx:for="{{xinping}}" wx:key="item.iid" data-iid="{{item.iid}}" bindtap="HanlerxinpingProducts">
       <image lazy-load="{{true}}" mode="aspectFill" src="{{item.pics}}"></image>
       <text class="text-ellipse">{{item.title}}}</text>
      <view class="product-num">

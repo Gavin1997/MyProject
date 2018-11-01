@@ -1,11 +1,11 @@
 <view class="product-details-warp">
     <view class="details-image">
-        <image src="../../assets/store/small_circle.png" />
+        <image src="{{detailsList.md}}" />
     </view>
     <view class="details-title">
-        <text>爱奇果 进口泰国山竹1.5kg装 中大果 新鲜山竹3斤 进口热带水果</text>
+        <text>{{detailsList.title}}</text>
     </view>
-    <text class="details-price">¥:69.90</text>
+    <text class="details-price">¥:{{detailsList.price}}</text>
     <text class="details-divider">运费: 包邮</text>
 </view>
 
@@ -18,12 +18,10 @@
     <view class='line'></view>
 </view>
 
-
-
-
-
-
-
+<!-- 下方大图 详情大图 -->
+<view class="details-lg">
+  <image class="" src="{{detailsList.lg}}" lazy-load="{{true}}" mode="widthFix"/>
+</view>
 
 
 <!-- 底部固定格式 -->
@@ -44,4 +42,5 @@
     <view class="btn_buy">
         <button>立即购买</button>
     </view>
+   
 </view>

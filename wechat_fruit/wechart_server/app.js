@@ -22,9 +22,7 @@ app.use(session({
   resave:false,
   saveUninitialized:true
 }));
-app.get("/",(req,res)=>{
-  res.send("wjhahjalkj")
-})
+
 //挂载路由
 app.use("/index",index);
 app.use("/products",products);

@@ -10,7 +10,21 @@ router.get("/products", (req, res) => {
     res.send(result);
   })
 });
-//2.查询商品的详情分页
+//2.根据产品的id查询商品的详情
+router.get("/details",(req,res)=>{
+  var pid = req.query.pid;
+  var sql = 'SELECT `pid`, `title`, `price`, `old_price`, `md`, `lg` FROM `fruit_product` WHERE pid = ?';
+  pool.query(sql,[pid],(err,result)=>{
+    if(err) throw err;
+    if(result.length>0){
+      res.send({code:1,data:result})
+    }else{
+      res.send({code:-1,msg:"没有找到该商品哦,请重新再试一试"})
+    }
+  })
+})
+
+//3.查询商品的详情分页
 router.get("/list", (req, res) => {
   var sql = 'SELECT `pid`, `title`, `price`, `old_price`, `md`, `lg` FROM `fruit_product` WHERE 1';
   data = {};

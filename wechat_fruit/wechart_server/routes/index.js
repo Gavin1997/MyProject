@@ -9,7 +9,7 @@ router.get("/imglist",(req,res)=>{
     if(err) throw err;
     res.send(result);
   })
-})
+});
 
 //2.获取主页的信息
 router.get("/index",(req,res)=>{
@@ -17,6 +17,19 @@ router.get("/index",(req,res)=>{
   pool.query(sql,[],(err,result)=>{
     if(err) throw err;
     res.send(result);
+  })
+});
+// 根据id查询产品消息信息
+router.get("/details",(req,res)=>{
+  var iid = req.query.iid;
+  var sql = 'SELECT `iid`, `title`, `price`, `old_price`, `md`, `lg` FROM `fruit_index` WHERE iid = ?';
+  pool.query(sql,[iid],(err,result)=>{
+    if(err) throw err;
+    if(result.length>0){
+      res.send({code:1,data:result})
+    }else{
+      res.send({code:-1,msg:"没有找到该商品哦,请重新再试一试"})
+    }
   })
 })
 

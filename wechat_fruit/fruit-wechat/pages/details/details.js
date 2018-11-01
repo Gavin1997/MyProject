@@ -5,13 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    detailsList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var pid = options.pid;
+    wx.request({
+      url: 'http://127.0.0.1:3333/products/details',
+      data:{pid},
+      method: 'GET',
+      dataType: 'json',
+      success: (result)=>{
+        console.log(result.data.data)
+        this.setData({
+          detailsList:result.data.data[0]
+        })
+      },
+    });
 
   },
 

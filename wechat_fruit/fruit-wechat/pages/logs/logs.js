@@ -57,6 +57,7 @@ Page({
           jingxuan:result.data.slice(9,12),
           xinping:result.data.slice(13)
         })
+        
       }
     });
     //3.获取推荐产品分页,加载更多
@@ -70,7 +71,6 @@ Page({
         })
       }
     })
-
     var that = this;
     //文字的长度
     let length = that.data.text.length * that.data.size;
@@ -119,7 +119,7 @@ Page({
     var s = parseInt((end-now)/1000);//时间差的秒数
     if(s>0){
       var day = parseInt(s/3600/24);//剩余天数
-      if(day<10) d = "0"+d;
+      if(day<10) day = "0"+day;
       var hours = parseInt(s%(3600*24)/3600);
       if(hours<10) hours="0"+hours;
       var mintues = parseInt(s%3600/60);
@@ -137,10 +137,55 @@ Page({
       date_interval = null;
     }
   },
-          
-          
-    
+  //3.跳转到产品详情
+  showDetails:function(id){
+    wx.navigateTo({
+      url:"../details/details?pid="+id
+    })
+  },
 
+  //获取点击的商品的的描述id
+  HandlermiaoshaDetails:function(e){
+    var iid =   e.target.dataset.iid; //3
+     //跳转方式1;关闭当前组件
+      // wx.redirectTo({
+      //   // url: '../detail/detail',
+      //   url:"/pages/detail/detail"
+      // });
+          //跳转方式2  保留当前组建
+      this.showDetails(iid)
+      //跳转方式3 没有组件限制
+      // wx.reLaunch({
+      //   url:"../detail/detail"
+      // })
+   },
+   //获取精选banner的id
+   HandlerjingxuanDetails:function(e){
+    var iid =   e.currentTarget.dataset.iid; //3
+    this.showDetails(iid)
+   },
+   //获取新品的id
+   HandlerjingxuanDetails:function(e){
+     var iid = e.currentTarget.dataset.iid;
+     this.showDetails(iid)
+   },
+   //获取秒杀的产品的id
+   HanlermiaoshaProducts:function(e){
+     var iid = e.currentTarget.dataset.iid;
+     this.showDetails(iid)
+   },
+  //  获取精选的产品
+  HanlerjingxuanProducts:function(e){
+    var iid = e.currentTarget.dataset.iid;
+    this.showDetails(iid)
+  },
+  //获取新品的产品
+  HanlerxinpingProducts:function(e){
+    var iid = e.currentTarget.dataset.iid;
+    this.showDetails(iid)
+  },
+
+   
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

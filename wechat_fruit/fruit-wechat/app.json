@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/details/details",
     "pages/logs/logs",
-   
-   
+    "pages/details/details",
+    
     "pages/profile/profile",
     "pages/store/store",
     "pages/group/gruop",
