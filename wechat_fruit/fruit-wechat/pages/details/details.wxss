@@ -55,9 +55,11 @@
     left:30%;
     margin:0 15rpx;
 }
+.details-lg{
+    padding:0 30rpx;
+}
 .details-lg image{
    width: 100%;
-   
 }
 
 

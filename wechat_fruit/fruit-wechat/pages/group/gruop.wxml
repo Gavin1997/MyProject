@@ -1,5 +1,5 @@
 <!-- 产品1 -->
-<view class="product-gruop-warp" wx:for="{{pageList}}" wx:key="{{item.fpid}}">
+<view class="product-gruop-warp" wx:for="{{pageList}}" wx:key="{{item.fpid}}" bindtap="showpingtuanDetails" data-pid="{{item.pid}}" >
   <view class="gruop-image">
     <image class="" src="{{item.pic}}" mode="aspectFill" lazy-load="{{true}}">
     </image>
@@ -15,7 +15,6 @@
         <text class="product-oldprice">¥{{item.old_price}}</text>
       </view>
        <text class="info-start">去拼团</text>
-       
     </view>
   </view> 
 </view>

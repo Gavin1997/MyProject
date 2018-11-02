@@ -88,17 +88,18 @@ INSERT INTO `fruit_product`(`pid`, `title`, `price`, `old_price`, `md`, `lg`) VA
 /*****************拼团***********************/
 CREATE TABLE fruit_pintuan(
     fpid INT PRIMARY KEY AUTO_INCREMENT,
+    pid INT ,
     title VARCHAR(128),
     price DECIMAL(10,2),  #在售价格
     old_price DECIMAL(10,2), #没有促销的价格
     pic VARCHAR(256)
 );
-INSERT INTO `fruit_pintuan`(`fpid`, `title`, `price`, `old_price`, `pic`) VALUES 
-(null,'泰国进口 金枕头榴莲 泰国进口 金枕头榴莲 2.5-3kg 1个装',99.90,149.90,'http://127.0.0.1:3333/img/pingtuan/liulan.png'),
-(null,'新西兰绿奇异果 36#果 6个装】西兰绿奇异果 6',19.90,49.90,'http://127.0.0.1:3333/img/pingtuan/mihoutao.png'),
-(null,'美国进口车厘子 1磅装 果径约26-28mm 新鲜水果',89.90,119.90,'http://127.0.0.1:3333/img/pingtuan/yintao.png'),
-(null,'进口水果,菲律宾进口凤梨两个装 单果约重100-1500g 养颜护肤',45.90,89.90,'http://127.0.0.1:3333/img/pingtuan/boluo.png'),
-(null,'澳洲进口荔枝 新鲜水果',29.90,59.90,'http://127.0.0.1:3333/img/pingtuan/lizhi.png');
+INSERT INTO `fruit_pintuan`(`fpid`,`pid`, `title`, `price`, `old_price`, `pic`) VALUES 
+(null,6,'泰国进口 金枕头榴莲 泰国进口 金枕头榴莲 2.5-3kg 1个装',99.90,149.90,'http://127.0.0.1:3333/img/pingtuan/liulan.png'),
+(null,5,'新西兰绿奇异果 36#果 6个装】西兰绿奇异果 6',19.90,49.90,'http://127.0.0.1:3333/img/pingtuan/mihoutao.png'),
+(null,4,'美国进口车厘子 1磅装 果径约26-28mm 新鲜水果',89.90,119.90,'http://127.0.0.1:3333/img/pingtuan/yintao.png'),
+(null,18,'进口水果,菲律宾进口凤梨两个装 单果约重100-1500g 养颜护肤',45.90,89.90,'http://127.0.0.1:3333/img/pingtuan/boluo.png'),
+(null,17,'澳洲进口荔枝 新鲜水果',29.90,59.90,'http://127.0.0.1:3333/img/pingtuan/lizhi.png');
 
 /*****************门店***********************/
 CREATE TABLE fruit_store(

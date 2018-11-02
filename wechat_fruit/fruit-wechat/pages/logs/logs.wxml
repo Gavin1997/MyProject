@@ -171,7 +171,7 @@
 
   <!-- 每日推荐产品区域 -->
   <!-- 产品1 -->
-  <view class="todaysale-product" wx:for="{{recommendList}}" wx:key="item.pid">
+  <view class="todaysale-product" wx:for="{{recommendList}}" wx:key="item.pid" data-pid="{{item.pid}}" bindtap="showDetailsRecommond">
     <view class="todaysale-image">
      <image lazy-load="{{true}}" mode="aspectFill" src="{{item.md}}"/>
     </view>
@@ -194,8 +194,3 @@
   <!-- 联系和购物车 -->
   <my-slider></my-slider>
 </view>
- 
- 
-    
-
-    

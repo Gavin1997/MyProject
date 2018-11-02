@@ -2,13 +2,11 @@
   "pages": [
     "pages/logs/logs",
     "pages/details/details",
-    
     "pages/profile/profile",
     "pages/store/store",
     "pages/group/gruop",
     "pages/category/category",
     "pages/index/index"
-  
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -5,7 +5,7 @@ const pool = require("../pool");
 
 //1.查询拼团页面信息
 router.get("/pingtuan",(req,res)=>{
-   var sql = 'SELECT `fpid`, `title`, `price`, `old_price`, `pic` FROM `fruit_pintuan` WHERE 1';
+   var sql = 'SELECT `fpid`,`pid`, `title`, `price`, `old_price`, `pic` FROM `fruit_pintuan` WHERE 1';
    pool.query(sql,[],(err,result)=>{
      if(err) throw err;
      res.send(result);

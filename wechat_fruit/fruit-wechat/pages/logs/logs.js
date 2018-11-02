@@ -1,4 +1,3 @@
-
 Page({
 
   /**
@@ -237,6 +236,7 @@ Page({
           methods:'GET',
           dataType:'json',
           success:(result)=>{
+            console.log(result)
             var pageCount = result.data.data.pageCount;
             if(this.data.pno>=pageCount){
               this.setData({
@@ -251,6 +251,10 @@ Page({
           }
          
         })
+  },
+  showDetailsRecommond(e){
+    var pid = e.currentTarget.dataset.pid;
+    this.showDetails(pid)
   },
 
   /**

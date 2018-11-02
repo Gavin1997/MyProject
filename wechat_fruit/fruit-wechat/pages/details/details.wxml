@@ -40,7 +40,7 @@
         <button>加入购物车</button>
     </view>
     <view class="btn_buy">
-        <button>立即购买</button>
+        <button hover-class="navigator-hover">立即购买</button> 
     </view>
    
 </view>

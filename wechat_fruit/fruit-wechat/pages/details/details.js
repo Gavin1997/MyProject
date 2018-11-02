@@ -19,7 +19,6 @@ Page({
       method: 'GET',
       dataType: 'json',
       success: (result)=>{
-        console.log(result.data.data)
         this.setData({
           detailsList:result.data.data[0]
         })

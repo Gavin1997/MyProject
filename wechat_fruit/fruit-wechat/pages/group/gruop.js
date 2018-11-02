@@ -14,18 +14,31 @@ Page({
   onLoad: function (options) {
     this.getMsg();
   },
+  //1.获取拼团页详情
+  
    getMsg(){
      wx.request({
        url: 'http://127.0.0.1:3333/tabbar/pingtuan',
        method: 'GET',
        dataType: 'json',
        success: (result)=>{
+         console.log(result.data)
          this.setData({
            pageList:result.data
          })
        },
      });
    },
+   //2.跳转到详情
+   showDetails:function(id){
+    wx.navigateTo({
+      url:"../details/details?pid="+id
+    })
+  },
+  showpingtuanDetails:function(e){
+    var pid = e.currentTarget.dataset.pid;
+    this.showDetails(pid)
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
