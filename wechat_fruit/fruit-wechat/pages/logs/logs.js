@@ -65,6 +65,7 @@ Page({
       methods:'GET',
       dataType:'json',
       success:(result)=>{
+        console.log(result);
         this.setData({
           recommendList:result.data.data.products
         })
@@ -236,7 +237,6 @@ Page({
           methods:'GET',
           dataType:'json',
           success:(result)=>{
-            console.log(result)
             var pageCount = result.data.data.pageCount;
             if(this.data.pno>=pageCount){
               this.setData({

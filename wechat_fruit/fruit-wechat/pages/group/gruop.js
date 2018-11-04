@@ -22,7 +22,6 @@ Page({
        method: 'GET',
        dataType: 'json',
        success: (result)=>{
-         console.log(result.data)
          this.setData({
            pageList:result.data
          })

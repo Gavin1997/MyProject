@@ -4,7 +4,7 @@ const pool = require("../pool");
 
 //1. 查询商品的详情
 router.get("/products", (req, res) => {
-  var sql = 'SELECT `pid`, `title`, `price`, `old_price`, `md`, `lg` FROM `fruit_product` WHERE 1';
+  var sql = 'SELECT * FROM `fruit_product` WHERE 1';
   pool.query(sql, [], (err, result) => {
     if (err) throw err;
     res.send(result);
@@ -13,7 +13,7 @@ router.get("/products", (req, res) => {
 //2.根据产品的id查询商品的详情
 router.get("/details",(req,res)=>{
   var pid = req.query.pid;
-  var sql = 'SELECT `pid`, `title`, `price`, `old_price`, `md`, `lg` FROM `fruit_product` WHERE pid = ?';
+  var sql = 'SELECT * FROM `fruit_product` WHERE pid = ?';
   pool.query(sql,[pid],(err,result)=>{
     if(err) throw err;
     if(result.length>0){
@@ -26,7 +26,7 @@ router.get("/details",(req,res)=>{
 
 //3.查询商品的详情分页
 router.get("/list", (req, res) => {
-  var sql = 'SELECT `pid`, `title`, `price`, `old_price`, `md`, `lg` FROM `fruit_product` WHERE 1';
+  var sql = 'SELECT * FROM `fruit_product` WHERE 1';
   data = {};
   pool.query(sql, [], (err, result) => {
     if (err) throw err;

@@ -42,5 +42,4 @@
     <view class="btn_buy">
         <button hover-class="navigator-hover">立即购买</button> 
     </view>
-   
 </view>

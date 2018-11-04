@@ -56,34 +56,35 @@ CREATE TABLE fruit_product(
    title VARCHAR(128),
    price DECIMAL(10,2),  #在售价格
    old_price DECIMAL(10,2), #没有促销的价格
+   isdiscount BOOL,  #是否秒杀
    md VARCHAR(256), #商品的图片
    lg VARCHAR(256)
 );
-INSERT INTO `fruit_product`(`pid`, `title`, `price`, `old_price`, `md`, `lg`) VALUES
-(1,'爱奇果,进口泰国山竹1.5Kg装 中大国 新鲜山竹3斤 进口热带水果',69.90,89.90,'http://127.0.0.1:3333/img/product/aiqiguo.jpg','http://127.0.0.1:3333/img/product/lg/shanzu.jpg'),
-(2,'新西兰绿奇异果 36#果 6个装】西兰绿奇异果 6',49.90,89.90,'http://127.0.0.1:3333/img/product/qiyiguo.jpg','http://127.0.0.1:3333/img/product/lg/qiyiguo.jpg'),
-(3,'澳洲进口荔枝 新鲜水果',59.90,119.90,'http://127.0.0.1:3333/img/product/jiezhi.jpg','http://127.0.0.1:3333/img/product/lg/lizhi.jpg'),
-(4,'美国进口车厘子 1磅装 果径约26-28mm 新鲜水果',89.90,119.90,'http://127.0.0.1:3333/img/product/chelizi.jpg','http://127.0.0.1:3333/img/product/lg/chelizi.jpg'),
-(5,'新西兰绿奇异果 36#果 6个装】西兰绿奇异果 6',49.90,89.90,'http://127.0.0.1:3333/img/product/qiyiguo.jpg','http://127.0.0.1:3333/img/product/lg/qiyiguo.jpg'),
-(6,'泰国进口 金枕头榴莲 泰国进口 金枕头榴莲 2.5-3kg 1个装',49.0,89.90,'http://127.0.0.1:3333/img/product/liulan.jpg','http://127.0.0.1:3333/img/product/lg/liulan.jpg'),
-(7,'心扉鲜果礼盒（进口苹果鲜橙龙眼）',109.90,119.90,'http://127.0.0.1:3333/img/product/longyan.png','http://127.0.0.1:3333/img/product/lg/xianguolihe.jpg'),
-(8,'Moms Love鲜果礼盒 （进口苹果火龙果橙子奇异果）',269.90,339.90,'http://127.0.0.1:3333/img/product/lihe.jpg','http://127.0.0.1:3333/img/product/lg/momlove.jpg'),
+INSERT INTO `fruit_product`(`pid`, `title`, `price`, `old_price`, `isdiscount`,`md`, `lg`) VALUES
+(1,'爱奇果,进口泰国山竹1.5Kg装 中大国 新鲜山竹3斤 进口热带水果',69.90,89.90,1,'http://127.0.0.1:3333/img/product/aiqiguo.jpg','http://127.0.0.1:3333/img/product/lg/shanzu.jpg'),
+(2,'新西兰绿奇异果 36#果 6个装】西兰绿奇异果 6',49.90,89.90,1,'http://127.0.0.1:3333/img/product/qiyiguo.jpg','http://127.0.0.1:3333/img/product/lg/qiyiguo.jpg'),
+(3,'澳洲进口荔枝 新鲜水果',59.90,119.90,1,'http://127.0.0.1:3333/img/product/jiezhi.jpg','http://127.0.0.1:3333/img/product/lg/lizhi.jpg'),
+(4,'美国进口车厘子 1磅装 果径约26-28mm 新鲜水果',89.90,119.90,1,'http://127.0.0.1:3333/img/product/chelizi.jpg','http://127.0.0.1:3333/img/product/lg/chelizi.jpg'),
+(5,'新西兰绿奇异果 36#果 6个装】西兰绿奇异果 6',49.90,89.90,1,'http://127.0.0.1:3333/img/product/qiyiguo.jpg','http://127.0.0.1:3333/img/product/lg/qiyiguo.jpg'),
+(6,'泰国进口 金枕头榴莲 泰国进口 金枕头榴莲 2.5-3kg 1个装',49.0,89.90,1,'http://127.0.0.1:3333/img/product/liulan.jpg','http://127.0.0.1:3333/img/product/lg/liulan.jpg'),
+(7,'心扉鲜果礼盒（进口苹果鲜橙龙眼）',109.90,119.90,1,'http://127.0.0.1:3333/img/product/longyan.png','http://127.0.0.1:3333/img/product/lg/xianguolihe.jpg'),
+(8,'Moms Love鲜果礼盒 （进口苹果火龙果橙子奇异果）',269.90,339.90,1,'http://127.0.0.1:3333/img/product/lihe.jpg','http://127.0.0.1:3333/img/product/lg/momlove.jpg'),
 
-(9,'石榴 6个 单果300-500g 新鲜甜石榴水果',49.90,59.90,'http://127.0.0.1:3333/img/product/shiliu.jpg','http://127.0.0.1:3333/img/product/lg/shiliu.jpg'),
-(10,'石榴 6个 单果300-500g 新鲜甜石榴水果',49.90,59.90,'http://127.0.0.1:3333/img/product/shiliu.jpg','http://127.0.0.1:3333/img/product/lg/shiliu.jpg'),
-(11,'墨西哥进口牛油果 6个 单果110-150g 中大鳄梨新鲜水',36.90,49.90,'http://127.0.0.1:3333/img/product/niuyopguo.jpg','http://127.0.0.1:3333/img/product/lg/niuyouguo.jpg'),
-(12,'顺丰空运 陕西户太八号葡萄新鲜水果 2.5kg 非云南无籽夏黑葡萄提子',119.0,189.90,'http://127.0.0.1:3333/img/product/putao.jpg','http://127.0.0.1:3333/img/product/lg/putao.jpg'),
-
-
-(13,'爱奇果,进口泰国山竹1.5Kg装 中大国 新鲜山竹3斤 进口热带水果',69.90,89.90,'http://127.0.0.1:3333/img/product/aiqiguo.jpg','http://127.0.0.1:3333/img/product/lg/shanzu.jpg'),
-(14,'山竹果 进口泰国 原汁原味',69.9,89.9,'http://127.0.0.1:3333/img/product/aiqiguo.jpg','http://127.0.0.1:3333/img/product/lg/shanzu.jpg'),
-(15,'顺丰空运 陕西户太八号葡萄新鲜水果 2.5kg 非云南无籽夏黑葡萄提子',119.0,189.90,'http://127.0.0.1:3333/img/product/putao.jpg','http://127.0.0.1:3333/img/product/lg/putao.jpg'),
-(16,'红苹果,如少女的脸庞,粉里透红',56.90,66.90,'http://127.0.0.1:3333/img/product/apple.jpg','http://127.0.0.1:3333/img/product/lihe.jpg'),
-(17,'澳洲进口荔枝 新鲜水果',59.90,119.90,'http://127.0.0.1:3333/img/product/jiezhi.jpg','http://127.0.0.1:3333/img/product/lg/lizhi.jpg'),
+(9,'石榴 6个 单果300-500g 新鲜甜石榴水果',49.90,59.90,0,'http://127.0.0.1:3333/img/product/shiliu.jpg','http://127.0.0.1:3333/img/product/lg/shiliu.jpg'),
+(10,'石榴 6个 单果300-500g 新鲜甜石榴水果',49.90,59.90,0,'http://127.0.0.1:3333/img/product/shiliu.jpg','http://127.0.0.1:3333/img/product/lg/shiliu.jpg'),
+(11,'墨西哥进口牛油果 6个 单果110-150g 中大鳄梨新鲜水',36.90,49.90,0,'http://127.0.0.1:3333/img/product/niuyopguo.jpg','http://127.0.0.1:3333/img/product/lg/niuyouguo.jpg'),
+(12,'顺丰空运 陕西户太八号葡萄新鲜水果 2.5kg 非云南无籽夏黑葡萄提子',119.0,189.90,0,'http://127.0.0.1:3333/img/product/putao.jpg','http://127.0.0.1:3333/img/product/lg/putao.jpg'),
 
 
-(18,'云南无眼凤梨2个装大果 薄皮非菠萝 约6-8斤左右',23.90,49.90,'http://127.0.0.1:3333/img/product/yunnan.jpg','http://127.0.0.1:3333/img/product/lg/boluo.jpg'),
-(19,'红苹果,如少女的脸庞,粉里透红',56.90,66.90,'http://127.0.0.1:3333/img/product/apple.jpg','http://127.0.0.1:3333/img/product/lihe.jpg');
+(13,'爱奇果,进口泰国山竹1.5Kg装 中大国 新鲜山竹3斤 进口热带水果',69.90,89.90,0,'http://127.0.0.1:3333/img/product/aiqiguo.jpg','http://127.0.0.1:3333/img/product/lg/shanzu.jpg'),
+(14,'山竹果 进口泰国 原汁原味',69.9,89.9,0,'http://127.0.0.1:3333/img/product/aiqiguo.jpg','http://127.0.0.1:3333/img/product/lg/shanzu.jpg'),
+(15,'顺丰空运 陕西户太八号葡萄新鲜水果 2.5kg 非云南无籽夏黑葡萄提子',119.0,189.90,0,'http://127.0.0.1:3333/img/product/putao.jpg','http://127.0.0.1:3333/img/product/lg/putao.jpg'),
+(16,'红苹果,如少女的脸庞,粉里透红',56.90,66.90,0,'http://127.0.0.1:3333/img/product/apple.jpg','http://127.0.0.1:3333/img/product/lihe.jpg'),
+(17,'澳洲进口荔枝 新鲜水果',59.90,119.90,0,'http://127.0.0.1:3333/img/product/jiezhi.jpg','http://127.0.0.1:3333/img/product/lg/lizhi.jpg'),
+
+
+(18,'云南无眼凤梨2个装大果 薄皮非菠萝 约6-8斤左右',23.90,49.90,0,'http://127.0.0.1:3333/img/product/yunnan.jpg','http://127.0.0.1:3333/img/product/lg/boluo.jpg'),
+(19,'红苹果,如少女的脸庞,粉里透红',56.90,66.90,0,'http://127.0.0.1:3333/img/product/apple.jpg','http://127.0.0.1:3333/img/product/lihe.jpg');
 
 /*****************拼团***********************/
 CREATE TABLE fruit_pintuan(
