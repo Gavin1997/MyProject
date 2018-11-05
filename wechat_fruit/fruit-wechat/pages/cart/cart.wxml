@@ -1,0 +1,63 @@
+<view class="divider"></view>
+<view class="cart-product-warp">
+    <view>
+        <label class="checkbox">
+            <checkbox value="" checked="" />
+        </label>
+    </view>
+    <image src="../../assets/nav_icons/file_5b569c28e4623.jpg" alt="" lazy-load="{{true}}" />
+    <view class="cart-product-details">
+        <text class="text-ellipse">美国进口车厘子 1磅重</text>
+        <text>原价:<text>¥ 89.00</text> </text>
+        <text> 秒杀特价:<text>¥ 59.90</text> </text>
+    </view>
+    <view class="cart-num" hover-class="button-hover">
+        <view class="btn">-</view>
+        <text>1</text>
+        <view class="btn">+</view>
+    </view>
+</view>
+<view class="cart-product-warp">
+    <view>
+        <label class="checkbox">
+            <checkbox value="" checked="" />
+        </label>
+    </view>
+    <image src="../../assets/nav_icons/file_5b569c28e4623.jpg" alt="" lazy-load="{{true}}" />
+    <view class="cart-product-details">
+        <text class="text-ellipse">美国进口车厘子 1磅重</text>
+        <text>
+            原价:<text>¥ 89.00</text>
+        </text>
+        <text>
+            秒杀特价:<text>¥ 59.90</text>
+        </text>
+    </view>
+    <view class="cart-num" hover-class="button-hover">
+        <view class="btn">-</view>
+        <text>1</text>
+        <view class="btn">+</view>
+    </view>
+</view>
+<view class="cart-product-warp">
+    <view>
+        <label class="checkbox">
+            <checkbox value="" checked="" />
+        </label>
+    </view>
+    <image src="../../assets/nav_icons/file_5b569c28e4623.jpg" alt="" lazy-load="{{true}}" />
+    <view class="cart-product-details">
+        <text class="text-ellipse">美国进口车厘子 1磅重</text>
+        <text>
+            原价:<text>¥ 89.00</text>
+        </text>
+        <text>
+            秒杀特价:<text>¥ 59.90</text>
+        </text>
+    </view>
+    <view class="cart-num" hover-class="button-hover">
+        <view class="btn">-</view>
+        <text>1</text>
+        <view class="btn">+</view>
+    </view>
+</view>

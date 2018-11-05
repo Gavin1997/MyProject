@@ -1,7 +1,32 @@
+
+
+
 <view class="product-details-warp">
     <view class="details-image">
         <image src="{{detailsList.md}}" />
     </view>
+    <!-- 订单小图标 用于跳转购物车 -->
+    <view class="orderlist">
+       <image src="../../assets/nav_icons/orderlist.png" lazy-load="{{true}}" mode="aspectFill"></image>
+    </view>
+    <!-- 是否秒界面-->
+<view class="miaosha-warp" wx:if="{{ismiaosha}}">
+  <view class="miaosha-price">
+    <view class="miaosha-now-price">¥ 196</view>
+    <view class="miaosha-old-price-warp">
+       <view class="miaosha-old-price">¥ 249</view>
+       <view class="miaosha-old-priduct">秒杀商品</view>
+    </view>
+  </view>
+  <view class="miaosha-time-warp">
+      <text class="timer-text">距离结束还剩</text>
+      <view clsas="timer-wrap">
+         <text class="count-down-active">{{hours}}时</text> :
+         <text class="count-down-active">{{mintues}}分</text> :
+         <text class="count-down-active">{{s}}秒</text>
+      </view>
+  </view>
+</view>
     <view class="details-title">
         <text>{{detailsList.title}}</text>
     </view>

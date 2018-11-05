@@ -6,6 +6,7 @@ const session = require("express-session");
 const index = require ("./routes/index");
 const products = require("./routes/products");
 const tabbar = require("./routes/tabbar");
+const cart = require("./routes/shopcart");
 
 var app = express();
 const cors = require("cors");
@@ -27,3 +28,4 @@ app.use(session({
 app.use("/index",index);
 app.use("/products",products);
 app.use("/tabbar",tabbar);
+app.use("/cart",cart);

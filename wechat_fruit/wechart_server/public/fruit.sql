@@ -145,5 +145,17 @@ INSERT INTO `fruit_profile`(`id`, `bg`, `user_avatar`, `pay`, `deliver`, `re_goo
 'http://127.0.0.1:3333/img/profile/shopcar.png','http://127.0.0.1:3333/img/profile/vip.png','http://127.0.0.1:3333/img/profile/discount.png','http://127.0.0.1:3333/img/profile/score.png','http://127.0.0.1:3333/img/profile/ours.png','http://127.0.0.1:3333/img/profile/inform.png'
 );
 
+/**********************购物车****************/
+CREATE TABLE fruit_cart(
+    fcid INT PRIMARY KEY AUTO_INCREMENT,
+    pid INT, #产品的id
+    title VARCHAR(128),
+    price DECIMAL(10,2),  #在售价格
+    old_price DECIMAL(10,2), #没有促销的价格
+    md VARCHAR(256) #商品的图片
+);
+-- INSERT INTO `fruit_cart`(`fcid`, `pid`, `title`, `price`, `old_price`, `md`) VALUES ();
+
+
 
 

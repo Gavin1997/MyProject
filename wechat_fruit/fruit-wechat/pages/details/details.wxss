@@ -1,11 +1,30 @@
 .product-details-warp{
     display: flex;
     flex-direction: column;
+    position: relative;
     
 }
 .product-details-warp .details-image{
     text-align: center;
     width:100%;
+  
+}
+.product-details-warp .orderlist{
+    position: absolute;
+    top:30rpx;
+    right:30rpx;
+    width:60rpx;
+    height:60rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(226,227,231,0.6);
+    text-align: center;
+    vertical-align: center;
+}
+.product-details-warp .orderlist image {
+    width:40rpx;
+    height:40rpx;
+    padding-top: 10rpx;
   
 }
 .product-details-warp .details-image image{
@@ -115,5 +134,61 @@
     outline: 0;
     border-radius: 0;
     height:88rpx;
+}
+/* 秒杀页面显示专属 */
+.miaosha-warp{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 100%;
+    bottom:0;
+}
+.miaosha-warp .miaosha-price{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #f31e4a;
+    width: 50%;
+}
+.miaosha-old-price-warp {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.miaosha-warp .miaosha-price .miaosha-now-price{
+    color:#fff;
+}
+.miaosha-warp .miaosha-price .miaosha-old-price{
+  color:#fff;
+  font-size:12px;
+  text-decoration: line-through;
+}
+.miaosha-warp .miaosha-price .miaosha-old-priduct{
+  color:#fff;
+  font-size: 13px;
+  margin-left:6px;
+}
 
+.miaosha-time-warp {
+  background: rgb(253,237,96);
+  width: 50%;
+  text-align: center;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  font-size:12px;
+}
+.miaosha-time-warp .timer-text{
+  font-size:12px;
+  color:#444;
+}
+text.count-down-active{
+  font-size: 13px;
+  color:#fff;
+  background-color: #583512;
+  border-radius: 5px;
+  padding:0 5rpx;
 }

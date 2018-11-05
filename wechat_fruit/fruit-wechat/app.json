@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/cart/cart",
     "pages/logs/logs",
     "pages/details/details",
     "pages/profile/profile",
@@ -7,6 +8,7 @@
     "pages/group/gruop",
     "pages/category/category",
     "pages/index/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

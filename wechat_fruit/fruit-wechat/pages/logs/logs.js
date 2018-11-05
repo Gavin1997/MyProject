@@ -46,7 +46,7 @@ Page({
     });
     //2.获取主页信息数据
     wx.request({
-      url:'http://127.0.0.1:3333/index/index',
+      url:'http://127.0.0.1:3333/index/index',                                                                                                                                                                                                                                                                                                                                                 
       methods:'GET',
       dataType:'json',
       success:(result)=>{
@@ -65,7 +65,6 @@ Page({
       methods:'GET',
       dataType:'json',
       success:(result)=>{
-        console.log(result);
         this.setData({
           recommendList:result.data.data.products
         })
@@ -82,7 +81,6 @@ Page({
     that.scrollTxt();
     //3.调用倒计时函数
     var date_interval = setInterval(that.countDwon,1000);
-    
   },
   //1.滚动字体函数
   scrollTxt:function(){
@@ -143,7 +141,6 @@ Page({
       url:"../details/details?pid="+id
     })
   },
-
   //获取点击的商品的的描述id
   HandlermiaoshaDetails:function(e){
     var iid =   e.target.dataset.iid; //3
@@ -238,15 +235,16 @@ Page({
           dataType:'json',
           success:(result)=>{
             var pageCount = result.data.data.pageCount;
+            
+            var rows = this.data.recommendList.concat(result.data.data.products);
+            this.setData({
+               recommendList:rows
+            })
             if(this.data.pno>=pageCount){
               this.setData({
                 hasMore:false,
               })
             }
-            var rows = this.data.recommendList.concat(result.data.data.products);
-            this.setData({
-               recommendList:rows
-            })
            
           }
          
