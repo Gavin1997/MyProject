@@ -152,7 +152,8 @@ CREATE TABLE fruit_cart(
     title VARCHAR(128),
     price DECIMAL(10,2),  #在售价格
     old_price DECIMAL(10,2), #没有促销的价格
-    md VARCHAR(256) #商品的图片
+    md VARCHAR(256), #商品的图片
+    count INT  #商品的数量
 );
 -- INSERT INTO `fruit_cart`(`fcid`, `pid`, `title`, `price`, `old_price`, `md`) VALUES ();
 

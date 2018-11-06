@@ -12,9 +12,9 @@
     <!-- 是否秒界面-->
 <view class="miaosha-warp" wx:if="{{ismiaosha}}">
   <view class="miaosha-price">
-    <view class="miaosha-now-price">¥ 196</view>
+    <view class="miaosha-now-price">¥ {{detailsList.price}}</view>
     <view class="miaosha-old-price-warp">
-       <view class="miaosha-old-price">¥ 249</view>
+       <view class="miaosha-old-price">¥ {{detailsList.old_price}}</view>
        <view class="miaosha-old-priduct">秒杀商品</view>
     </view>
   </view>
@@ -51,17 +51,17 @@
 
 <!-- 底部固定格式 -->
 <view class="footer_warp">
-    <view class="shopcart" hover-class="none">
+    <view class="shopcart" hover-class="none" bindtap="goShopCart">
         <image class="" src="../../assets/nav_icons/shopcart1.png" mode="aspectFill" lazy-load="true" >
         </image>
         <text>购物车</text>
     </view>
-        <view class="shopcart" hover-class="none">
+        <view class="shopcart" hover-class="none" bindtap="goStore">
         <image class="" src="../../assets/nav_icons/store.png" mode="aspectFill" lazy-load="true" >
         </image>
         <text>店铺</text>
     </view>
-    <view class="btn_add_cart">
+    <view class="btn_add_cart" bindtap="addCart" data-title="{{detailsList.title}}" data-md="{{detailsList.md}}" data-price="{{detailsList.price}}" data-oldprice="{{detailsList.old_price}}" data-pid="{{detailsList.pid}}">
         <button>加入购物车</button>
     </view>
     <view class="btn_buy">

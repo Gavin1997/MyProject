@@ -24,8 +24,12 @@ router.get("/add",(req,res)=>{
         res.send({code:-1,msg:"出错啦"})
          return
     }
-    var sql = "INSERT INTO `fruit_cart`(`fcid`, `pid`, `title`, `price`, `old_price`, `md`) VALUES (null,?,?,?,?,?)";
-    pool.query(sql,[pid,title,price,old_price,md],(err,result)=>{
+    var count = req.query.count;
+    if(!count){
+        count = 1
+    }
+    var sql = "INSERT INTO `fruit_cart`(`fcid`, `pid`, `title`, `price`, `old_price`, `md`, `count`) VALUES (null,?,?,?,?,?,?)";
+    pool.query(sql,[pid,title,price,old_price,md,count],(err,result)=>{
         if(err) throw err;
         if(result.affectedRows>=1){
         res.send({code:1,msg:"添加购物车成功"})

@@ -1,63 +1,30 @@
 <view class="divider"></view>
-<view class="cart-product-warp">
-    <view>
-        <label class="checkbox">
-            <checkbox value="" checked="" />
-        </label>
-    </view>
-    <image src="../../assets/nav_icons/file_5b569c28e4623.jpg" alt="" lazy-load="{{true}}" />
+<view class="cart-product-warp" wx:for="{{productList}}" wx:for-index="index" wx:key="{{productList.pid}}">
+  <view class="selected-warp">
+   <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{item.pid}}" src="{{item.isSelect?'../../assets/nav_icons/comment_select.png':'../../assets/nav_icons/comment_normal.png'}}" />
+  </view>
+    <image src="{{item.md}}" alt="" lazy-load="{{true}}" />
     <view class="cart-product-details">
-        <text class="text-ellipse">美国进口车厘子 1磅重</text>
-        <text>原价:<text>¥ 89.00</text> </text>
-        <text> 秒杀特价:<text>¥ 59.90</text> </text>
+        <text class="text-ellipse">{{item.title}}</text>
+        <text>原价:<text>¥ {{item.old_price}}</text> </text>
+        <text> 秒杀特价:<text>¥ {{item.price}}</text> </text>
     </view>
     <view class="cart-num" hover-class="button-hover">
-        <view class="btn">-</view>
-        <text>1</text>
-        <view class="btn">+</view>
+        <view class="btn" bindtap="modifyCount" data-isadd="false" data-index="{{index}}" data-count="{{item.count}}">-</view>
+        <text>{{item.count}}</text>
+        <view class="btn" bindtap="modifyCount" data-isadd="true" data-index="{{index}}" data-count="{{item.count}}">+</view>
     </view>
 </view>
-<view class="cart-product-warp">
-    <view>
-        <label class="checkbox">
-            <checkbox value="" checked="" />
-        </label>
-    </view>
-    <image src="../../assets/nav_icons/file_5b569c28e4623.jpg" alt="" lazy-load="{{true}}" />
-    <view class="cart-product-details">
-        <text class="text-ellipse">美国进口车厘子 1磅重</text>
-        <text>
-            原价:<text>¥ 89.00</text>
-        </text>
-        <text>
-            秒杀特价:<text>¥ 59.90</text>
-        </text>
-    </view>
-    <view class="cart-num" hover-class="button-hover">
-        <view class="btn">-</view>
-        <text>1</text>
-        <view class="btn">+</view>
-    </view>
-</view>
-<view class="cart-product-warp">
-    <view>
-        <label class="checkbox">
-            <checkbox value="" checked="" />
-        </label>
-    </view>
-    <image src="../../assets/nav_icons/file_5b569c28e4623.jpg" alt="" lazy-load="{{true}}" />
-    <view class="cart-product-details">
-        <text class="text-ellipse">美国进口车厘子 1磅重</text>
-        <text>
-            原价:<text>¥ 89.00</text>
-        </text>
-        <text>
-            秒杀特价:<text>¥ 59.90</text>
-        </text>
-    </view>
-    <view class="cart-num" hover-class="button-hover">
-        <view class="btn">-</view>
-        <text>1</text>
-        <view class="btn">+</view>
-    </view>
+<!-- 底部固定结算 -->
+<view class="cart-bottom-warp">
+     <view class="selected-warp">
+       <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{isAllSelect?'../../assets/nav_icons/comment_select.png':'../../assets/nav_icons/comment_normal.png'}}" />
+  </view>
+   <text bindtap="allSelect" class="allselect">全选</text>
+     <view class="total">
+        <text>合计：</text>
+        <text>¥ {{totalMoney}}</text>
+        <view class="pay-button" bindtap="toBuy">结算</view>
+     </view>
+   
 </view>

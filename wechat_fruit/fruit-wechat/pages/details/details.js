@@ -20,7 +20,6 @@ Page({
       method: 'GET',
       dataType: 'json',
       success: (result)=>{
-        console.log(result.data.data[0].isdiscount);
         if(result.data.data[0].isdiscount==1){
           this.setData({
             ismiaosha:true
@@ -36,7 +35,7 @@ Page({
 
     var date_interval = setInterval(this.countDwon, 1000);
   },
-  // 倒计时函数
+  // 1.倒计时函数
   countDwon: function (end) {
     var now = new Date();
     var end = new Date("2018/11/11 18:00:00");
@@ -60,6 +59,42 @@ Page({
       clearInterval(date_interval);
       date_interval = null;
     }
+  },
+  //2.跳转购物车
+  goShopCart:function(e) {
+     wx.navigateTo({
+       url: '../cart/cart'
+     });
+  },
+  //3.加入购物车
+  addCart:function(e) {
+     var el = e.currentTarget.dataset;
+     var pid = el.pid, title = el.title, price = el.price,old_price = el.oldprice, md = el.md, count=1;
+     wx.request({
+       url:"http://127.0.0.1:3333/cart/add",
+       data:{pid,title,price,old_price,md,count},
+       method:"GET",
+       success:(result)=>{
+         if(result.data.code==1){
+           wx.showToast({
+             title: '添加成功',
+             duration: 1500,
+           });
+         }else{
+           wx.showToast({
+             title: '添加失败',
+             duration:2000
+           })
+         }
+       }
+     })
+  },
+
+  //4.跳转到商店
+  goStore:function(e) {
+    wx.switchTab({
+      url: '../store/store'
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
