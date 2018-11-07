@@ -1,0 +1,26 @@
+<view class="search_box"> 
+  <view class="search">
+    <view class="search_arr">
+      <icon class="searchcion" size='18' type='search' bindtap="searchBlur"></icon>
+      <input type="text" class=""  placeholder="请输入搜索内容" value="" bindfocus="searchFocus" bindinput="searchInput" bindblur="searchBlur"/>
+    </view>
+  </view>
+</view>
+
+<view class="divider"></view>
+<view>
+  <view class="loadmore loading" wx:if="{{hasMore}}">正在加载</view>
+  <view class="zw-category-product-warp">
+    <!-- 1. -->
+    <view class="zw-category-product" wx:for="{{products}}" wx:key="{{products.pid}}" bindtap="godetails" data-pid="{{item.pid}}">
+      <image lazy-load="{{true}}" mode="aspectFill" src="{{item.md}}" />
+      <view class="category-product-title text-ellipse">
+        <text>{{item.title}}</text>
+      </view>
+      <view class="product-num">
+        <text class="saleprice">¥{{item.price}}</text>
+        <view class="btn_add">+</view>
+      </view>
+    </view> 
+  </view>
+</view>

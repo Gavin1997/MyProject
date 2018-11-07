@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "首页",
+    "usingComponents": {
+      "my-slider": "../components/slider/slider"
+    },
+    "enablePullDownRefresh": true
+}
