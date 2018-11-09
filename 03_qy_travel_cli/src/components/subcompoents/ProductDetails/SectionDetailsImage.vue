@@ -3,7 +3,7 @@
     <!-- 图片 -->
     <div class="leftslide">
       <div class="lg_img">
-        <img :src="res.pics[`${i}`].md" alt="" style="width:100%;height:100%;">
+        <img v-lazy="res.pics[`${i}`].md" alt="" style="width:100%;height:100%;">
         <span>产品编号:{{res.product.product_number}}</span>
       </div>
       <!-- 小图列表 -->
@@ -16,7 +16,7 @@
           <div class="slidearea">
             <ul class="list-unstyle sm_img_list d-flex " :style="move">
               <li class="ml-1 " v-for="(pic,i) in res.pics">
-                <img :src="pic.sm" @mouseenter="changeImg(i)">
+                <img v-lazy="pic.sm" @mouseenter="changeImg(i)">
               </li>
             </ul>
           </div>

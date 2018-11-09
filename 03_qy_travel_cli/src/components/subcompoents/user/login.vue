@@ -20,7 +20,7 @@
                 <!-- <span :class="unameClass">请输入用户名不能为空</span> -->
               </div>
               <div>
-                <input type="password" placeholder="密码" class="my-form-control1 mt-3" v-model="upwd" @keydown="login($event)">
+                <input type="password" placeholder="密码" class="my-form-control1 mt-3" v-model="upwd" @keydown.13="login($event)">
                 <!-- <span :class="upwdClass">请输入密码不能为空</span> -->
               </div>
               <p class="login-forget mt-3 mb-2"><a href="#">忘记密码?</a></p>
@@ -59,6 +59,7 @@ import Qs from "qs"
             upwd: this.upwd
           })
         ).then(res => {
+          console.log(res)
           this.res = res.data;
           if (res.data.ok == 0) {
             this.login_active = "alert alert-danger";

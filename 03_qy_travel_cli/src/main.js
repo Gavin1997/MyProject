@@ -4,8 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import VueLazyload from 'vue-lazyload'
 import Qs from 'qs'
 
+Vue.use(VueLazyload)
 //引入 element-ui  按需求
 import 'element-ui/lib/theme-chalk/index.css'
 import {Button,carousel,CarouselItem} from 'element-ui'

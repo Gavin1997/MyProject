@@ -25,7 +25,7 @@
               <!-- 玩乐左大图图1 -->
               <li class="zw-home-wanle-one float-left clearfix" v-for="(p,i) in res.slice(14,15)">
                 <a @click.prevent="getDetails(p.tid)">
-                  <img :src="p.pic" alt="">
+                  <img v-lazy="p.pic" alt="">
                   <div class="mask"></div>
                   <h3 class="title">{{p.details}}</h3>
                   <div class="zw-home-wanle-info d-flex justify-content-between">
@@ -37,7 +37,7 @@
               <!-- 玩乐小图 大图右边1 -->
               <li class="zw-home-wanle-item float-left clearfix" v-for="(p,i) in res.slice(15,17)">
                 <a @click.prevent="getDetails(p.tid)">
-                  <p class="pics"><img :src="p.pic" width="120" height="120" style="display: block;">
+                  <p class="pics"><img v-lazy="p.pic" width="120" height="120" style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>
@@ -68,7 +68,7 @@
               <!--玩乐大图 右图3 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 " v-for="(p,i) in res.slice(17,18)" v-cloak>
                 <a@click.prevent="getDetails(p.tid)">
-                  <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
+                  <p class="pics"><img v-lazy="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>
@@ -77,7 +77,7 @@
               <!-- 玩乐 图4 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-0" v-for="(p,i) in res.slice(18,19)" v-cloak>
                 <a @click.prevent="getDetails(p.tid)">
-                  <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
+                  <p class="pics"><img v-lazy="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>
@@ -87,7 +87,7 @@
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 pl-1" v-for="(p,i) in res.slice(19,20)"
                 v-cloak>
                 <a @click.prevent="getDetails(p.tid)">
-                  <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
+                  <p class="pics"><img v-lazy="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>
@@ -100,7 +100,7 @@
               <!-- 玩乐左大图图1 -->
               <li class="zw-home-wanle-one float-left clearfix" v-for="(p,i) in res.slice(14,15)">
                 <a @click.prevent="getDetails(p.tid)">
-                  <img :src="p.pic" alt="">
+                  <img v-lazy="p.pic" alt="">
                   <div class="mask"></div>
                   <h3 class="title">{{p.details}}</h3>
                   <div class="zw-home-wanle-info d-flex justify-content-between">
@@ -112,7 +112,7 @@
               <!-- 玩乐小图 大图右边1 -->
               <li class="zw-home-wanle-item float-left clearfix" v-for="(p,i) in res.slice(15,17)">
                 <a @click.prevent="getDetails(p.tid)">
-                  <p class="pics"><img :src="p.pic" width="120" height="120" style="display: block;">
+                  <p class="pics"><img v-lazy="p.pic" width="120" height="120" style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>
@@ -144,7 +144,7 @@
               <!--玩乐大图 右图3 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 " v-for="(p,i) in res.slice(17,18)" v-cloak>
                 <a @click.prevent="getDetails(p.tid)">
-                  <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
+                  <p class="pics"><img v-lazy="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>
@@ -153,7 +153,7 @@
               <!-- 玩乐 图4 -->
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-0" v-for="(p,i) in res.slice(18,19)" v-cloak>
                 <a @click.prevent="getDetails(p.tid)">
-                  <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
+                  <p class="pics"><img v-lazy="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>
@@ -163,7 +163,7 @@
               <li class="zw-home-wanle-item float-left clearfix mt-2 ml-3 pl-1" v-for="(p,i) in res.slice(19,20)"
                 v-cloak>
                 <a @click.prevent="getDetails(p.tid)">
-                  <p class="pics"><img :src="p.pic" width:120px height:120px style="display: block;">
+                  <p class="pics"><img v-lazy="p.pic" width:120px height:120px style="display: block;">
                     <h3 class="title1">{{p.details}}</h3>
                   </p>
                   <p class="price">{{p.price}}<span>元起</span></p>

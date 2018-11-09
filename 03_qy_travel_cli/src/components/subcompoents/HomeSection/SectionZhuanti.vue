@@ -25,7 +25,7 @@
                   海外<br>
                   City Walk
                 </p>
-                <img :src="p.pic" alt="">
+                <img v-lazy="p.pic" alt="">
                 <div class="zw-home-zhuanti-title d-flex">
                   <p class="price">{{p.price}}<span>元起</span></p>
                 </div>
@@ -37,7 +37,7 @@
             <!-- 第二个列表 图2 小 -->
             <li class="zw-home-ziyouxing-item float-left" v-for="(p,i) in res.slice(21,26)">
               <a @click.prevent="getDetails(p.tid)">
-                <img :src="p.pic" alt="">
+                <img v-lazy="p.pic" alt="">
                 <div class="zw-home-ziyouxing-subtitle d-flex ">
                   <p>{{p.price}}<span>元起</span></p>
                 </div>
@@ -95,7 +95,7 @@
                   半自<br>
                   助游
                 </p>
-                <img :src="p.pic" alt="">
+                <img v-lazy="p.pic" alt="">
                 <div class="zw-home-zhuanti-title d-flex">
                   <p class="price">{{p.price}}<span>元起</span></p>
                 </div>
@@ -107,7 +107,7 @@
             <!-- 第二个列表 图2 小 -->
             <li class="zw-home-ziyouxing-item float-left" v-for="(p,i) in res.slice(27,33)">
               <a @click.prevent="getDetails(p.tid)">
-                <img :src="p.pic" alt="">
+                <img v-lazy="p.pic" alt="">
                 <div class="zw-home-ziyouxing-subtitle d-flex ">
                   <p>{{p.price}}<span>元起</span></p>
                 </div>

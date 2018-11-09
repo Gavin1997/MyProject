@@ -36,7 +36,7 @@
       <div class="user-set-nav">
         <ul class="list-unstyle">
           <li :class="{active:isself==i}" v-for="(item,i) in self" @click="changeTab(i)">
-            <img :src="item.pic" alt="">
+            <img v-lazy="item.pic" alt="">
         
             <span>{{item.title}}</span>
           </li>

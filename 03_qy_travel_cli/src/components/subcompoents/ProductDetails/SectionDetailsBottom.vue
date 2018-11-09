@@ -137,7 +137,7 @@
         <div class="recommended_travel mt-5" id="anchor-6">
           <h2>推荐行程</h2>
           <h4 class="mt-3 mb-2">参考行程</h4>
-          <img :src="lg_pic" alt="">
+          <img v-lazy="lg_pic" alt="">
           <div class="product_intro_info">
             <h5>出行提示</h5>
             <p> 行程中所列航班时间为参考时间，具体出发时间以实际出票为准。</p>

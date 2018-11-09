@@ -12,7 +12,7 @@
      <div class="collection_product mt-2 " v-for="(item,i) of products_res" :key="i">
       <div class="collection-bigcard-item" >
         <a @click="goDetails(item.tid)">
-          <img :src="item.md_pic" alt="">
+          <img v-lazy="item.md_pic" alt="">
         </a>
         <div class="collection-item-info clearfix">
             <div class="collection-item-info-title">

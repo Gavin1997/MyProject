@@ -23,7 +23,7 @@
           <ul class="zw-home-ziyouxing-list container clearfix p-2">
             <li class="zw-home-ziyouxing-one float-left" v-for="(p,i) in res.slice(8,9)" v-cloak>
               <a @click.prevent="getDetails(p.tid)">
-                <img :src="p.pic" alt="">
+                <img v-lazy="p.pic" alt="">
                 <div class="zw-home-ziyouxing-title d-flex">
                   <p>机票</p>
                   <p>{{p.price}}<span>元起</span></p>
@@ -37,7 +37,7 @@
             <!-- 第二个列表 图2 小 -->
             <li class="zw-home-ziyouxing-item float-left" v-for="(p,i) in res.slice(9,14)" v-cloak>
               <a @click.prevent="getDetails(p.tid)">
-                <img :src="p.pic" alt="">
+                <img v-lazy="p.pic" alt="">
                 <div class="zw-home-ziyouxing-subtitle d-flex ">
                   <p>机票</p>
                   <p>{{p.price}}<span>元起</span></p>

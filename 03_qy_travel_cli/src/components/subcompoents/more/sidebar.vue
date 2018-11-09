@@ -7,25 +7,25 @@
         <ul class="sidebar-section-list">
           <li class="sidebar-section-list-item" @click="goback()" >
             <a>
-              <img :src="toTop" alt="">
+              <img v-lazy="toTop" alt="">
               <p>返回顶部</p>
             </a>
           </li>
           <li class="sidebar-section-list-item border-none">
             <a >
-              <img :src="myOrder" alt="">
+              <img v-lazy="myOrder" alt="">
               <p>我的订单</p>
             </a>
           </li>
           <li class="sidebar-section-list-item border-none">
             <a @click="goCollection()">
-              <img :src="myCollection" alt="">
+              <img v-lazy="myCollection" alt="">
               <p>我的收藏</p>
             </a>
           </li>
           <li class="sidebar-section-list-item border-none">
             <a>
-              <img :src="phone" alt="">
+              <img v-lazy="phone" alt="">
               <p>手机立减</p>
             </a>
           </li>

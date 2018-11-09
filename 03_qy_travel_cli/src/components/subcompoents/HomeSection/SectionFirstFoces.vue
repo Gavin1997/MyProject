@@ -3,7 +3,7 @@
     <div class="zw-home-firstfoces">
       <ul class="zw-home-list list-unstyle">
         <li>
-           <swipe></swipe>
+           <swipe :imgArry="imgArry"></swipe>
         </li>
       </ul>
       <!-- 热门项目 -->
@@ -443,9 +443,15 @@
 import Swipe from "../../subcompoents/more/swipe"
   export default {
     data() {
-      return {}
+      return {
+        imgArry:[]
+      }
     },
-    
+    created(){
+       this.$http.get("index/list").then(result => {
+          this.imgArry = result.data;
+        })
+    },
     methods: {},
     components:{
             Swipe
