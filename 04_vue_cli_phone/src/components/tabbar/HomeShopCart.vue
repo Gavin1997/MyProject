@@ -10,7 +10,7 @@
           </div>
        
           <div class="img_container">
-            <img :src="item.md_pic">
+            <img v-lazy="item.md_pic">
           </div>
         </div>
       </div>

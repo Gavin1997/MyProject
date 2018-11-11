@@ -50,11 +50,11 @@
               setTimeout(() => {
                 if (e.Keycode == 13) {
                   this.$router.push({
-                    path: "/home/index"
+                    path: "/home/index",
                   })
                 }
                 this.$router.push({
-                  path: "/home/index"
+                  path: "/home/index",
                 })
               }, 1000)
             }

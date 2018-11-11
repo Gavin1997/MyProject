@@ -26,22 +26,22 @@
           </div>
         </router-link>
       </li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/onbuild">
           <img src="../../img/icons/Old Car 2.png" />
           <div class="mui-media-body">租车</div>
-        </a></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+        </router-link></li>
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/onbuild">
           <img src="../../img/icons/Paper Plane.png" />
           <div class="mui-media-body">位置</div>
-        </a></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+        </router-link></li>
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/onbuild">
           <img src="../../img/icons/Apartment.png" />
           <div class="mui-media-body">酒店</div>
-        </a></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+        </router-link></li>
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/onbuild">
           <img src="../../img/icons/Wind Wheel.png" />
           <div class="mui-media-body">天气</div>
-        </a></li>
+        </router-link></li>
     </ul>
     <div class="divider"></div>
     <!-- 精选折扣 每日更新 -->
@@ -50,7 +50,7 @@
       <span class="change" @click="changeMsg()">换一批</span>
       <div class="recommend-product-warp">
         <div class="recommend-prodcut" v-for="(item,i) in recommendlist" @click="shopinfo(item.tid)">
-          <img :src="item.pic">
+          <img v-lazy="item.pic">
           <p class="text-ellipse">{{item.details}}</p>
           <p class="now-price">{{item.price}} <span>元起</span></p>
         </div>
@@ -192,12 +192,14 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+   
   }
 
   .recommend-prodcut {
-    width: 44%;
+     width:160px;
     text-align: left;
     margin: 0 3%;
+    overflow: hidden;
   }
 
   .text-ellipse {

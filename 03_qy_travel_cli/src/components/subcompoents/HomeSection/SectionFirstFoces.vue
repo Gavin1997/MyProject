@@ -463,6 +463,7 @@ import Swipe from "../../subcompoents/more/swipe"
 
   .zw-home-firstfoces {
     position: relative;
+    min-width: 1460px;
 
     .zw-home-list {
       li {

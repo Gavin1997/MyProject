@@ -26,7 +26,8 @@ Vue.prototype.common = common;
 //配置axios
 Vue.prototype.$http = axios;
 //基本访问路径
- axios.defaults.baseURL = "http://127.0.0.1:3000/";
+ axios.defaults.baseURL = "http://47.107.120.137:3000/";
+//  axios.defaults.baseURL = "http://127.0.0.1:3000/";
 //设置axios session的credentials
 axios.defaults.withCredentials = true;
 //设置axios-ajax访问格式

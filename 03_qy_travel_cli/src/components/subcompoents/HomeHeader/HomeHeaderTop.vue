@@ -4,7 +4,7 @@
       <div class="q-layer-header">
         <div class="header-inner ">
           <a href="#"><img src="../../../assets/img/icon/logo_116x36.png" alt=""></a>
-          <div class="q-header-nav d-flex ml-4">
+          <div class="q-header-nav d-flex ml-1">
             <ul>
               <li><a href="#">目的地</a></li>
               <li><a href="#">锦囊</a></li>
@@ -159,6 +159,7 @@ a{
   header {
     width: 100%;
     background-image: linear-gradient(180deg, #323232, #2A2A2A);
+     min-width: 1460px;
 
     ul {
       list-style: none;
@@ -170,6 +171,7 @@ a{
     display: flex;
     padding: 0.2rem;
     justify-content: space-between;
+    // min-width:1920px;
 
     //头部导航左侧q穷游图标
     a img {

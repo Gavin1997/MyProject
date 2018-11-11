@@ -94,7 +94,7 @@ router.post("/register_phone",(req,res)=>{
             })
         }
     })
-})
+});
 //注册验证用户名不能为一样
 router.get("/verify",(req,res)=>{
     var uname = req.query.uname;

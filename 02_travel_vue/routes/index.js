@@ -24,6 +24,30 @@ router.get("/list",(req,res)=>{
         res.send(result);
     })
 })
-
+router.get("/recommend",(req,res)=>{
+    (async function(){
+        var pno = parseInt(req.query.pno);
+        var pageSize = parseInt(req.query.pageSize);
+        if(!pno){pno=1};
+        if(!pageSize){pageSize=4};
+        var data = {pno,pageSize};
+        var sql = "SELECT count(qid) AS c from qy_index_product";
+        await new Promise(function(resolve){
+            pool.query(sql,[],(err,result)=>{
+                if(err) throw err;
+                var pageCount = Math.ceil(result[0].c/pageSize);
+                data.pageCount = pageCount;
+                resolve();
+            })
+        })
+        var offset = parseInt((pno-1)*pageSize);
+        var sql = "SELECT qid,details,pic,tid,price FROM `qy_index_product` LIMIT ?,?";
+        pool.query(sql,[offset,pageSize],(err,result)=>{
+            if(err) throw err;
+            data.products = result;
+            res.send({code:1,data})
+        })
+    })()
+})
 
 module.exports=router;

@@ -102,6 +102,7 @@
 //   二级导航 背景
 .zw-header-new-wrapper{
     background:linear-gradient(180deg,#43C67B,#10BFA4);
+    min-width: 1460px;
  
 
 }

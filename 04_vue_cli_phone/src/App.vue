@@ -1,14 +1,14 @@
 <template>
-    <div class="app-container">
+    <div class="app-container" v-if="isRouterAlive">
         <!-- 1:顶部导航 -->
         <mt-header title="心灵旅游" fixed style="background: linear-gradient(180deg, #43C67B, #10BFA4);">
             <!-- <router-link to="/" slot="left">
     <mt-button icon="back">返回</mt-button>
   </router-link> -->
-            <mt-button slot="right" @click="gouserinfo()" v-if="islogin">{{uname}}</mt-button>
-            <mt-button slot="right" style="margin:0 5px;" @click="signout()" v-if="islogin">退出登录</mt-button>
-            <mt-button slot="right" style="margin:0 5px;" @click="goregister()" v-if="islogin_register">注册</mt-button>
-            <mt-button slot="right" @click="gologin()" v-if="islogin_register">登录</mt-button>
+            <mt-button slot="right" @click="gouserinfo()" v-if="$store.getters.optIsLogin[0]">{{$store.getters.optIsLogin[1]}}</mt-button>
+            <mt-button slot="right" style="margin:0 5px;" @click="signout()" v-if="$store.getters.optIsLogin[0]">退出登录</mt-button>
+            <mt-button slot="right" style="margin:0 5px;" @click="goregister()" v-if="$store.getters.optIsLogin[2]">注册</mt-button>
+            <mt-button slot="right" @click="gologin()" v-if="$store.getters.optIsLogin[2]">登录</mt-button>
         </mt-header>
         <!-- 2:路由 -->
         <router-view v-if="isRouterAlive"></router-view>
@@ -64,19 +64,6 @@
                     this.isRouterAlive = true;
                 })
             },
-            //判断用户是否登录
-            isLogin() {
-                this.$axios.get("users/islogin").then(res => {
-                    if (res.data.ok == 1) {
-                        this.uname = res.data.uname;
-                        this.islogin = true;
-                        this.islogin_register = false
-                    } else {
-                        this.islogin = false
-                        this.islogin_register = true
-                    }
-                })
-            },
             //跳转用户信息
             gouserinfo() {
                 this.$router.push({
@@ -99,26 +86,23 @@
             //退出登录
             signout() {
                 this.$axios.get("users/signout").then(res => {
-                    this.reload()
+                    this.$store.state.isLogin = false;
+                    this.$store.state.islogin_register = true;
                 })
             }
         },
         created() {
-            this.isLogin();
+             this.$store.dispatch("saveForm")
         },
         watch: {
             '$route'(to, from) {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop =0;
+                window.pageYOffset = 0;
                 // this.isLogin();
                 (async function (self) {
                     //1.判断用户是否登录
-                    var res = await self.$axios.get("/users/islogin")
-                    if (res.data.ok == 1) {
-                        self.isLogin = true;
-                        self.uname = res.data.uname;
-                        self.uid = res.data.uid;
-                    } else {
-                        self.isLogin = false;
-                    }
+                   self.$store.dispatch("saveForm")
                     //2.查询当前用户的购物车
                     var res = await self.$axios.get(`/collection/searchlist?uname=${self.uname}`)
                     self.products_res = res.data.data;

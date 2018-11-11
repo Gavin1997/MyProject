@@ -19,7 +19,7 @@
                     <ul class="mui-table-view">
                         <li class="mui-table-view-cell mui-media" v-for="(item,i) in products" :key="item.id" @click="shopinfo(item.tid)">
                             <a href="javascript:;">
-                                <img class="mui-media-object mui-pull-left" :src="item.md">
+                                <img class="mui-media-object mui-pull-left" v-lazy="item.md">
                                 <div class="mui-media-body text-ellipse">
                                     {{item.title | ellipse(24)}}
                                     <p class='mui-ellipsis' style="color:#18C09D">{{item.subtitle}}</p>
