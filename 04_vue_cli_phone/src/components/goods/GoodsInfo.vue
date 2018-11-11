@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="intro-img" v-if="ifshow_lgImg">
-            <img v-lazy="products.lg_pic" alt="">
+            <img :src="products.lg_pic" alt="">
           </div>
     	<div class="mui-content" v-if="ifshow_comment">
 		    <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
@@ -114,7 +114,7 @@
     },
     methods: {
       //1. 加入购物车
-      addCart() {
+      addCart() { 
         var tid = this.products.tid;
         var title = this.products.title;
         var count = this.count;
@@ -139,6 +139,7 @@
         };
         var url = "/collection/add";
         var obj = (Qs.stringify(obj));
+        
         if (this.isLogin == false) {
           this.$router.push({
             path: "/home/users/login"
@@ -169,6 +170,7 @@
                 }
               });
           } else {
+            //删除功能
             this.$axios
               .post(
                 "/collection/delete",
@@ -186,6 +188,7 @@
                 }
               });
           }
+            this.$store.dispatch("saveForm");
         }
       },
       //2. 商品数量+1

@@ -3,19 +3,21 @@
     <div class="mui-card">
       <div class="mui-card-header" v-for="(item,i) in products_res" :key="i" @click="goDetails(item.tid)">
         <div class="cart_info">
-          <div>
-            <h5>{{item.title}}</h5>
+          <div style="height:88px;">
+            <h5>{{item.title |ellipse(40)}}</h5>
             <h6 class="price">{{item.price}}</h6>
              <mt-button size="small" type="danger" @click="del(item.tid,i)" style="margin-left:75%;">删除</mt-button>
           </div>
        
           <div class="img_container">
-            <img v-lazy="item.md_pic">
+            <img v-lazy="item.md_pic" style="width:108px;">
           </div>
         </div>
       </div>
       <div class="mui-card-footer"><span>总共有{{num}}件</span> </div>
-
+      <div class="mui-card-footer" v-if="isLogin_show"><span style="font-size:15px;font-weight:600">当前还没有登录,请登录后再看您的宝贝哦,点击下方按钮登录!!</span> 
+      </div>
+      <mt-button v-if="isLogin_show" type="primary" size="large" @click="goLogin()">登录</mt-button>
     </div>
   </div>
 </template>
@@ -35,7 +37,8 @@
         res_msg: "",
         ifshow: false, //当前提示消息是否显示
         uname: "",
-        num: ''
+        num: '',
+        isLogin_show:true //当前是否登录
       };
     },
     methods: {
@@ -60,19 +63,23 @@
                 duration: 1500
               })
             }
+            //更新页面的状态
+            this.$store.dispatch("saveForm")
             this.reload();
           })
         }).catch(v => {
           console.info(v);
         })
+      },
+      //跳转登录页面
+      goLogin() {
+        this.$router.push({
+          path:"/home/users/login",
+          query:{redirect:"/home/shopcart"}
+        })
       }
     },
     computed: {
-      // total() {
-      //   return this.list.reduce((prev, p, i, arr) => {
-      //     return prev + p.price * p.count;
-      //   }, 0);
-      // }
     },
     created() {
       (async function (self) {
@@ -82,6 +89,8 @@
           self.isLogin = true;
           self.uname = res.data.uname;
           self.uid = res.data.uid;
+          //关闭未登录的提示
+          self.isLogin_show = false;
         } else {
           self.isLogin = false;
         }

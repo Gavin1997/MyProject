@@ -1,9 +1,9 @@
 <template>
   <div>
     <mt-header fixed title="登录" style="background:#00A076">
-       <router-link to="/" slot="left">
-                <mt-button icon="back">返回</mt-button>
-            </router-link>
+       <div  slot="left">
+                <mt-button icon="back" @click="goBackPage()">返回</mt-button>
+            </div>
     </mt-header>
     <div class="register-container">
       <div>
@@ -26,7 +26,8 @@
         uname: "",
         upwd: "",
         isuname: "",
-        res: ""
+        res: "",
+        query_page:""//从哪里跳转过来的页面
       }
     },
     created() {
@@ -42,6 +43,7 @@
         ).then(res => {
           this.res = res.data;
           if (res.data.ok == 0) {} else {
+            this.query_page = this.$route.query.redirect
             if (this.$route.query.redirect != undefined) {
               this.$router.push({
                 path: `${this.$route.query.redirect}`
@@ -61,10 +63,22 @@
           }
           MessageBox({
             title: "提示",
-            message: res.data.msg
+            message: "将返回页面.."
           })
         })
 
+      },
+      //回到页面
+      goBackPage(){
+          if(this.$route.query.redirect!=""){
+             this.$router.push({
+                path: `${this.$route.query.redirect}`
+              })
+          }else{
+               this.$router.push({
+                path: `/`
+              })
+          }
       }
     },
   }

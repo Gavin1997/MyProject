@@ -93,7 +93,9 @@ var store = new Vuex.Store({
         carCount:0,  //购物车中的数量
         isLogin:false, //控制用户是否登录
         uname:"",//用户的姓名
-        islogin_register:false
+        islogin_register:false,
+
+
     },   
     actions:{
         saveForm(context) {
@@ -110,10 +112,19 @@ var store = new Vuex.Store({
                 store.state.isLogin = false;
                 store.state.islogin_register = true;
               }
+              axios({
+                  method:'get',
+                  url:`/collection/searchlist?uname=${store.state.uname}`
+              }).then((res)=>{
+                  store.state.carCount = res.data.data.length;
+              })
           }).catch((err)=>{
               console.info(err)
           })
-        }
+        },
+       
+        
+        
     },     
     mutations:{   //操作共享数据的方法
       increment(state,count){

@@ -25,7 +25,7 @@
             </router-link>
             <router-link class="mui-tab-item" to="/home/shopcart">
                 <!-- <span class="mui-icon mui-icon-extra mui-icon-extra-heart"><span class="mui-badge">{{$store.getters.optCount}}</span></span> -->
-                <span class="mui-icon mui-icon-extra mui-icon-extra-heart"><span class="mui-badge">{{num}}</span></span>
+                <span class="mui-icon mui-icon-extra mui-icon-extra-heart"><span class="mui-badge">{{$store.getters.optCount}}</span></span>
                 <span class="mui-tab-label">我的收藏</span>
             </router-link>
 
@@ -92,7 +92,9 @@
             }
         },
         created() {
-             this.$store.dispatch("saveForm")
+            (async function(self){
+            self.$store.dispatch("saveForm")
+             })(this)
         },
         watch: {
             '$route'(to, from) {
@@ -101,18 +103,7 @@
                 window.pageYOffset = 0;
                 // this.isLogin();
                 (async function (self) {
-                    //1.判断用户是否登录
-                   self.$store.dispatch("saveForm")
-                    //2.查询当前用户的购物车
-                    var res = await self.$axios.get(`/collection/searchlist?uname=${self.uname}`)
-                    self.products_res = res.data.data;
-                    self.num = self.products_res.length;
-                    if (res.data.code == -1) {
-                        self.ifshow = true;
-                        self.res_msg = res.data.msg;
-                    } else {
-                        self.ifshow = false;
-                    }
+                    self.$store.dispatch("saveForm")
                 })(this)
             }
         }
