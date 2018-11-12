@@ -18,7 +18,7 @@ var app = express();
 const cors = require("cors");
 //允许那个地址跨域访问
 app.use(cors({
-    origin: ['http://localhost:8080'],
+    origin: ['http://localhost:8080','http://127.0.0.1:3001'],
     credentials: true
 }));
 

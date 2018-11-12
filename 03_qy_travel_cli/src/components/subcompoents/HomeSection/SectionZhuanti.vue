@@ -147,21 +147,32 @@
 <script>
   export default {
     data() {
-      return {}
-    },
-    methods:{
-      getDetails(tid){
-        this.$router.push({path:"/product_details/"+tid})
+      return {
+        res:[]
       }
     },
-    props: ["res"]
+    // props:["res"],
+    methods: {
+      getDetails(tid) {
+        this.$router.push({
+          path: "/product_details/" + tid
+        })
+      }
+    },
+    created() {
+       this.$http.get("index/").then(res => {
+        this.res = res.data;
+      })
+    },
   }
+
 </script>
 <style lang="scss" scoped>
   /*******************************专题推荐*-4F 深度旅行*********************/
-  a{
+  a {
     cursor: pointer;
   }
+
   @mixin more {
     width: 265px;
     height: 263px;
@@ -175,7 +186,8 @@
     }
 
     p {
-      margin-top:50px;
+      margin-top: 50px;
+
       &:hover {
         opacity: 0.6;
       }
@@ -265,10 +277,12 @@
   .zw-home-channel-more2 {
     @include more;
   }
+
   // 5F 半自助游
-.zw-home-channel-more3{
-   @include more;
+  .zw-home-channel-more3 {
+    @include more;
     background-color: #3fb4e5;
-    background-image: linear-gradient(180deg,#40dbe5,#3e87e6);
-}
+    background-image: linear-gradient(180deg, #40dbe5, #3e87e6);
+  }
+
 </style>

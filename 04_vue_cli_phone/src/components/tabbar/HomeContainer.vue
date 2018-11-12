@@ -50,7 +50,7 @@
       <span class="change" @click="changeMsg()">换一批</span>
       <div class="recommend-product-warp">
         <div class="recommend-prodcut" v-for="(item,i) in recommendlist" @click="shopinfo(item.tid)">
-          <img v-lazy="item.pic">
+          <img :src="item.pic">
           <p class="text-ellipse">{{item.details}}</p>
           <p class="now-price">{{item.price}} <span>元起</span></p>
         </div>

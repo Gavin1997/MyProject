@@ -3,13 +3,12 @@
     <div class="mui-card">
       <div class="mui-card-header" v-for="(item,i) in products_res" :key="i" @click="goDetails(item.tid)">
         <div class="cart_info">
-          <div style="height:88px;">
+          <div style="width:100%;">
             <h5>{{item.title |ellipse(40)}}</h5>
             <h6 class="price">{{item.price}}</h6>
              <mt-button size="small" type="danger" @click="del(item.tid,i)" style="margin-left:75%;">删除</mt-button>
           </div>
-       
-          <div class="img_container">
+          <div class="img_container" style="padding-left:5%;">
             <img v-lazy="item.md_pic" style="width:108px;">
           </div>
         </div>

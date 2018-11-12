@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-11-08 17:46:23
+-- Generation Time: 2018-11-10 10:22:23
 -- 服务器版本： 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -27,6 +27,8 @@ USE `qy`;
 --
 -- 表的结构 `news_comment`
 --
+-- 创建时间： 2018-10-29 15:59:30
+--
 
 DROP TABLE IF EXISTS `news_comment`;
 CREATE TABLE `news_comment` (
@@ -37,6 +39,10 @@ CREATE TABLE `news_comment` (
   `username` varchar(25) DEFAULT NULL,
   `isdel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `news_comment`:
+--
 
 --
 -- 转存表中的数据 `news_comment`
@@ -116,6 +122,8 @@ INSERT INTO `news_comment` (`id`, `nid`, `ctime`, `content`, `username`, `isdel`
 --
 -- 表的结构 `product_comment`
 --
+-- 创建时间： 2018-10-21 09:40:22
+--
 
 DROP TABLE IF EXISTS `product_comment`;
 CREATE TABLE `product_comment` (
@@ -125,6 +133,10 @@ CREATE TABLE `product_comment` (
   `ctime` datetime DEFAULT NULL,
   `tid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `product_comment`:
+--
 
 --
 -- 转存表中的数据 `product_comment`
@@ -186,6 +198,8 @@ INSERT INTO `product_comment` (`com_id`, `uname`, `content`, `ctime`, `tid`) VAL
 --
 -- 表的结构 `qy_collection`
 --
+-- 创建时间： 2018-10-17 16:23:42
+--
 
 DROP TABLE IF EXISTS `qy_collection`;
 CREATE TABLE `qy_collection` (
@@ -202,6 +216,10 @@ CREATE TABLE `qy_collection` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `qy_collection`:
+--
+
+--
 -- 转存表中的数据 `qy_collection`
 --
 
@@ -214,6 +232,8 @@ INSERT INTO `qy_collection` (`cid`, `uname`, `title`, `subtitle`, `price`, `old_
 --
 -- 表的结构 `qy_index_carousel`
 --
+-- 创建时间： 2018-10-11 14:49:25
+--
 
 DROP TABLE IF EXISTS `qy_index_carousel`;
 CREATE TABLE `qy_index_carousel` (
@@ -222,6 +242,10 @@ CREATE TABLE `qy_index_carousel` (
   `title` varchar(128) DEFAULT NULL,
   `href` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `qy_index_carousel`:
+--
 
 --
 -- 转存表中的数据 `qy_index_carousel`
@@ -238,6 +262,8 @@ INSERT INTO `qy_index_carousel` (`cid`, `img`, `title`, `href`) VALUES
 --
 -- 表的结构 `qy_index_product`
 --
+-- 创建时间： 2018-10-11 14:49:29
+--
 
 DROP TABLE IF EXISTS `qy_index_product`;
 CREATE TABLE `qy_index_product` (
@@ -249,6 +275,10 @@ CREATE TABLE `qy_index_product` (
   `seq_recommended` tinyint(4) DEFAULT NULL,
   `tid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `qy_index_product`:
+--
 
 --
 -- 转存表中的数据 `qy_index_product`
@@ -293,6 +323,8 @@ INSERT INTO `qy_index_product` (`qid`, `details`, `pic`, `price`, `href`, `seq_r
 --
 -- 表的结构 `qy_news`
 --
+-- 创建时间： 2018-10-27 09:30:54
+--
 
 DROP TABLE IF EXISTS `qy_news`;
 CREATE TABLE `qy_news` (
@@ -304,6 +336,10 @@ CREATE TABLE `qy_news` (
   `price` decimal(10,2) DEFAULT NULL,
   `ctime` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `qy_news`:
+--
 
 --
 -- 转存表中的数据 `qy_news`
@@ -338,12 +374,18 @@ INSERT INTO `qy_news` (`id`, `title`, `content`, `click`, `img_url`, `price`, `c
 --
 -- 表的结构 `qy_product_family`
 --
+-- 创建时间： 2018-10-11 14:49:30
+--
 
 DROP TABLE IF EXISTS `qy_product_family`;
 CREATE TABLE `qy_product_family` (
   `fid` int(11) NOT NULL,
   `fname` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `qy_product_family`:
+--
 
 --
 -- 转存表中的数据 `qy_product_family`
@@ -361,6 +403,8 @@ INSERT INTO `qy_product_family` (`fid`, `fname`) VALUES
 --
 -- 表的结构 `qy_product_pic`
 --
+-- 创建时间： 2018-10-11 14:49:31
+--
 
 DROP TABLE IF EXISTS `qy_product_pic`;
 CREATE TABLE `qy_product_pic` (
@@ -369,6 +413,10 @@ CREATE TABLE `qy_product_pic` (
   `sm` varchar(128) DEFAULT NULL,
   `md` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `qy_product_pic`:
+--
 
 --
 -- 转存表中的数据 `qy_product_pic`
@@ -1054,6 +1102,8 @@ INSERT INTO `qy_product_pic` (`pid`, `product_id`, `sm`, `md`) VALUES
 --
 -- 表的结构 `qy_travel_product`
 --
+-- 创建时间： 2018-10-17 14:32:44
+--
 
 DROP TABLE IF EXISTS `qy_travel_product`;
 CREATE TABLE `qy_travel_product` (
@@ -1072,6 +1122,10 @@ CREATE TABLE `qy_travel_product` (
   `product_number` int(11) DEFAULT NULL,
   `lg_pic` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `qy_travel_product`:
+--
 
 --
 -- 转存表中的数据 `qy_travel_product`
@@ -1180,6 +1234,8 @@ INSERT INTO `qy_travel_product` (`tid`, `family_id`, `title`, `subtitle`, `price
 --
 -- 表的结构 `qy_user`
 --
+-- 创建时间： 2018-10-11 14:49:32
+--
 
 DROP TABLE IF EXISTS `qy_user`;
 CREATE TABLE `qy_user` (
@@ -1191,6 +1247,10 @@ CREATE TABLE `qy_user` (
   `user_name` varchar(32) DEFAULT NULL,
   `gender` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 表的关联 `qy_user`:
+--
 
 --
 -- 转存表中的数据 `qy_user`

@@ -70,13 +70,13 @@
       },
       //回到页面
       goBackPage(){
-          if(this.$route.query.redirect!=""){
+          if(this.$route.query.redirect!=undefined){
              this.$router.push({
-                path: `${this.$route.query.redirect}`
+                 path: `${this.$route.query.redirect}`
               })
           }else{
                this.$router.push({
-                path: `/`
+                 path: `/`
               })
           }
       }

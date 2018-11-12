@@ -23,22 +23,19 @@ import SectionZhuanti from "../../subcompoents/HomeSection/SectionZhuanti"
   export default {
     data() {
       return {
-        res:[],
-
       }
     },
+    props:["res"],
     methods: {
       getMsg(){
             this.$http.get("index/").then(res=>{
                   this.res=res.data;
             })
-        },
+      },
         //获取图片列表
       
     },
     created() {
-      this.getMsg()
-     
     },
     components: {
       SectionFirstFoces,
@@ -47,7 +44,14 @@ import SectionZhuanti from "../../subcompoents/HomeSection/SectionZhuanti"
       SectionWanle,
       SectionZhuanti,
 
+    },
+    watch:{
+    '$route':function(to,from) {
+        this.$http.get("index/").then(res=>{
+            this.res=res.data;
+       })
     }
+  }
   }
 </script>
 <style lang="scss" >

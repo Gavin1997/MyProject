@@ -79,15 +79,20 @@
 export default {
     data() {
         return{
+         res:[]
         }
     },
-    props:["res"],
+    // props:["res"],
     methods:{
       getDetails(tid){
         this.$router.push({path:"/product_details/"+tid})
       }
     },
-    created(){}
+    created(){
+       this.$http.get("index/").then(res => {
+        this.res = res.data;
+      })
+    }
 }
 </script>
 <style lang="scss" scoped>

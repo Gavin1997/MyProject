@@ -37,7 +37,10 @@ export default {
   },
   name: 'App',
   created(){
-     
+    
+  },
+  mounted(){
+    
   },
   watch:{
     '$route':function(to,from) {

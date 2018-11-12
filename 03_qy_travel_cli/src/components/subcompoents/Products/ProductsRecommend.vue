@@ -9,7 +9,7 @@
         <ul class="recommendation-list">
           <li class="recommendation-list-item" v-for="(item,i) in res" @click.prevent="getdetails(item.tid)">
             <a  >
-              <img v-lazy="item.sm" alt="">
+              <img :src="item.sm" alt="">
               <p class="price_discount">秒杀</p>
             </a>
             <div class="float-right item-box text-ellipsis">

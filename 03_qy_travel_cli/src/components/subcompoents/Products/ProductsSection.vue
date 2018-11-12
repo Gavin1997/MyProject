@@ -9,7 +9,7 @@
           <!-- 产品区域 -->
           <div>
             <div class="zw-new-bigcard-item clearfix mt-3" v-for="(item,i) in res">
-              <a href="" class="float-left" @click.prevent="getdetails(item.tid)"> <img class="img-fluid" v-lazy="item.md"></a>
+              <a href="" class="float-left" @click.prevent="getdetails(item.tid)"> <img class="img-fluid" :src="item.md"></a>
               <div class="zw-new-bigcard-item-section">
                 <div class="zw-new-bigcard-item-tag float-left">
                   <h4><a @click.prevent="getdetails(item.tid)">{{item.title}}</a></h4>

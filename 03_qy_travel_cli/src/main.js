@@ -6,6 +6,11 @@ import router from './router'
 import axios from 'axios'
 import VueLazyload from 'vue-lazyload'
 import Qs from 'qs'
+import Vuex from 'vuex';
+
+
+Vue.use(Vuex);
+
 
 Vue.use(VueLazyload)
 //引入 element-ui  按需求
@@ -25,6 +30,7 @@ import common from "../commonFunction/common.js"
 Vue.prototype.common = common;
 //配置axios
 Vue.prototype.$http = axios;
+axios.defaults.timeout = 4000;
 //基本访问路径
  axios.defaults.baseURL = "http://47.107.120.137:3000/";
 //  axios.defaults.baseURL = "http://127.0.0.1:3000/";
@@ -53,10 +59,40 @@ Vue.filter("ellipse",function(val,len){
     return val.slice(0,len)+"....";
   }
 })
+// 使用vuex保存共享数据
+var store = new Vuex.Store({
+  state:{   //共享的数据
+     
+  },   
+  actions:{
+      // saveForm(context) {
+      //   axios({
+      //       method:'get',
+      //       url:'index/',
+      //     //   data:context.state.isLogin
+      //   }).then((res)=>{
+      //       // console.log(res.data);
+            
+      //       store.state.resIndex = res.data;
+      //       // console.log(store.state.resIndex)
+            
+      //   }).catch((err)=>{
+      //       console.info(err);
+      //   })
+      // }, 
+  },     
+  mutations:{   //操作共享数据的方法
+  },    
+  getters:{ //获取并监听数据的方法
+      
+  }       
+});
+export default store
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })

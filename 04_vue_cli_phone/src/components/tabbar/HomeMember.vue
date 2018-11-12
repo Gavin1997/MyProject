@@ -6,7 +6,7 @@
              <img src="../../img/profile/200.jpg" alt="" width="64" hieght="64">
          </div>
          <div class="user-info-name">
-            <p class="user-name" v-if="islogin">{{uname}}
+            <p class="user-name" v-if="$store.getters.optIsLogin[0]">{{$store.getters.optIsLogin[1]}}
                   <a @click="signout()">退出登录</a>
             </p>
             <p class="user-name" v-else>当前还没登录
@@ -84,16 +84,17 @@
       }
      },
      created(){
-     this.$axios.get("users/islogin").then(res=>{
-         if(res.data.ok ==1){
-           this.uname = res.data.uname;
-           this.islogin = true;
-           this.islogin_register = false
-         }else{
-            this.islogin = false
-            this.islogin_register = true
-         }
-      })
+    //  this.$axios.get("users/islogin").then(res=>{
+    //      if(res.data.ok ==1){
+    //        this.uname = res.data.uname;
+    //        this.islogin = true;
+    //        this.islogin_register = false
+    //      }else{
+    //         this.islogin = false
+    //         this.islogin_register = true
+    //      }
+    //   })
+       this.$store.dispatch("saveForm")
      }
    }
 </script>

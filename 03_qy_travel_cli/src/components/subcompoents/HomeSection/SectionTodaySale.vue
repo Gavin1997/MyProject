@@ -39,16 +39,19 @@
   export default {
     data() {
       return {
+        res:[]
       }
     },
-    props:["res"],
+   
     methods: {
         getDetails(tid){
            this.$router.push("/product_details/"+tid)
         }
     },
     created() {
-        
+         this.$http.get("index/").then(res => {
+         this.res = res.data;
+       })
     }
 
   }

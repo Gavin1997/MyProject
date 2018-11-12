@@ -3,7 +3,7 @@
   <div>
       <el-carousel :intercal="3000" height="420px" arrow="hover">
         <el-carousel-item v-for="(item,i) in imgArry" :key="item.id">
-           <img v-lazy="item.img" alt="">
+           <img :src="item.img" alt="">
         </el-carousel-item>
       </el-carousel>
   </div>

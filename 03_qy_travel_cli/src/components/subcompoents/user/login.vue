@@ -59,7 +59,6 @@ import Qs from "qs"
             upwd: this.upwd
           })
         ).then(res => {
-          console.log(res)
           this.res = res.data;
           if (res.data.ok == 0) {
             this.login_active = "alert alert-danger";

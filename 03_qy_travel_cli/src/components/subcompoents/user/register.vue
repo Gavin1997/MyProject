@@ -141,7 +141,6 @@ import Qs from "qs"
             this.$http.get(`/users/verify?uname=${this.uname}`).then(res=>{
                 this.isuname=res.data;
                 this.show={display:"inline-block",margin:"0 5px"};
-                console.log(this.isuname.code);
                  if(this.isuname.code==1){
                     this.unameClass="alert alert-success"
                 }else{

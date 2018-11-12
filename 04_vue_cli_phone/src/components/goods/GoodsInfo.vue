@@ -142,7 +142,8 @@
         
         if (this.isLogin == false) {
           this.$router.push({
-            path: "/home/users/login"
+            path: "/home/users/login",
+            query:{redirect:`/home/goodsinfo/${this.tid}`}
           });
           return;
         }
