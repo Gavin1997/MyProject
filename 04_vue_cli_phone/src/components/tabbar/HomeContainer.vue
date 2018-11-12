@@ -30,7 +30,7 @@
           <img src="../../img/icons/Old Car 2.png" />
           <div class="mui-media-body">租车</div>
         </router-link></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/onbuild">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/position">
           <img src="../../img/icons/Paper Plane.png" />
           <div class="mui-media-body">位置</div>
         </router-link></li>

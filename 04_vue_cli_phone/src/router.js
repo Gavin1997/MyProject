@@ -15,11 +15,14 @@ import GoodInfo from "./components/goods/GoodsInfo.vue"
 //用户列表
 import Register from "./components/user/register.vue"
 import Login from "./components/user/login.vue"
-
+//位置页面
+import PositionPage from "./components/subcomponents/position.vue";
 //正在开发页面
 import Onbuild from "./components/subcomponents/onbuild.vue"
 //404
 import NotFound from "./components/subcomponents/notFound.vue"
+
+
 
 
 Vue.use(Router)
@@ -40,9 +43,8 @@ export default new Router({
     {path:'/home/users/register',component:Register},
     {path:'/home/users/login',component:Login},
     {path:'/onbuild',component:Onbuild},
+    {path:'/position',component:PositionPage},
     {path:'*',component:NotFound}
-    
- 
     // {path:'/home/goodsinfo/:id',component:GoodInfo,name:"goodsinfo"}
   ]
 })
