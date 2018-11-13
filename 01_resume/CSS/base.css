@@ -46,3 +46,11 @@ header::before{
 .my_fontColor{
     color: rgba(218, 227, 217, 0.84);
 }
+/* 主页引入图标的颜色 */
+.my_fontColor_icon{
+  color:#fff;
+}
+/* 主页引入图标的大小 */
+.my_iconSize{
+    font-size:58px;
+}
