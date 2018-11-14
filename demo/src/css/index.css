@@ -1,0 +1,59 @@
+/*药丸按钮颜色*/
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #fff;
+    background-color:#4E90C8 ;
+}
+/*隐藏主页*/
+@media screen and (max-width:768px) and (min-width:576px) {
+    .hidden-sm {
+        display: none;
+    }
+}
+/*在小屏幕下隐藏后的菜单栏按钮变为透明色*/
+@media screen and (max-width:650px) {
+    .nav-pills .nav-link.active,
+    .nav-pills .show > .nav-link {
+        color: #fff;
+        background-color: transparent;
+    }
+}
+/*隐藏后的背景颜色位深灰色*/
+@media screen and (max-width:575px){
+    #my_nav ul{
+        background: #26282C;
+    }
+}
+/*我我介绍下方文字*/
+@media screen and (min-width:992px) {
+    .pl-6,
+    .px-6 {
+        padding-left: 10rem !important;
+    }
+
+    .pr-6,
+    .px-6 {
+        padding-right: 10rem !important;
+    }
+}
+/*名字*/
+
+.my_name span{
+    color: #fff;
+    display:none;
+}
+
+.donghua:hover{
+   animation: change 1.5s linear 0ms;
+}
+.donghua:hover span{
+    display: inline;
+}
+@keyframes change {
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
