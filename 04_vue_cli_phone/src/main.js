@@ -5,7 +5,22 @@ import Qs from 'qs'
 
 
 import 'mint-ui/lib/style.css'
+//全局引入echarts
+// import echarts from "echarts"
 
+// Vue.prototype.$echarts = echarts
+
+
+// 引入iView
+import iView from 'iview'
+import 'iview/dist/iview'
+ Vue.use(iView)
+
+
+//按需引入组件  iView
+// import { Button, Table } from 'iview';
+// Vue.component('Button', Button);
+// Vue.component('Table', Table);
 
 Vue.config.productionTip = false
 //5: 设置请求的根路径 
@@ -46,6 +61,8 @@ Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);
 Vue.component(Loadmore.name, Loadmore);
 Vue.use(InfiniteScroll);
+
+
 
 //引入Swipe 轮播组件
 import {
@@ -149,6 +166,7 @@ var store = new Vuex.Store({
         }
     }       
 });
+
 export default store
 new Vue({
     router,

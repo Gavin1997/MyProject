@@ -16,7 +16,11 @@ import GoodInfo from "./components/goods/GoodsInfo.vue"
 import Register from "./components/user/register.vue"
 import Login from "./components/user/login.vue"
 //位置页面
-import PositionPage from "./components/subcomponents/position.vue";
+import PositionPage from "./components/subcomponents/position.vue"
+//天气页面
+import WeatcherPage from "./components/subcomponents/weatcher.vue"
+//租车页面
+import RentCarPage from './components/subcomponents/rentcar.vue'
 //正在开发页面
 import Onbuild from "./components/subcomponents/onbuild.vue"
 //404
@@ -44,6 +48,8 @@ export default new Router({
     {path:'/home/users/login',component:Login},
     {path:'/onbuild',component:Onbuild},
     {path:'/position',component:PositionPage},
+    {path:'/weather',component:WeatcherPage},
+    {path:'/rentcar',component:RentCarPage},
     {path:'*',component:NotFound}
     // {path:'/home/goodsinfo/:id',component:GoodInfo,name:"goodsinfo"}
   ]
