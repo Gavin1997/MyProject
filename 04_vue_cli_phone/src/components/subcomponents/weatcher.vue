@@ -50,8 +50,8 @@
                                 show: true,
                                 type: ['line', 'bar']
                             },
-                            restore: { //配置项还原
-                                show: true
+                            restore: { //配置项还原,点击就可还原
+                                show: false
                             },
                             saveAsImage: { //保存为图片
                                 show: true
