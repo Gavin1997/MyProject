@@ -26,7 +26,7 @@
           </div>
         </router-link>
       </li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/rentcar">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/onbuild">
           <img src="../../img/icons/Old Car 2.png" />
           <div class="mui-media-body">租车</div>
         </router-link></li>
@@ -38,7 +38,7 @@
           <img src="../../img/icons/Apartment.png" />
           <div class="mui-media-body">酒店</div>
         </router-link></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/weather">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/onbuild">
           <img src="../../img/icons/Wind Wheel.png" />
           <div class="mui-media-body">天气</div>
         </router-link></li>

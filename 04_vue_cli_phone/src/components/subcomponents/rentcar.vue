@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1>这是租车页面</h1>
-        <i-button>132</i-button>
         <div class="echarts">
             <IEcharts :option="bar" :loading="loading" @ready="onReady" @click="onClick"></IEcharts>
             <button @click="doRandom">Random</button>
